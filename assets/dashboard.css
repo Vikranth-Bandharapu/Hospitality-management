@@ -274,11 +274,12 @@ body.dashboard-page, .dashboard-wrapper {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.875rem;
+  text-align: left;
 }
 
 .dash-table th {
   text-align: left;
-  padding: 0.85rem 1rem;
+  padding: 0.9rem 1.1rem;
   background: #080E1A !important;
   color: #94A3B8 !important;
   font-weight: 700;
@@ -286,17 +287,31 @@ body.dashboard-page, .dashboard-wrapper {
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
 }
 
 .dash-table td {
-  padding: 0.95rem 1rem;
+  padding: 0.95rem 1.1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   color: #F8FAFC;
   vertical-align: middle;
+  text-align: left;
+}
+
+.dash-table th.text-center, .dash-table td.text-center {
+  text-align: center !important;
+}
+
+.dash-table th.text-right, .dash-table td.text-right {
+  text-align: right !important;
+}
+
+.dash-table td strong {
+  color: #FFFFFF;
 }
 
 .dash-table tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 /* Status Badges */

@@ -18,60 +18,23 @@ const App = {
     this.initCTAButtons();
   },
 
-  // Redirect Call-To-Action (CTA) buttons across public marketing pages to 404.html
+  // Interactive Call-To-Action (CTA) & Filter Pill Handlers
   initCTAButtons() {
     document.addEventListener('click', (e) => {
-      const cta = e.target.closest('.btn-aura, .btn-gold, .btn-teal, .btn-navy, .btn-outline-gold, .btn-outline-teal, .btn-outline-light, .shimmer-btn, .cta-btn');
-      if (!cta) return;
-
-      const pathname = window.location.pathname;
-
-      // DO NOT intercept login.html or signup.html pages
-      if (pathname.includes('login.html') || pathname.includes('signup.html')) {
+      const pill = e.target.closest('.filter-pill');
+      if (pill) {
+        const parent = pill.closest('div, section');
+        if (parent) {
+          parent.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+        }
+        const filterName = pill.textContent.trim();
+        if (typeof Toast !== 'undefined') {
+          Toast.show("Filter Applied", "Loaded " + filterName + " records", "info", 1500);
+        }
         return;
       }
-
-      const href = cta.getAttribute('href');
-
-      // DO NOT intercept links pointing directly to site pages
-      if (
-        href === 'login.html' || 
-        href === 'signup.html' || 
-        href === 'index.html' || 
-        href === 'about.html' || 
-        href === 'blog.html' || 
-        href === 'services.html' || 
-        href === 'contact.html' || 
-        href === 'properties.html' || 
-        href === 'dashboard.html'
-      ) {
-        return;
-      }
-
-      // DO NOT intercept header navigation actions, mobile drawer, modal close buttons, filter pills, preset chips
-      if (
-        cta.closest('.nav-links') || 
-        cta.closest('.nav-actions') ||
-        cta.closest('.drawer-nav-links') || 
-        cta.closest('.mobile-drawer') ||
-        cta.classList.contains('mobile-toggle') || 
-        cta.classList.contains('drawer-close') || 
-        cta.classList.contains('modal-close') || 
-        cta.classList.contains('filter-pill') ||
-        cta.classList.contains('preset-chip')
-      ) {
-        return;
-      }
-
-      // On 404 page itself, allow returning home or going back
-      if (pathname.endsWith('404.html')) {
-        if (href === 'index.html' || cta.getAttribute('onclick')?.includes('history.back')) return;
-      }
-
-      e.preventDefault();
-      e.stopPropagation();
-      window.location.href = '404.html';
-    }, true);
+    });
   },
 
   // Navbar Scroll Handler
