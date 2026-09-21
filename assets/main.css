@@ -1,0 +1,707 @@
+/* ==========================================================================
+   AURA HOSPITALITY MANAGEMENT - CORE STYLESHEET
+   Design System: Max 3 Brand Colors (#0F172A, #C5A059, #0D9488)
+   Header & Navigation Matching Reference Architecture
+   ========================================================================== */
+
+:root {
+  /* Brand Palette (Max 3 Primary Colors) */
+  --brand-navy: #0F172A;
+  --brand-gold: #C5A059;
+  --brand-teal: #0D9488;
+
+  /* Theme Neutrals & Surface Colors */
+  --bg-primary: #F8FAF9;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F1F5F9;
+  --bg-dark: #090D16;
+  --bg-dark-surface: #1E293B;
+
+  /* Typography Colors */
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --text-light: #F8FAF9;
+  --text-gold: #D4AF37;
+  --text-dark-muted: #94A3B8;
+
+  /* Typography Scale */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* UI Borders & Shadows */
+  --border-light: rgba(15, 23, 42, 0.08);
+  --border-gold: rgba(197, 160, 89, 0.3);
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.15);
+  --shadow-gold: 0 10px 30px -5px rgba(197, 160, 89, 0.25);
+
+  /* Layout Spacing */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Smooth Scroll */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  color: var(--brand-navy);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container Constraints */
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-custom {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   NAVIGATION HEADER (Matched to Reference Architecture)
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.1rem 0;
+  background: rgba(9, 13, 22, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all var(--transition-smooth);
+}
+
+.navbar.scrolled {
+  padding: 0.8rem 0;
+  background: rgba(9, 13, 22, 0.96);
+  border-bottom-color: var(--border-gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.03em;
+}
+
+.logo-brand i {
+  color: var(--brand-gold);
+  font-size: 1.6rem;
+}
+
+.logo-brand span {
+  color: var(--brand-gold);
+}
+
+.logo-brand img, .logo-image {
+  height: 38px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  padding: 0.35rem 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--brand-gold);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #FFFFFF;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: all var(--transition-fast);
+}
+
+.mobile-toggle:hover, .mobile-toggle.active {
+  border-color: var(--brand-gold);
+  color: var(--brand-gold);
+  background: rgba(197, 160, 89, 0.15);
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION DRAWER (Matched to Reference Architecture)
+   ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 13, 22, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 1900;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--brand-navy);
+  border-left: 1px solid var(--border-gold);
+  z-index: 2000;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.drawer-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+}
+
+.drawer-close:hover {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+}
+
+.drawer-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.drawer-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.drawer-nav-link i {
+  color: var(--brand-gold);
+  width: 20px;
+  text-align: center;
+}
+
+.drawer-nav-link:hover, .drawer-nav-link.active {
+  background: rgba(197, 160, 89, 0.15);
+  color: var(--brand-gold);
+}
+
+/* ==========================================================================
+   FOOTER SECTION (Stackly Reference Design - Centered Layout)
+   ========================================================================== */
+.footer-aura {
+  background-color: #090D16;
+  color: var(--text-light);
+  padding: 4.5rem 0 2.5rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+  gap: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-brand p {
+  color: rgba(248, 250, 249, 0.7);
+  margin: 1.25rem auto 1.5rem;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  max-width: 320px;
+  text-align: center;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.footer-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.footer-social-btn:hover {
+  background: #F43F5E;
+  border-color: #F43F5E;
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(244, 63, 94, 0.4);
+}
+
+.footer-heading {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  width: 26px;
+  height: 2.5px;
+  background: #F43F5E;
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-links a {
+  color: rgba(248, 250, 249, 0.75);
+  font-size: 0.925rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+  padding-left: 0;
+  text-decoration: underline;
+}
+
+.footer-connect-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.footer-connect-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  text-align: center;
+}
+
+.footer-connect-icon {
+  color: #F43F5E;
+  font-size: 1.1rem;
+  margin-top: 0;
+  width: 18px;
+  text-align: center;
+}
+
+.footer-connect-label {
+  font-weight: 700;
+  color: #FFFFFF;
+  font-size: 0.925rem;
+  line-height: 1.3;
+}
+
+.footer-connect-value {
+  color: rgba(248, 250, 249, 0.75);
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: rgba(248, 250, 249, 0.75);
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.footer-palette-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 0.35rem 0.9rem;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
+
+.footer-palette-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+/* ==========================================================================
+   COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+   ========================================================================== */
+
+/* Large Laptops & Desktops (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .container, .container-custom {
+    max-width: 1140px;
+    padding: 0 1.25rem;
+  }
+
+  h1 { font-size: 2.75rem !important; }
+  h2 { font-size: 2.1rem !important; }
+}
+
+/* Tablets & Small Laptops (max-width: 992px) */
+@media (max-width: 992px) {
+  .container, .container-custom {
+    max-width: 960px;
+    padding: 0 1.25rem;
+  }
+
+  /* Force all 2-column inline grid layouts to stack vertically */
+  div[style*="grid-template-columns: 1fr 1fr"],
+  div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  h1 { font-size: 2.35rem !important; }
+  h2 { font-size: 1.85rem !important; }
+  h3 { font-size: 1.35rem !important; }
+
+  /* Adjust section paddings */
+  section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  /* Card image wrappers */
+  .card-img-wrapper,
+  img[style*="height: 360px"],
+  img[style*="height: 320px"] {
+    height: 240px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Mobile Devices & Tablets (max-width: 860px) */
+@media (max-width: 860px) {
+  .nav-links {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-bottom > div {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Smartphones (max-width: 768px) */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  /* Hide raw navbar login/register buttons in header bar on mobile so toggle button is 100% visible on right */
+  .nav-actions > a.btn-aura {
+    display: none !important;
+  }
+
+  .container, .container-custom {
+    padding: 0 1rem;
+  }
+
+  .logo-brand img, .logo-image {
+    max-width: 140px !important;
+    height: 30px !important;
+  }
+
+  h1:not(.error-code-title) { font-size: 2.25rem !important; }
+  h2 { font-size: 1.8rem !important; }
+  h3 { font-size: 1.35rem !important; }
+
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Buttons inside card footers or flex containers stack smoothly */
+  div[style*="display: flex; gap: 0.75rem"],
+  div[style*="display: flex; gap: 0.5rem"],
+  div[style*="display: flex; gap: 1rem"] {
+    flex-wrap: wrap;
+  }
+
+  /* Force responsive tables */
+  table, .dash-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Full-width inputs in cards */
+  .form-control-aura {
+    font-size: 0.9rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  /* Override inline grid columns on mobile viewports so 300px/320px minmax never exceeds screen width */
+  div[style*="grid-template-columns"],
+  div[style*="display: grid"],
+  div[style*="display:grid"] {
+    grid-template-columns: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .container, .container-custom, .card-aura, .card-glass {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Prevent text and image overflow in cards */
+  .card-aura *, .card-glass * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Small Smartphones (max-width: 480px) */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container, .container-custom {
+    padding: 0 0.85rem;
+  }
+
+  h1 { font-size: 1.75rem !important; }
+  h2 { font-size: 1.45rem !important; }
+
+  /* Stack button groups to full width except mobile toggle */
+  .btn-aura:not(.mobile-toggle) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .logo-brand {
+    font-size: 1.2rem;
+  }
+
+  .logo-image {
+    height: 28px !important;
+    max-width: 130px !important;
+  }
+}
+
+

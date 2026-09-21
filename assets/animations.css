@@ -1,0 +1,115 @@
+/* ==========================================================================
+   AURA HOSPITALITY MANAGEMENT - ANIMATIONS STYLESHEET
+   Keyframes, Parallax Helpers, AOS Enhancements & Reduced Motion Fallback
+   ========================================================================== */
+
+/* Keyframe Animations */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes floatYReverse {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(12px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Ambient Glow Orbs inspired by modern web studios */
+.ambient-orb {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.orb-gold {
+  background: radial-gradient(circle, #C5A059 0%, transparent 70%);
+}
+
+.orb-teal {
+  background: radial-gradient(circle, #0D9488 0%, transparent 70%);
+}
+
+/* Utility Animation Classes */
+.animate-float {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatYReverse 7s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+/* Hero Parallax Visual Layer */
+.hero-parallax-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  z-index: 1;
+  will-change: transform;
+}
+
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.45) 50%, rgba(15, 23, 42, 0.95) 100%);
+  z-index: 2;
+}
+
+/* Custom AOS Enhancements */
+[data-aos="fade-up-custom"] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-up-custom"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-parallax-bg {
+    transform: none !important;
+  }
+
+  .animate-float,
+  .animate-float-reverse,
+  .animate-glow,
+  .animate-spin-slow {
+    animation: none !important;
+  }
+}
