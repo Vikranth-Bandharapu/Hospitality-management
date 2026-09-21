@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Hospitality Management Console</title>
+  <meta name="description" content="Role-based hospitality console for Admin Analytics, Manager Inventories, Staff Housekeeping, and Guest Services.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-page" style="background-color: #0B1120;">
+  <div class="dash-sidebar-backdrop"></div>
+
+  <!-- SECTION 1: System Health Status Bar -->
+  <section id="console-status-bar" style="background: var(--brand-navy); color: var(--brand-gold); padding: 0.35rem 0; font-size: 0.775rem; border-bottom: 1px solid var(--border-gold);">
+    <div class="container-custom" style="display: flex; align-items: center; justify-content: space-between;">
+      <div><i class="fa-solid fa-server" style="margin-right: 0.4rem;"></i> <strong>CONSOLE FEED:</strong> System operational across all 34 luxury properties.</div>
+      <div><i class="fa-solid fa-clock" style="margin-right: 0.3rem;"></i> Local Console Time: <span id="live-console-time">09:45 AM</span></div>
+    </div>
+  </section>
+
+  <div class="dashboard-wrapper">
+    
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <!-- SECTION 2: Sidebar Header & Brand -->
+      <section id="console-sidebar-header" class="dash-sidebar-header" style="padding: 0; background: transparent;">
+      </section>
+
+      <!-- SECTION 3: User Profile & Permission Summary -->
+      <section id="console-sidebar-profile" class="dash-user-profile" style="padding: 0; background: transparent; border: none;">
+        <img src="assets/images/avatar-admin.webp" alt="User Profile" class="dash-user-avatar" id="dash-user-avatar">
+        <div class="dash-user-info">
+          <h4 id="dash-user-name">Eleanor Vance</h4>
+          <span class="dash-role-pill" id="dash-user-role">ADMIN</span>
+        </div>
+      </section>
+
+      <!-- SECTION 4: Role-Based Sidebar Navigation Menu -->
+      <section id="console-sidebar-nav" style="padding: 0; background: transparent;">
+        <nav class="dash-nav" id="dash-sidebar-nav">
+          <!-- Rendered dynamically by DashboardController -->
+        </nav>
+      </section>
+
+      <section id="console-sidebar-footer" class="dash-sidebar-footer" style="padding: 0.75rem 1rem 1.25rem 1rem; border-top: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+        <a onclick="sessionStorage.clear(); window.location.href='index.html';" class="dash-nav-link" style="color: #FF5252 !important; width: 100%; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; cursor: pointer; text-align: left; padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.75rem; text-decoration: none; transition: all 0.2s ease;">
+          <i class="fa-solid fa-right-from-bracket" style="color: #FF5252; font-size: 1.1rem;"></i>
+          <span style="font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; color: #FF5252;">LOGOUT TO HOME</span>
+        </a>
+      </section>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dash-main">
+      
+      <!-- SECTION 6: Top Control Bar & Live Perspective Switcher -->
+      <section id="console-topbar" style="padding: 0;">
+        <header class="dash-topbar">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <button class="dash-mobile-toggle" id="sidebar-toggle-btn" onclick="toggleDashboardSidebar(event)" aria-label="Toggle Navigation">
+              <i class="fa-solid fa-bars"></i> Menu
+            </button>
+            <div class="dash-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" class="form-control-aura" placeholder="Search reservations, rooms, staff..." onkeyup="Toast.show('Live Search', 'Filtering system records...', 'info', 1000)">
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="role-switcher-bar" id="role-switcher-container">
+              <!-- Rendered by DashboardController -->
+            </div>
+
+            <button class="btn-aura btn-sm btn-outline-gold" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-bell"></i>
+            </button>
+          </div>
+        </header>
+      </section>
+
+      <!-- SECTION 7: Quick Role Console Direct Links -->
+      <section id="console-quick-links" style="padding: 1rem; background: var(--bg-surface-elevated); border-bottom: 1px solid var(--border-light);">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+          <span style="font-weight: 700; color: var(--brand-navy); font-size: 0.9rem;"><i class="fa-solid fa-sliders"></i> Direct Console Views:</span>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="admin-dashboard.html" class="btn-aura btn-sm btn-gold"><i class="fa-solid fa-chart-pie"></i> Admin Console</a>
+            <a href="manager-dashboard.html" class="btn-aura btn-sm btn-teal"><i class="fa-solid fa-hotel"></i> Manager Console</a>
+            <a href="staff-dashboard.html" class="btn-aura btn-sm btn-navy"><i class="fa-solid fa-broom"></i> Staff Console</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8: Chart.js Analytics & Yield Line Graph Widget -->
+      <section id="console-analytics-preview" style="padding: 0; margin-top: 1rem;">
+        <!-- Analytics rendered by controller -->
+      </section>
+
+      <!-- SECTION 9: System Status & Security Audit Badge -->
+      <section id="console-security-badge" style="padding: 1rem; background: var(--bg-surface); border-radius: var(--radius-sm); margin: 1rem 0;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--brand-navy); font-size: 0.85rem;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--brand-gold); font-size: 1.25rem;"></i>
+          <span>SOC2 Type II Certified Unified Console Engine • All actions encrypted and audited.</span>
+        </div>
+      </section>
+
+      <!-- SECTION 10: Dynamic Console Main Container & Footer -->
+      <section id="console-main-container" style="padding: 0;">
+        <div class="dash-content" id="dash-main-content">
+          <!-- Rendered dynamically by DashboardController -->
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Chart.js 4.4 Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const handleResize = () => {
+        const btn = document.getElementById('sidebar-toggle-btn');
+        if (btn) btn.style.display = window.innerWidth <= 1024 ? 'inline-flex' : 'none';
+      };
+      window.addEventListener('resize', handleResize);
+      handleResize();
+
+      DashboardController.initView();
+    });
+  </script>
+</body>
+</html>

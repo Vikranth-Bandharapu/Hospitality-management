@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found | Aura Hospitality</title>
+  <meta name="description" content="The requested hospitality destination could not be located by concierge.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <style>
+    .error-hero-wrapper {
+      min-height: calc(100vh - 60px);
+      background: #0B111E;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .error-code-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 8rem !important;
+      font-weight: 700;
+      line-height: 1;
+      color: #C5A059;
+      text-shadow: 0 10px 30px rgba(197, 160, 89, 0.25);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .error-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.75rem !important;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .error-description {
+      color: rgba(248, 250, 249, 0.85);
+      font-size: 1.15rem !important;
+      line-height: 1.65;
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+    }
+    .floating-compass-bg {
+      position: absolute;
+      top: 50%;
+      right: 12%;
+      transform: translateY(-50%) rotate(15deg);
+      font-size: 22rem;
+      color: rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .btn-404-outline {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(197, 160, 89, 0.5);
+      color: #C5A059;
+      border-radius: 8px;
+      padding: 0.95rem 2rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-404-outline:hover {
+      background: rgba(197, 160, 89, 0.15);
+      border-color: #C5A059;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .btn-404-filled {
+      background: #C5A059;
+      color: #0F172A;
+      border: 1px solid #C5A059;
+      border-radius: 8px;
+      padding: 0.95rem 2rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+    }
+    .btn-404-filled:hover {
+      background: #D4AF67;
+      color: #0B111E;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(197, 160, 89, 0.45);
+    }
+
+    /* Mobile Typography & Element Scaling */
+    @media (max-width: 768px) {
+      .error-hero-wrapper {
+        padding: 3.5rem 1.25rem !important;
+        min-height: calc(100vh - 40px) !important;
+      }
+      .error-code-title {
+        font-size: 5.5rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+      .error-heading {
+        font-size: 2.1rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 1.25rem !important;
+      }
+      .error-description {
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+      }
+      .btn-404-outline,
+      .btn-404-filled {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 0.95rem 1.5rem !important;
+        font-size: 1rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .error-code-title {
+        font-size: 4.75rem !important;
+      }
+      .error-heading {
+        font-size: 1.85rem !important;
+      }
+      .error-description {
+        font-size: 0.95rem !important;
+      }
+    }
+  </style>
+</head>
+<body style="background: #0B111E !important; color: #FFFFFF !important; margin: 0 !important; padding: 0 !important;">
+
+  <!-- SECTION 1: Top Canvas Background Section -->
+  <section id="error-top-canvas" style="padding: 0; margin: 0; background: #0B111E;"></section>
+
+  <!-- SECTION 3: 404 Hero Outer Wrapper -->
+  <section id="error-hero-outer" style="padding: 0; margin: 0;">
+    <!-- SECTION 4: 404 Hero Inner Container -->
+    <section id="error-hero-container" class="error-hero-wrapper">
+      
+      <!-- SECTION 5: Background Compass Graphic -->
+      <section id="error-compass-section" style="padding: 0; margin: 0;">
+        <i class="fa-solid fa-compass floating-compass-bg"></i>
+      </section>
+
+      <div style="position: relative; z-index: 10; width: 100%; max-width: 680px;">
+        
+        <!-- SECTION 6: 404 Error Code Header -->
+        <section id="error-code-section" style="padding: 0; margin: 0;">
+          <h1 class="error-code-title">404</h1>
+        </section>
+
+        <!-- SECTION 7: Error Title -->
+        <section id="error-title-section" style="padding: 0; margin: 0;">
+          <h2 class="error-heading">Destination Outside Map Bounds</h2>
+        </section>
+
+        <!-- SECTION 8: Error Description -->
+        <section id="error-desc-section" style="padding: 0; margin: 0;">
+          <p class="error-description">
+            Our Head Concierge searched all luxury resort directories, but could not locate the requested page.
+          </p>
+        </section>
+
+        <!-- SECTION 9: Action Buttons (Go Back & Return to Homepage) -->
+        <section id="error-buttons-section" style="padding: 0; margin: 0;">
+          <div style="display: flex; gap: 1.25rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <button onclick="history.back()" class="btn-404-outline">
+              <i class="fa-solid fa-arrow-left"></i> Go Back
+            </button>
+            <a href="index.html" class="btn-404-filled">
+              <i class="fa-solid fa-house"></i> Return to Homepage
+            </a>
+          </div>
+        </section>
+
+        <!-- SECTION 10: Ambient Glow Overlay -->
+        <section id="error-ambient-section" style="padding: 0; margin: 0;">
+          <div class="ambient-orb orb-gold" style="top: 20%; left: 50%; transform: translateX(-50%); width: 300px; height: 300px; opacity: 0.15; pointer-events: none;"></div>
+        </section>
+
+      </div>
+    </section>
+  </section>
+
+  <!-- SECTION 10: Copyright Notice -->
+  <section id="copyright-bar-section" style="padding: 1.5rem 0; background: #090D16; color: rgba(248, 250, 249, 0.7); text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div class="container-custom" style="text-align: center;">
+      <span>&copy; 2026 Stackly Inc. All Rights Reserved.</span>
+    </div>
+  </section>
+
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

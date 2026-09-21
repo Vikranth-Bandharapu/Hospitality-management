@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Executive Governance Control Center | Stackly Aura</title>
+  <meta name="description" content="Executive administration portal for financial analytics, portfolio yield management, and corporate governance.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .dash-tab-panel {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .dash-tab-panel.active-panel {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .dash-nav-link-admin {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+      color: #94A3B8;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .dash-nav-link-admin:hover, .dash-nav-link-admin.active {
+      background: rgba(245, 158, 11, 0.15) !important;
+      color: #F59E0B !important;
+      border-left: 3px solid #F59E0B;
+    }
+    .dash-nav-link-admin:hover i, .dash-nav-link-admin.active i {
+      color: #F59E0B !important;
+    }
+  </style>
+</head>
+<body class="dashboard-page" style="background-color: #0B1120;">
+  <div class="dash-sidebar-backdrop"></div>
+
+  <div class="dashboard-wrapper">
+    
+    <!-- Sidebar (STRICTLY 5 SECTIONS) -->
+    <aside class="dash-sidebar" id="dash-sidebar" style="background: #080E1A; border-right: 1px solid rgba(245, 158, 11, 0.2); display: flex; flex-direction: column; height: 100vh; overflow: hidden; position: fixed; top: 0; left: 0;">
+      <div class="dash-sidebar-header" style="padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;">
+        <a href="admin-dashboard.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image" style="height: 30px;"></a>
+      </div>
+
+      <!-- SECTION 2: 5 Executive Navigation Links -->
+      <section id="admin-sidebar-nav" style="padding: 0; background: transparent; flex: 1 1 auto; overflow-y: auto;">
+        <nav class="dash-nav" style="padding: 0.75rem 0.65rem; gap: 0.35rem;">
+          <div class="dash-nav-title" style="color: rgba(245, 158, 11, 0.7); font-size: 0.7rem; margin-bottom: 0.35rem; padding: 0.25rem 0.5rem;">EXECUTIVE MENU (5 SECTIONS)</div>
+          
+          <!-- 1. OVERVIEW -->
+          <a class="dash-nav-link-admin active" data-tab="tab-overview" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>1. MY SERVICES</span>
+          </a>
+
+          <!-- 2. PORTFOLIO PROPERTIES -->
+          <a class="dash-nav-link-admin" data-tab="tab-properties" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;">
+            <i class="fa-solid fa-hotel"></i>
+            <span>2. PORTFOLIO PROPERTIES</span>
+          </a>
+
+          <!-- 3. VIP RESERVATIONS LEDGER -->
+          <a class="dash-nav-link-admin" data-tab="tab-reservations" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>3. VIP RESERVATIONS</span>
+          </a>
+
+          <!-- 4. FINANCIAL AUDITS & REPORTS -->
+          <a class="dash-nav-link-admin" data-tab="tab-reports" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <span>4. FINANCIAL REPORTS</span>
+          </a>
+
+          <!-- 5. ENTERPRISE SETTINGS -->
+          <a class="dash-nav-link-admin" data-tab="tab-settings" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;">
+            <i class="fa-solid fa-gear"></i>
+            <span>5. ENTERPRISE SETTINGS</span>
+          </a>
+        </nav>
+      </section>
+
+      <!-- SECTION 3: Executive Session Badge -->
+      <div style="padding: 0.6rem 0.85rem; margin: 0.35rem 0.65rem; background: rgba(245, 158, 11, 0.08); border-radius: 8px; border: 1px solid rgba(245, 158, 11, 0.2); display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0;">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: #F59E0B; color: #04101E; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.775rem; flex-shrink: 0;">EV</div>
+        <div style="overflow: hidden;">
+          <div style="font-size: 0.75rem; font-weight: 700; color: #FFFFFF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">admin@stacklyaura.com</div>
+          <div style="font-size: 0.625rem; color: #F59E0B; font-weight: 700; text-transform: uppercase;">C-SUITE SESSION</div>
+        </div>
+      </div>
+
+      <div class="dash-sidebar-footer" style="padding: 0.5rem 0.65rem 0.75rem 0.65rem; border-top: 1px solid rgba(255,255,255,0.08); flex-shrink: 0;">
+        <a onclick="sessionStorage.clear(); window.location.href='index.html';" class="dash-nav-link-admin" style="color: #FF5252 !important; width: 100%; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; cursor: pointer; text-align: left; padding: 0.65rem 0.85rem; display: flex; align-items: center; gap: 0.65rem; text-decoration: none; transition: all 0.2s ease;">
+          <i class="fa-solid fa-right-from-bracket" style="color: #FF5252; font-size: 1rem;"></i>
+          <span style="font-weight: 800; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; color: #FF5252;">LOGOUT TO HOME</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dash-main">
+      
+      <!-- SECTION 4: Top Control Bar -->
+      <section id="admin-topbar" style="padding: 0;">
+        <header class="dash-topbar" style="background: #0D1527; border-bottom: 1px solid rgba(245, 158, 11, 0.2);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <button class="dash-mobile-toggle" onclick="toggleDashboardSidebar(event)" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i> Menu</button>
+            <div class="dash-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" class="form-control-aura" placeholder="Search corporate records, yield, P&L..." onkeyup="Toast.show('Search', 'Filtering records...', 'info', 1000)">
+            </div>
+          </div>
+        </header>
+      </section>
+
+      <div class="dash-content">
+
+        <!-- ===================================================================
+             SECTION 1 FULL CONTENT: MY SERVICES / EXECUTIVE OVERVIEW
+             =================================================================== -->
+        <div id="tab-overview" class="dash-tab-panel active-panel">
+          
+          <!-- Executive Welcome Banner -->
+          <section id="admin-welcome-hero" style="margin-bottom: 1.5rem;">
+            <div style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 20, 10, 0.95)); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 1.5rem 1.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
+              <div style="display: flex; align-items: center; gap: 1.25rem;">
+                <div style="width: 58px; height: 58px; border-radius: 50%; background: #F59E0B; color: #04101E; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 800; flex-shrink: 0;"><i class="fa-solid fa-crown"></i></div>
+                <div>
+                  <h2 style="font-size: 1.45rem; color: #FFFFFF; font-weight: 700; margin: 0 0 0.25rem 0; font-family: 'Playfair Display', serif;">
+                    Welcome, Lady Eleanor Vance
+                    <span class="dash-welcome-email-ref" style="font-size: 0.95rem; color: #F59E0B; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; margin-left: 0.5rem;">admin@stacklyaura.com</span>
+                  </h2>
+                  <div style="font-size: 0.75rem; color: #F59E0B; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">CHIEF EXECUTIVE OFFICER • GLOBAL C-SUITE GOVERNANCE TIER</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.75rem;">
+                <button class="btn-aura btn-gold" onclick="document.querySelector('[data-tab=tab-properties]').click()"><i class="fa-solid fa-plus"></i> Onboard Resort</button>
+                <button class="btn-aura btn-outline-gold" onclick="document.querySelector('[data-tab=tab-reports]').click()"><i class="fa-solid fa-file-export"></i> Audit Export</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4 Executive KPI Cards -->
+          <section id="admin-kpi-overview" style="margin-bottom: 1.5rem;">
+            <div class="stat-grid">
+              <div class="stat-card-ref" onclick="document.querySelector('[data-tab=tab-reports]').click()" style="cursor: pointer; border-color: rgba(245, 158, 11, 0.2);">
+                <i class="fa-solid fa-vault stat-icon-bg"></i>
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.35rem;">TOTAL PORTFOLIO REVPAR YIELD</div>
+                <div style="font-size: 1.65rem; color: #F59E0B; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">$1,482,900</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #10B981; font-weight: 600;"><i class="fa-solid fa-arrow-trend-up"></i> +14.2% YoY Growth • Audited</div>
+              </div>
+
+              <div class="stat-card-ref" onclick="document.querySelector('[data-tab=tab-properties]').click()" style="cursor: pointer; border-color: rgba(245, 158, 11, 0.2);">
+                <i class="fa-solid fa-hotel stat-icon-bg"></i>
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.35rem;">MANAGED LUXURY RESORTS</div>
+                <div style="font-size: 1.65rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">34 RESORTS</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> 100% Operational & Licensed</div>
+              </div>
+
+              <div class="stat-card-ref" style="cursor: pointer; border-color: rgba(245, 158, 11, 0.2);">
+                <i class="fa-solid fa-gem stat-icon-bg"></i>
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.35rem;">MANAGED ASSET PORTFOLIO VALUE</div>
+                <div style="font-size: 1.65rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">$595,000,000</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #F59E0B; font-weight: 600;"><i class="fa-solid fa-shield-halved"></i> Institutional Grade Asset</div>
+              </div>
+
+              <div class="stat-card-ref" onclick="document.querySelector('[data-tab=tab-reservations]').click()" style="cursor: pointer; border-color: rgba(245, 158, 11, 0.2);">
+                <i class="fa-solid fa-crown stat-icon-bg"></i>
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.35rem;">ACTIVE VIP RESERVATIONS</div>
+                <div style="font-size: 1.65rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">1,240 BOOKINGS</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> 99.4% Rated Forbes 5-Star</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Service Operations & SLA Dashboard Grid -->
+          <section id="admin-services-grid-section" style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <h3 style="font-size: 1.15rem; color: #FFFFFF; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-bell-concierge" style="color: #F59E0B; margin-right: 0.5rem;"></i> Executive Bespoke Services & Operations SLA</h3>
+              <span class="badge-aura badge-gold"><i class="fa-solid fa-bolt"></i> CSAT 99.8% Global SLA</span>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(245, 158, 11, 0.15); color: #F59E0B; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;"><i class="fa-solid fa-crown"></i></div>
+                    <div>
+                      <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0; font-weight: 700;">Royal Butler & Concierge Guild</h4>
+                      <span style="font-size: 0.75rem; color: #94A3B8;">24/7 Dedicated Butler Service</span>
+                    </div>
+                  </div>
+                  <span class="badge-aura badge-success">Active</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #CBD5E1; margin-bottom: 0.75rem;">18 Active VIP Butler requests • Avg SLA Response: <strong>3.4 mins</strong></div>
+                <button class="btn-aura btn-xs btn-outline-gold" style="width: 100%;" onclick="Toast.show('Butler Guild', 'Dispatching lead butler to Suite 401...', 'info', 2000)">DISPATCH BUTLER TEAM</button>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(56, 189, 248, 0.15); color: #38BDF8; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;"><i class="fa-solid fa-helicopter"></i></div>
+                    <div>
+                      <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0; font-weight: 700;">Aviation & Yacht Transfers</h4>
+                      <span style="font-size: 0.75rem; color: #94A3B8;">Air & Sea Transport Fleet</span>
+                    </div>
+                  </div>
+                  <span class="badge-aura badge-info">Ready</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #CBD5E1; margin-bottom: 0.75rem;">4 Active flight charters scheduled • Helipad Slot 1 & 2 operational</div>
+                <button class="btn-aura btn-xs btn-outline-gold" style="width: 100%;" onclick="Toast.show('Helipad Control', 'Helipad status: Ready for landing.', 'success', 2000)">LOGISTICS DASHBOARD</button>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(16, 185, 129, 0.15); color: #10B981; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;"><i class="fa-solid fa-utensils"></i></div>
+                    <div>
+                      <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0; font-weight: 700;">Michelin Chef's Table & Sommelier</h4>
+                      <span style="font-size: 0.75rem; color: #94A3B8;">Haute Gastronomy & Wine Cellar</span>
+                    </div>
+                  </div>
+                  <span class="badge-aura badge-gold">12 Booked</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #CBD5E1; margin-bottom: 0.75rem;">12 In-villa private chef pairings tonight • Rare Vintage Cellar Unlocked</div>
+                <button class="btn-aura btn-xs btn-outline-gold" style="width: 100%;" onclick="Toast.show('Culinary Dispatch', 'Opening Michelin chef schedule...', 'info', 2000)">VIEW CULINARY MANIFEST</button>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(168, 85, 247, 0.15); color: #A855F7; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;"><i class="fa-solid fa-spa"></i></div>
+                    <div>
+                      <h4 style="font-size: 0.95rem; color: #FFFFFF; margin: 0; font-weight: 700;">Holistic Thermal Spa & Hammam</h4>
+                      <span style="font-size: 0.75rem; color: #94A3B8;">Bio-Hacking Wellness Suites</span>
+                    </div>
+                  </div>
+                  <span class="badge-aura badge-success">Operational</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #CBD5E1; margin-bottom: 0.75rem;">14 Hydrotherapy sessions active • Bio-hacking lounge 100% reserved</div>
+                <button class="btn-aura btn-xs btn-outline-gold" style="width: 100%;" onclick="Toast.show('Spa Operations', 'Spa sanctuary slots updated.', 'info', 2000)">MANAGE SPA SCHEDULER</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Main Executive Suite Instance Slots Table -->
+          <section id="admin-main-table-section" class="dash-card" style="margin-bottom: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(25, 18, 10, 0.95)); border: 1px solid rgba(245, 158, 11, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <i class="fa-solid fa-cubes" style="color: #F59E0B; font-size: 1.25rem;"></i>
+                <h3 style="font-size: 1.1rem; color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0;">MY ACTIVE LUXURY SUITE INSTANCE SLOTS</h3>
+              </div>
+              <button class="btn-aura btn-sm btn-gold" onclick="Toast.show('New Booking', 'Opening suite booking modal...', 'info', 2000)"><i class="fa-solid fa-plus"></i> BOOK NEW SUITE</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>SUITE / SERVER NAME</th>
+                    <th>REGION / LOCATION</th>
+                    <th>IP ADDRESS / GUEST</th>
+                    <th>SPECS / CATEGORY</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Suite 401 (Ocean Villa)</strong></td>
+                    <td>Maldives Atoll (Zone 1)</td>
+                    <td>192.168.1.101 • Lord Sterling</td>
+                    <td>Presidential Villa (4 Bed)</td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-circle-check"></i> Active & Occupied</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Manage Suite', 'Opening Suite 401 controls...', 'info', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Penthouse 502 (Royal)</strong></td>
+                    <td>Dubai Marina (Zone 2)</td>
+                    <td>192.168.1.105 • Dr. Aris Thorne</td>
+                    <td>Royal Penthouse (5 Bed)</td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-circle-check"></i> Active & Occupied</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Manage Suite', 'Opening Penthouse 502 controls...', 'info', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Villa 108 (Heritage)</strong></td>
+                    <td>Chennai HQ (Zone 3)</td>
+                    <td>192.168.1.108 • Ms. Ananya Roy</td>
+                    <td>Heritage Garden Villa</td>
+                    <td><span class="badge-aura badge-gold"><i class="fa-solid fa-spinner fa-spin"></i> Turnover Prep</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Turnover', 'Cleaning in progress...', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Chalet 304 (Alpine Peak)</strong></td>
+                    <td>St. Moritz, Swiss Alps</td>
+                    <td>192.168.1.112 • Princess Amara</td>
+                    <td>Grand Alpine Chalet</td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-circle-check"></i> Active & Occupied</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Manage Suite', 'Opening Chalet 304 controls...', 'info', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sanctuary 202 (Ryokan)</strong></td>
+                    <td>Kyoto Bamboo (Zone 4)</td>
+                    <td>192.168.1.115 • Ambassador Tanaka</td>
+                    <td>Imperial Zen Suite</td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-circle-check"></i> Active & Occupied</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Manage Suite', 'Opening Kyoto Suite controls...', 'info', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Chateau 101 (Riviera)</strong></td>
+                    <td>Cannes, France</td>
+                    <td>192.168.1.120 • Mme Laurent</td>
+                    <td>Riviera Oceanfront Estate</td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-circle-check"></i> Active & Occupied</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Manage Suite', 'Opening Chateau 101 controls...', 'info', 2000)">MANAGE</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Executive Revenue Analytics Chart -->
+          <section id="revenue-analytics-chart" class="dash-card" style="margin-bottom: 1.5rem; border-color: rgba(245, 158, 11, 0.2);">
+            <div class="dash-card-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: none; padding-bottom: 0;">
+              <div>
+                <h3 class="dash-card-title text-gold-gradient" style="font-size: 1.1rem;"><i class="fa-solid fa-chart-line" style="color: #F59E0B; margin-right: 0.5rem;"></i> Executive Portfolio Revenue Yield Trajectory ($)</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Audited monthly financial yield growth across European, Asian, and Middle East resorts.</p>
+              </div>
+            </div>
+            <div style="height: 260px; position: relative; margin-top: 1rem;">
+              <canvas id="adminRevenueChart"></canvas>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ===================================================================
+             SECTION 2 FULL CONTENT: PORTFOLIO PROPERTIES (FULL DATA PANEL)
+             =================================================================== -->
+        <div id="tab-properties" class="dash-tab-panel">
+          <!-- Property Summary Banner -->
+          <section id="admin-properties-summary" style="margin-bottom: 1.5rem;">
+            <div class="stat-grid">
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">TOTAL PORTFOLIO ASSET VALUE</div>
+                <div style="font-size: 1.6rem; color: #F59E0B; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">$595,000,000</div>
+                <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;"><i class="fa-solid fa-shield-halved"></i> Institutional Asset Rating AAA</div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">GLOBAL AVERAGE OCCUPANCY</div>
+                <div style="font-size: 1.6rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">95.6% OCCUPIED</div>
+                <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;"><i class="fa-solid fa-arrow-trend-up"></i> +3.2% vs Previous Quarter</div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">OPERATING RESORTS COUNT</div>
+                <div style="font-size: 1.6rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">34 RESORTS</div>
+                <div style="font-size: 0.75rem; color: #F59E0B; margin-top: 0.25rem;"><i class="fa-solid fa-globe"></i> 14 Countries • 4 Continents</div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">STAFFING & SAFETY AUDIT</div>
+                <div style="font-size: 1.6rem; color: #10B981; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">100% COMPLIANT</div>
+                <div style="font-size: 0.75rem; color: #94A3B8; margin-top: 0.25rem;">1,450 Trained Personnel</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="admin-properties-panel" class="dash-card" style="margin-bottom: 1.5rem; padding: 1.5rem; border-color: rgba(245, 158, 11, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="font-size: 1.25rem; color: #FFFFFF; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-hotel" style="color: #F59E0B; margin-right: 0.5rem;"></i> Global Luxury Property Portfolio (34 Resorts)</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Real-time governance, RevPAR yield, room capacity, asset valuation, and GM assignment across all locations.</p>
+              </div>
+              <div style="display: flex; gap: 0.75rem;">
+                <button class="btn-aura btn-gold" onclick="Toast.show('Property Modal', 'Opening new property onboarding form...', 'info', 2000)"><i class="fa-solid fa-plus"></i> Onboard New Resort</button>
+                <button class="btn-aura btn-outline-gold" onclick="Toast.show('Export CSV', 'Exporting portfolio governance ledger...', 'success', 2000)"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>RESORT / VILLA NAME</th>
+                    <th>LOCATION / REGION</th>
+                    <th>TOTAL SUITES</th>
+                    <th>OCCUPANCY</th>
+                    <th>MONTHLY REVPAR</th>
+                    <th>ASSET VALUATION</th>
+                    <th>ASSIGNED GM</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Presidential Ocean Villa</strong></td>
+                    <td>Maldives Atoll</td>
+                    <td>24 Luxury Villas</td>
+                    <td><span class="badge-aura badge-success">98.6%</span></td>
+                    <td><strong style="color: #F59E0B;">$285,400</strong></td>
+                    <td>$85,000,000</td>
+                    <td>Vikrant Bandharapu</td>
+                    <td><span class="badge-aura badge-gold">Operational</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Inspect', 'Inspecting Maldives property...', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Royal Skyline Penthouse</strong></td>
+                    <td>Dubai Marina</td>
+                    <td>40 Penthouses</td>
+                    <td><span class="badge-aura badge-success">94.2%</span></td>
+                    <td><strong style="color: #F59E0B;">$412,000</strong></td>
+                    <td>$110,000,000</td>
+                    <td>Sophia Martinez</td>
+                    <td><span class="badge-aura badge-gold">Operational</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Inspect', 'Inspecting Dubai property...', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Executive Balcony Suite</strong></td>
+                    <td>St. Moritz, Swiss Alps</td>
+                    <td>60 Alpine Suites</td>
+                    <td><span class="badge-aura badge-info">92.5%</span></td>
+                    <td><strong style="color: #F59E0B;">$310,500</strong></td>
+                    <td>$95,000,000</td>
+                    <td>Lady Eleanor Vance</td>
+                    <td><span class="badge-aura badge-gold">Operational</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Inspect', 'Inspecting Swiss property...', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Heritage Sanctuary Resort</strong></td>
+                    <td>Chennai HQ, India</td>
+                    <td>85 Luxury Rooms</td>
+                    <td><span class="badge-aura badge-success">96.8%</span></td>
+                    <td><strong style="color: #F59E0B;">$475,000</strong></td>
+                    <td>$65,000,000</td>
+                    <td>Rahul Sharma</td>
+                    <td><span class="badge-aura badge-gold">Operational</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Inspect', 'Inspecting Chennai HQ...', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kyoto Bamboo Sanctuary</strong></td>
+                    <td>Kyoto, Japan</td>
+                    <td>30 Ryokan Suites</td>
+                    <td><span class="badge-aura badge-success">97.4%</span></td>
+                    <td><strong style="color: #F59E0B;">$390,000</strong></td>
+                    <td>$52,000,000</td>
+                    <td>Kenji Sato</td>
+                    <td><span class="badge-aura badge-gold">Operational</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Inspect', 'Inspecting Kyoto sanctuary...', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>French Riviera Chateau</strong></td>
+                    <td>Cannes, France</td>
+                    <td>18 Estate Villas</td>
+                    <td><span class="badge-aura badge-info">91.0%</span></td>
+                    <td><strong style="color: #F59E0B;">$340,000</strong></td>
+                    <td>$78,000,000</td>
+                    <td>Claire Dubois</td>
+                    <td><span class="badge-aura badge-gold">Operational</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Inspect', 'Inspecting Cannes Chateau...', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Aspen Alpine Ridge Estate</strong></td>
+                    <td>Colorado, USA</td>
+                    <td>22 Mountain Lodges</td>
+                    <td><span class="badge-aura badge-success">95.1%</span></td>
+                    <td><strong style="color: #F59E0B;">$298,000</strong></td>
+                    <td>$48,000,000</td>
+                    <td>Marcus Sterling</td>
+                    <td><span class="badge-aura badge-gold">Operational</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Inspect', 'Inspecting Aspen Estate...', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bora Bora Overwater Sanctuary</strong></td>
+                    <td>French Polynesia</td>
+                    <td>16 Overwater Villas</td>
+                    <td><span class="badge-aura badge-success">99.2%</span></td>
+                    <td><strong style="color: #F59E0B;">$510,000</strong></td>
+                    <td>$62,000,000</td>
+                    <td>Leilani Kai</td>
+                    <td><span class="badge-aura badge-gold">Operational</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Inspect', 'Inspecting Bora Bora Sanctuary...', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <!-- ===================================================================
+             SECTION 3 FULL CONTENT: VIP RESERVATIONS LEDGER (FULL DATA PANEL)
+             =================================================================== -->
+        <div id="tab-reservations" class="dash-tab-panel">
+          <!-- VIP Reservations Analytics Bar -->
+          <section id="admin-reservations-summary" style="margin-bottom: 1.5rem;">
+            <div class="stat-grid">
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">TOTAL ACTIVE VIP BOOKINGS</div>
+                <div style="font-size: 1.6rem; color: #F59E0B; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">1,240 BOOKINGS</div>
+                <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;"><i class="fa-solid fa-check"></i> 100% Pre-Verified Payments</div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">AVERAGE VIP REVENUE / STAY</div>
+                <div style="font-size: 1.6rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">$23,850</div>
+                <div style="font-size: 0.75rem; color: #F59E0B; margin-top: 0.25rem;"><i class="fa-solid fa-gem"></i> Forbes 5-Star Preferred Tier</div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">PRIVATE HELICOPTER TRANSFERS</div>
+                <div style="font-size: 1.6rem; color: #38BDF8; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">184 CHARTERS</div>
+                <div style="font-size: 0.75rem; color: #38BDF8; margin-top: 0.25rem;"><i class="fa-solid fa-helicopter"></i> Zero Latency Dispatch</div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">VIP SATISFACTION CSAT</div>
+                <div style="font-size: 1.6rem; color: #10B981; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">99.8% SCORE</div>
+                <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;"><i class="fa-solid fa-star"></i> Perfect Concierge Rating</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="admin-reservations-panel" class="dash-card" style="margin-bottom: 1.5rem; padding: 1.5rem; border-color: rgba(245, 158, 11, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="font-size: 1.25rem; color: #FFFFFF; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-calendar-check" style="color: #F59E0B; margin-right: 0.5rem;"></i> Master VIP Reservations Ledger & Stay Manifest</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Real-time global booking records, payment verification, guest amenities, and VIP stay manifests.</p>
+              </div>
+              <div style="display: flex; gap: 0.75rem;">
+                <button class="btn-aura btn-gold" onclick="Toast.show('New Booking', 'Opening booking dispatch modal...', 'info', 2000)"><i class="fa-solid fa-plus"></i> Create VIP Booking</button>
+                <button class="btn-aura btn-outline-gold" onclick="Toast.show('Print Manifest', 'Generating VIP Manifest PDF...', 'success', 2000)"><i class="fa-solid fa-print"></i> Print VIP Manifest</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>BOOKING ID</th>
+                    <th>GUEST NAME & TIER</th>
+                    <th>RESORT & SUITE</th>
+                    <th>STAY DATES</th>
+                    <th>REVENUE</th>
+                    <th>LOGISTICS & AMENITIES</th>
+                    <th>PAYMENT STATUS</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#AURA-9920</td>
+                    <td><strong>Lord Harrison Sterling</strong> <span class="badge-aura badge-gold">VIP Diamond</span></td>
+                    <td>Presidential Villa (Maldives)</td>
+                    <td>Sep 22 - Sep 29, 2026</td>
+                    <td><strong style="color: #F59E0B;">$19,950</strong></td>
+                    <td><span style="font-size: 0.8rem; color: #94A3B8;"><i class="fa-solid fa-plane"></i> Jet Transfer + Chef</span></td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-check"></i> Paid in Full</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Booking #AURA-9920', 'VIP amenities pre-assigned.', 'success', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td>#AURA-9921</td>
+                    <td><strong>Dr. Aris Thorne</strong> <span class="badge-aura badge-info">VIP Platinum</span></td>
+                    <td>Royal Penthouse (Dubai)</td>
+                    <td>Sep 24 - Oct 01, 2026</td>
+                    <td><strong style="color: #F59E0B;">$13,650</strong></td>
+                    <td><span style="font-size: 0.8rem; color: #94A3B8;"><i class="fa-solid fa-helicopter"></i> Helicopter + Spa</span></td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-check"></i> Deposit Verified</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Booking #AURA-9921', 'Helicopter transfer scheduled.', 'info', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td>#AURA-9922</td>
+                    <td><strong>Princess Amara Al-Mansoor</strong> <span class="badge-aura badge-gold">VIP Diamond</span></td>
+                    <td>Grand Alpine Chalet (St. Moritz)</td>
+                    <td>Oct 02 - Oct 10, 2026</td>
+                    <td><strong style="color: #F59E0B;">$28,400</strong></td>
+                    <td><span style="font-size: 0.8rem; color: #94A3B8;"><i class="fa-solid fa-shield-halved"></i> 24/7 Royal Escort</span></td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-check"></i> Paid in Full</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Booking #AURA-9922', 'Security team assigned.', 'success', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td>#AURA-9923</td>
+                    <td><strong>Sir Richard Vance</strong> <span class="badge-aura badge-gold">VIP Obsidian</span></td>
+                    <td>Heritage Sanctuary (Chennai HQ)</td>
+                    <td>Oct 05 - Oct 12, 2026</td>
+                    <td><strong style="color: #F59E0B;">$15,800</strong></td>
+                    <td><span style="font-size: 0.8rem; color: #94A3B8;"><i class="fa-solid fa-ship"></i> Private Yacht Charter</span></td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-check"></i> Paid in Full</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Booking #AURA-9923', 'Yacht charter confirmed.', 'success', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td>#AURA-9924</td>
+                    <td><strong>Madame Genevieve Laurent</strong> <span class="badge-aura badge-info">VIP Platinum</span></td>
+                    <td>Riviera Chateau (Cannes)</td>
+                    <td>Oct 10 - Oct 18, 2026</td>
+                    <td><strong style="color: #F59E0B;">$22,100</strong></td>
+                    <td><span style="font-size: 0.8rem; color: #94A3B8;"><i class="fa-solid fa-wine-glass"></i> Vintage Cellar Tasting</span></td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-check"></i> Paid in Full</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Booking #AURA-9924', 'Sommelier notified.', 'info', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td>#AURA-9925</td>
+                    <td><strong>Ambassador Hiroshi Tanaka</strong> <span class="badge-aura badge-gold">VIP Gold</span></td>
+                    <td>Kyoto Sanctuary (Japan)</td>
+                    <td>Oct 15 - Oct 22, 2026</td>
+                    <td><strong style="color: #F59E0B;">$18,900</strong></td>
+                    <td><span style="font-size: 0.8rem; color: #94A3B8;"><i class="fa-solid fa-spa"></i> Tea Ceremony & Onsen</span></td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-check"></i> Deposit Verified</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Booking #AURA-9925', 'Tea Master scheduled.', 'info', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td>#AURA-9926</td>
+                    <td><strong>Baron Alexander von Berg</strong> <span class="badge-aura badge-gold">VIP Diamond</span></td>
+                    <td>Aspen Alpine Estate (Colorado)</td>
+                    <td>Oct 20 - Oct 28, 2026</td>
+                    <td><strong style="color: #F59E0B;">$31,500</strong></td>
+                    <td><span style="font-size: 0.8rem; color: #94A3B8;"><i class="fa-solid fa-snowflake"></i> Heli-Skiing Charter</span></td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-check"></i> Paid in Full</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Booking #AURA-9926', 'Ski guide reserved.', 'success', 2000)">MANAGE</button></td>
+                  </tr>
+                  <tr>
+                    <td>#AURA-9927</td>
+                    <td><strong>Duchess Sophia Montgomery</strong> <span class="badge-aura badge-gold">VIP Obsidian</span></td>
+                    <td>Bora Bora Overwater Suite</td>
+                    <td>Nov 01 - Nov 10, 2026</td>
+                    <td><strong style="color: #F59E0B;">$45,000</strong></td>
+                    <td><span style="font-size: 0.8rem; color: #94A3B8;"><i class="fa-solid fa-crown"></i> Dedicated Royal Butler</span></td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-check"></i> Paid in Full</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Booking #AURA-9927', 'Bora Bora villa ready.', 'success', 2000)">MANAGE</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <!-- ===================================================================
+             SECTION 4 FULL CONTENT: FINANCIAL REPORTS & AUDITS (FULL DATA PANEL)
+             =================================================================== -->
+        <div id="tab-reports" class="dash-tab-panel">
+          <!-- Financial Metrics Grid -->
+          <section id="admin-financial-metrics" style="margin-bottom: 1.5rem;">
+            <div class="stat-grid">
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">GROSS OPERATING PROFIT (GOP)</div>
+                <div style="font-size: 1.6rem; color: #10B981; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">$12,850,000</div>
+                <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;">64.2% GOP Margin • Audited</div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">AVERAGE DAILY RATE (ADR)</div>
+                <div style="font-size: 1.6rem; color: #F59E0B; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">$1,420 / NIGHT</div>
+                <div style="font-size: 0.75rem; color: #10B981; margin-top: 0.25rem;"><i class="fa-solid fa-arrow-trend-up"></i> +11.8% YoY Increase</div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">GOPPAR (PROFIT PER ROOM)</div>
+                <div style="font-size: 1.6rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">$985 / ROOM</div>
+                <div style="font-size: 0.75rem; color: #F59E0B; margin-top: 0.25rem;">Outperforming Benchmark</div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700;">TAX & AUDIT COMPLIANCE</div>
+                <div style="font-size: 1.6rem; color: #10B981; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">100% VERIFIED</div>
+                <div style="font-size: 0.75rem; color: #94A3B8; margin-top: 0.25rem;">Deloitte & PwC Certified</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="admin-reports-panel" class="dash-card" style="margin-bottom: 1.5rem; padding: 1.5rem; border-color: rgba(245, 158, 11, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="font-size: 1.25rem; color: #FFFFFF; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-file-invoice-dollar" style="color: #F59E0B; margin-right: 0.5rem;"></i> Audited Financial Reports & Compliance Vault</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Download verified PDF monthly audits, P&L statements, tax clearance logs, and institutional asset valuations.</p>
+              </div>
+              <button class="btn-aura btn-gold" onclick="Toast.show('Generate Audit', 'Compiling global financial audit package...', 'info', 2000)"><i class="fa-solid fa-file-pdf"></i> Generate Full Audit PDF</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>REPORT TITLE</th>
+                    <th>AUDIT PERIOD</th>
+                    <th>AUDITING FIRM</th>
+                    <th>CATEGORY</th>
+                    <th>FILE FORMAT</th>
+                    <th>ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Q3 2026 Executive Financial P&L Audit Report</strong></td>
+                    <td>Q3 2026 (Jul-Sep)</td>
+                    <td>Deloitte & Touche LLP</td>
+                    <td>Financial Audit</td>
+                    <td>PDF (4.2 MB)</td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Download Report', 'Downloading Q3 2026 Financial Audit PDF...', 'success', 2500)"><i class="fa-solid fa-download"></i> DOWNLOAD PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Global Occupancy & RevPAR Yield Audit Ledger</strong></td>
+                    <td>Aug 2026</td>
+                    <td>Internal C-Suite Governance</td>
+                    <td>Yield Performance</td>
+                    <td>XLSX (1.8 MB)</td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Download Report', 'Downloading RevPAR Audit XLSX...', 'success', 2500)"><i class="fa-solid fa-download"></i> DOWNLOAD XLSX</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Annual Tax Compliance & ESG Sustainability Certificate 2026</strong></td>
+                    <td>FY 2026</td>
+                    <td>KPMG Environmental Audit</td>
+                    <td>ESG & Tax Audit</td>
+                    <td>PDF (6.1 MB)</td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Download Report', 'Downloading ESG & Tax Audit PDF...', 'success', 2500)"><i class="fa-solid fa-download"></i> DOWNLOAD PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Q2 2026 International Luxury Asset Valuation Audit</strong></td>
+                    <td>Q2 2026 (Apr-Jun)</td>
+                    <td>PricewaterhouseCoopers (PwC)</td>
+                    <td>Asset Valuation</td>
+                    <td>PDF (8.5 MB)</td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Download Report', 'Downloading Asset Valuation PDF...', 'success', 2500)"><i class="fa-solid fa-download"></i> DOWNLOAD PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>C-Suite Executive Dividend & Profit Share Ledger</strong></td>
+                    <td>H1 2026</td>
+                    <td>Global Governance Board</td>
+                    <td>Corporate Equity</td>
+                    <td>PDF (3.1 MB)</td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Download Report', 'Downloading Dividend Ledger PDF...', 'success', 2500)"><i class="fa-solid fa-download"></i> DOWNLOAD PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>APAC & Middle East Regional Revenue Tax Return 2026</strong></td>
+                    <td>FY 2026</td>
+                    <td>Ernst & Young (EY)</td>
+                    <td>Regional Fiscal Filing</td>
+                    <td>XLSX (2.4 MB)</td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Download Report', 'Downloading Regional Tax Return XLSX...', 'success', 2500)"><i class="fa-solid fa-download"></i> DOWNLOAD XLSX</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <!-- ===================================================================
+             SECTION 5 FULL CONTENT: ENTERPRISE SETTINGS (FULL DATA PANEL)
+             =================================================================== -->
+        <div id="tab-settings" class="dash-tab-panel">
+          <section id="admin-settings-panel" class="dash-card" style="margin-bottom: 1.5rem; padding: 1.5rem; border-color: rgba(245, 158, 11, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="font-size: 1.25rem; color: #FFFFFF; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-gear" style="color: #F59E0B; margin-right: 0.5rem;"></i> Enterprise Governance & System Configuration</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Configure corporate branding, tax parameters, Indian helpline defaults, RBAC security, API tokens, and automated alert systems.</p>
+              </div>
+              <span class="badge-aura badge-gold"><i class="fa-solid fa-shield-halved"></i> Production Governance v4.8</span>
+            </div>
+
+            <!-- Accordion / Grid for 4 Settings Categories -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+              
+              <!-- Card 1: Corporate Branding -->
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <h4 style="font-size: 1rem; color: #F59E0B; margin-bottom: 1rem; font-weight: 700;"><i class="fa-solid fa-building" style="margin-right: 0.4rem;"></i> Corporate Identity & Localization</h4>
+                <form onsubmit="event.preventDefault(); Toast.show('Branding Saved', 'Corporate branding updated successfully!', 'success', 2500);" style="display: grid; gap: 1rem;">
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Group Entity Brand Name</label>
+                    <input type="text" class="form-control-aura" value="Stackly Aura Hospitality Group" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Indian Standard Support Helpline</label>
+                    <input type="text" class="form-control-aura" value="+91 98765 43210" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Corporate HQ Physical Address</label>
+                    <input type="text" class="form-control-aura" value="Stackly Tower, Anna Salai, Chennai, Tamil Nadu - 600002, India" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Default Base Portfolio Currency</label>
+                    <select class="form-control-aura" style="background: #0D1527; color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                      <option selected>USD ($) - International Base</option>
+                      <option>INR (₹) - Indian Base</option>
+                      <option>EUR (€) - European Union</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn-aura btn-xs btn-gold" style="margin-top: 0.5rem;"><i class="fa-solid fa-floppy-disk"></i> SAVE BRANDING</button>
+                </form>
+              </div>
+
+              <!-- Card 2: Security & Access Controls -->
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <h4 style="font-size: 1rem; color: #38BDF8; margin-bottom: 1rem; font-weight: 700;"><i class="fa-solid fa-user-shield" style="margin-right: 0.4rem;"></i> Security & Access Controls (RBAC)</h4>
+                <form onsubmit="event.preventDefault(); Toast.show('Security Saved', 'RBAC security parameters updated!', 'success', 2500);" style="display: grid; gap: 1rem;">
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Two-Factor Authentication (2FA)</label>
+                    <select class="form-control-aura" style="background: #0D1527; color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                      <option selected>Mandatory for C-Suite & GM Roles</option>
+                      <option>Optional for All Staff</option>
+                      <option>Enforced Corporate-Wide</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Session Inactivity Timeout</label>
+                    <input type="text" class="form-control-aura" value="30 Minutes Inactivity" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">IP Whitelist Range</label>
+                    <input type="text" class="form-control-aura" value="192.168.1.0/24, 10.0.0.0/16" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Production Governance API Key</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                      <input type="password" class="form-control-aura" value="aura_live_sec_89f7a6b5c4d3e2f1" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);" readonly>
+                      <button type="button" class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('API Key', 'Key copied to clipboard!', 'info', 2000)">COPY</button>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn-aura btn-xs btn-gold" style="margin-top: 0.5rem;"><i class="fa-solid fa-floppy-disk"></i> UPDATE SECURITY</button>
+                </form>
+              </div>
+
+              <!-- Card 3: Automated Notifications & VIP Dispatch -->
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <h4 style="font-size: 1rem; color: #10B981; margin-bottom: 1rem; font-weight: 700;"><i class="fa-solid fa-bell" style="margin-right: 0.4rem;"></i> Automated VIP Dispatch Alerts</h4>
+                <form onsubmit="event.preventDefault(); Toast.show('Alerts Saved', 'VIP notification rules saved!', 'success', 2500);" style="display: grid; gap: 1rem;">
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">VIP Dispatch Mobile Target</label>
+                    <input type="text" class="form-control-aura" value="+91 98765 43210" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">High-Value Alert Threshold</label>
+                    <input type="text" class="form-control-aura" value="Bookings > $15,000 USD" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">SMS & WhatsApp Dispatch</label>
+                    <select class="form-control-aura" style="background: #0D1527; color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                      <option selected>Instant SMS + WhatsApp Enabled</option>
+                      <option>Email Notifications Only</option>
+                      <option>Disabled</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn-aura btn-xs btn-gold" style="margin-top: 0.5rem;"><i class="fa-solid fa-floppy-disk"></i> SAVE ALERT RULES</button>
+                </form>
+              </div>
+
+              <!-- Card 4: Compliance & Cloud Data Backups -->
+              <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
+                <h4 style="font-size: 1rem; color: #A855F7; margin-bottom: 1rem; font-weight: 700;"><i class="fa-solid fa-database" style="margin-right: 0.4rem;"></i> Compliance & Cloud Data Backups</h4>
+                <form onsubmit="event.preventDefault(); Toast.show('Backup Saved', 'Automated cloud backup triggered!', 'success', 2500);" style="display: grid; gap: 1rem;">
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Data Encryption Protocol</label>
+                    <input type="text" class="form-control-aura" value="AES 256-Bit Hardware Encryption" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);" readonly>
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Cloud Backup Frequency</label>
+                    <select class="form-control-aura" style="background: #0D1527; color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
+                      <option selected>Every 6 Hours (Automated Sync)</option>
+                      <option>Daily at Midnight</option>
+                      <option>Real-Time Synchronous Mirroring</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Audit Retention Horizon</label>
+                    <input type="text" class="form-control-aura" value="7 Years Institutional Storage" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);" readonly>
+                  </div>
+                  <button type="submit" class="btn-aura btn-xs btn-gold" style="margin-top: 0.5rem;"><i class="fa-solid fa-cloud-arrow-up"></i> TRIGGER BACKUP NOW</button>
+                </form>
+              </div>
+
+            </div>
+          </section>
+        </div>
+
+        <!-- SECTION 20: Admin Footer -->
+        <section id="admin-footer" style="padding: 1.5rem 0; border-top: 1px solid rgba(245, 158, 11, 0.2); font-size: 0.8rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+          <div>
+            &copy; 2026 <strong>Stackly Aura Hospitality Group</strong>. Executive Admin Portal (v4.8 PRO).
+          </div>
+          <div>
+            Helpline: <strong>+91 98765 43210</strong> • Chennai Sanctuary HQ
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.dash-sidebar .dash-nav-link-admin[data-tab]');
+      const tabPanels = document.querySelectorAll('.dash-tab-panel');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetTabId = this.getAttribute('data-tab');
+          if (!targetTabId) return;
+
+          navLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+
+          tabPanels.forEach(panel => {
+            if (panel.id === targetTabId) {
+              panel.style.display = 'block';
+              panel.classList.add('active-panel');
+            } else {
+              panel.style.display = 'none';
+              panel.classList.remove('active-panel');
+            }
+          });
+
+          const mainScroll = document.querySelector('.dash-main');
+          if (mainScroll) mainScroll.scrollTop = 0;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          const tabName = this.querySelector('span') ? this.querySelector('span').textContent : targetTabId;
+          if (typeof Toast !== 'undefined' && Toast.show) {
+            Toast.show('Executive View', 'Loaded ' + tabName + ' section', 'info', 1200);
+          }
+        });
+      });
+
+      const ctx = document.getElementById('adminRevenueChart');
+      if (ctx) {
+        new Chart(ctx.getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+            datasets: [{
+              label: 'Portfolio Yield ($)',
+              data: [1120000, 1250000, 1310000, 1280000, 1420000, 1490000, 1550000, 1610000, 1680000],
+              borderColor: '#F59E0B',
+              backgroundColor: 'rgba(245, 158, 11, 0.15)',
+              fill: true,
+              tension: 0.4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#9CA3AF' } } },
+            scales: {
+              x: { ticks: { color: '#9CA3AF' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+              y: { ticks: { color: '#9CA3AF' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospitality Journal & Market Insights | Aura Hospitality</title>
+  <meta name="description" content="Read industry insights, RevPAR market yield reports, architectural spotlights, and luxury hospitality trends.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+  <!-- SECTION 1: Header Navigation Bar -->
+  <section id="header-section" style="padding: 0; position: sticky; top: 0; z-index: 1000; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-gold);">
+    <header class="navbar scrolled" style="border: none;">
+      <div class="container nav-container">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="blog.html" class="nav-link active">Blog</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="login.html" class="btn-aura btn-outline-gold btn-sm"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+          <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn"><i class="fa-solid fa-user-plus"></i> Register</a>
+          <button class="mobile-toggle" aria-label="Open Navigation Drawer"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+        <button class="drawer-close" aria-label="Close Drawer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <ul class="drawer-nav-links">
+        <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="drawer-nav-link"><i class="fa-solid fa-building"></i> About Us</a></li>
+        <li><a href="blog.html" class="drawer-nav-link active"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+        <li><a href="services.html" class="drawer-nav-link"><i class="fa-solid fa-bell-concierge"></i> Services</a></li>
+        <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-dark);">
+      <a href="login.html" class="btn-aura btn-outline-gold btn-sm" style="width: 100%; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="width: 100%; justify-content: center;"><i class="fa-solid fa-user-plus"></i> Register</a>
+    </div>
+  </aside>
+
+  <!-- SECTION 2: Journal Hero Banner -->
+  <section id="blog-hero" style="padding: 7rem 0 4rem; background: var(--brand-navy); color: #FFFFFF; text-align: center; border-bottom: 1px solid var(--border-gold); position: relative; overflow: hidden;">
+    <div class="ambient-orb orb-gold" style="top: -50px; left: -50px;"></div>
+    <div class="container-custom" style="position: relative; z-index: 10;">
+      <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: rgba(197,160,89,0.15); padding: 0.4rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--border-gold);">
+        <i class="fa-solid fa-feather-pointed" style="margin-right: 0.4rem;"></i> Executive Journal & Market Insights
+      </span>
+      <h1 style="font-size: 3.25rem; color: #FFFFFF; margin: 1rem 0 0.5rem;">The Aura Hospitality Journal</h1>
+      <p style="max-width: 650px; margin: 0 auto; color: rgba(248, 250, 249, 0.8); font-size: 1.1rem; line-height: 1.7;">Thought leadership on luxury property yield, sustainable resort architecture, and digital guest experience.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Interactive Editorial Category Bar -->
+  <section id="category-pill-bar" style="padding: 1.5rem 0; background: var(--bg-surface); border-bottom: 1px solid var(--border-light);">
+    <div class="container-custom" style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+      <button class="filter-pill active"><i class="fa-solid fa-layer-group"></i> All Insights</button>
+      <button class="filter-pill"><i class="fa-solid fa-chart-line"></i> RevPAR Yield Strategy</button>
+      <button class="filter-pill"><i class="fa-solid fa-pen-ruler"></i> Architecture & Design</button>
+      <button class="filter-pill"><i class="fa-solid fa-wine-glass"></i> Gastronomy & Sommelier</button>
+      <button class="filter-pill"><i class="fa-solid fa-leaf"></i> Net-Zero Sustainability</button>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Featured Cover Story Article -->
+  <section id="cover-story" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div class="card-glass glow-border" style="overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;" data-aos="fade-up">
+        <div style="height: 360px;">
+          <img src="assets/images/hero-resort.webp" alt="Cover Article" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="padding: 2.5rem 2rem;">
+          <span style="color: var(--brand-gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Cover Story • Q3 2026</span>
+          <h2 style="font-size: 2.15rem; color: #FFF; margin-bottom: 1rem;" class="text-gold-gradient">The Future of Overwater Villa Architecture & Yield Management</h2>
+          <p style="color: var(--text-dark-muted); font-size: 0.975rem; line-height: 1.7; margin-bottom: 1.5rem;">How AI-driven predictive pricing algorithms increased average nightly ADR by 18.4% across tropical resort destinations while preserving 98.6% guest satisfaction.</p>
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <img src="assets/images/avatar-admin.webp" alt="Eleanor Vance" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--brand-gold);">
+              <span style="color: #FFF; font-size: 0.85rem; font-weight: 600;">Lady Eleanor Vance • 6 min read</span>
+            </div>
+            <button class="btn-aura btn-gold shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-book-open"></i> Read Full Story</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Latest Editorial Articles Grid -->
+  <section id="latest-insights-grid" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Editorial Collection</span>
+        <h2 class="section-title">Latest Articles & Market Perspectives</h2>
+        <p class="section-desc">In-depth analysis written by our executive leadership team and guest hotel directors.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        
+        <div class="card-aura card-glass glow-border" data-aos="fade-up">
+          <div class="card-img-wrapper" style="height: 200px;">
+            <img src="assets/images/suite-executive.webp" alt="Alpine Design" loading="lazy">
+            <span class="card-badge">Architecture</span>
+          </div>
+          <div class="card-body">
+            <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 600;">Sept 14, 2026 • 4 min read</span>
+            <h3 class="card-title text-gold-gradient" style="font-size: 1.25rem; margin: 0.4rem 0;">Reclaimed Timber in Alpine Interiors</h3>
+            <p class="card-text" style="color: var(--text-dark-muted);">Combining 100-year-old oak beams with modern thermal fireplaces in St. Moritz suites.</p>
+            <button class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1rem; width: 100%; justify-content: center;" onclick="window.location.href='404.html'">Read Article</button>
+          </div>
+        </div>
+
+        <div class="card-aura card-glass glow-border" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-img-wrapper" style="height: 200px;">
+            <img src="assets/images/dining-michelin.webp" alt="Sommelier Cellar" loading="lazy">
+            <span class="card-badge">Gastronomy</span>
+          </div>
+          <div class="card-body">
+            <span style="font-size: 0.8rem; color: var(--brand-gold); font-weight: 600;">Sept 10, 2026 • 7 min read</span>
+            <h3 class="card-title text-gold-gradient" style="font-size: 1.25rem; margin: 0.4rem 0;">Sourcing Rare Vintages for VIP Villas</h3>
+            <p class="card-text" style="color: var(--text-dark-muted);">How Master Sommeliers procure 1982 Bordeaux direct from French châteaux cellars.</p>
+            <button class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1rem; width: 100%; justify-content: center;" onclick="window.location.href='404.html'">Read Article</button>
+          </div>
+        </div>
+
+        <div class="card-aura card-glass glow-border" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-img-wrapper" style="height: 200px;">
+            <img src="assets/images/concierge-service.webp" alt="Aviation Transfers" loading="lazy">
+            <span class="card-badge">Operations</span>
+          </div>
+          <div class="card-body">
+            <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 600;">Sept 04, 2026 • 5 min read</span>
+            <h3 class="card-title text-gold-gradient" style="font-size: 1.25rem; margin: 0.4rem 0;">Helipad Transfers & Express Check-In</h3>
+            <p class="card-text" style="color: var(--text-dark-muted);">Streamlining high-net-worth guest transfers from private jet terminals to island helipads.</p>
+            <button class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1rem; width: 100%; justify-content: center;" onclick="window.location.href='404.html'">Read Article</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Architectural & Sustainable Design Cards -->
+  <section id="architectural-spotlight-cards" style="padding: 5rem 0; background: var(--bg-primary); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Design & Innovation</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Architectural & Sustainable Design Spotlights</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: var(--text-muted);">Explore how climate-resilient engineering, local artisan materials, and net-zero grids shape our resort portfolio.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/villa-presidential.webp" alt="Overwater Villa Bio-Engineering" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(45, 143, 140, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-leaf"></i> Green Design</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--brand-gold); font-weight: 600;">Sept 18, 2026 • 6 min read</span>
+              <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin: 0.4rem 0 0.75rem;">Overwater Villa Bio-Engineering & Solar Grids</h3>
+              <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Designing floating foundations that preserve marine ecosystems while harvesting 100% off-grid solar power.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="properties.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-compass"></i> Tour Villa</a>
+              <a href="404.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-file-lines"></i> Read Case Study</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="100">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/suite-royal.webp" alt="Royal Penthouse Acoustic Isolation" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(197, 160, 89, 0.9); color: #0F172A; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-city"></i> Urban Quietude</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 600;">Sept 15, 2026 • 5 min read</span>
+              <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin: 0.4rem 0 0.75rem;">Sky Penthouse Triple-Glazed Soundproofing</h3>
+              <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Creating silent indoor sanctuaries 80 stories above bustling metropolitan city centers.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="properties.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-city"></i> View Penthouse</a>
+              <a href="404.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-file-lines"></i> Read Case Study</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="200">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/room-deluxe.webp" alt="Alpine Chalet Geothermal Heating" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(45, 143, 140, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-mountain"></i> Alpine Tech</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--brand-gold); font-weight: 600;">Sept 11, 2026 • 8 min read</span>
+              <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin: 0.4rem 0 0.75rem;">Alpine Geothermal Heating & Reclaimed Stone</h3>
+              <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Harnessing deep geothermal pumps to heat luxury ski chalets in the Swiss Alps cleanly.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="properties.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-mountain"></i> Alpine Reserve</a>
+              <a href="404.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-file-lines"></i> Read Case Study</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Michelin Gastronomy & Wine Cellar Cards -->
+  <section id="gastronomy-cellar-cards" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Culinary Excellence</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Gastronomy & Rare Vintage Sommelier Journals</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: var(--text-muted);">Articles on Michelin tasting menus, private sommelier cellar procurement, and organic hyper-local sourcing.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/dining-michelin.webp" alt="Master Sommelier Vintages" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(197, 160, 89, 0.9); color: #0F172A; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-wine-glass"></i> Vintage Reserve</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--brand-gold); font-weight: 600;">Sept 08, 2026 • 7 min read</span>
+              <h3 style="font-size: 1.25rem; color: #FFF; margin: 0.4rem 0 0.75rem;">Procuring 1982 Bordeaux Vintages for VIP Cellars</h3>
+              <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Inside the private auctions and temperature-controlled logistics behind rare wine investments.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="services.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-wine-bottle"></i> Sommelier Menu</a>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-utensils"></i> Reserve Cellar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="100">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/hero-resort.webp" alt="Zero-Waste Organic Gastronomy" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(45, 143, 140, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-seedling"></i> Zero-Waste</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 600;">Sept 03, 2026 • 5 min read</span>
+              <h3 style="font-size: 1.25rem; color: #FFF; margin: 0.4rem 0 0.75rem;">Zero-Waste Kitchen Protocols in Island Kitchens</h3>
+              <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">How our executive chefs convert 100% of organic waste into bio-fertilizer for resort gardens.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="services.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-utensils"></i> Organic Philosophy</a>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-calendar"></i> Book Tasting</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="200">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/spa-wellness.webp" alt="In-Villa Chef Masterclass" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(197, 160, 89, 0.9); color: #0F172A; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-hat-chef"></i> Private Chef</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--brand-gold); font-weight: 600;">Aug 29, 2026 • 4 min read</span>
+              <h3 style="font-size: 1.25rem; color: #FFF; margin: 0.4rem 0 0.75rem;">Bespoke In-Villa Omakase & Chef Masterclasses</h3>
+              <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Transforming overwater villa dining pavilions into private multi-course Michelin culinary stations.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="services.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-concierge-bell"></i> Chef Services</a>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-bookmark"></i> Inquire Dining</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Smart Hospitality Tech & AI Cards -->
+  <section id="hospitality-tech-trends-cards" style="padding: 5rem 0; background: var(--brand-navy); color: #FFFFFF; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Cloud PMS Tech</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: #FFFFFF; margin: 0.5rem 0 1rem;">Hospitality AI & Operational Automation</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: rgba(248, 250, 249, 0.8);">Technical deep dives into predictive yield pricing, encrypted biometric access, and sub-8 minute SLA dispatching.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-glass glow-border" style="padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">AI Dispatch Engine</span>
+            <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.5rem;">Automating Butler SLA Dispatching</h3>
+            <p style="color: var(--text-dark-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">How real-time location beacons and predictive task routing reduce guest wait times to under 8 minutes across 34 resorts.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="staff-dashboard.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-microchip"></i> SLA Tech Demo</a>
+            <a href="dashboard.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-chart-line"></i> Revenue PMS</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-glass glow-border" style="padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--brand-teal); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Encrypted NFC Security</span>
+            <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.5rem;">Biometric & Mobile Keyless Entry</h3>
+            <p style="color: var(--text-dark-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">Replacing traditional keycards with end-to-end encrypted smartphone NFC tokens for ultra-secure villa access.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="login.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-key"></i> Key Access Portal</a>
+            <a href="about.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-shield"></i> Security Standard</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-glass glow-border" style="padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Yield Analytics</span>
+            <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.5rem;">RevPAR Dynamic Price Algorithms</h3>
+            <p style="color: var(--text-dark-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">Analyzing market demand indicators to optimize resort suite pricing dynamically while maximizing asset profitability.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="admin-dashboard.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-gauge-high"></i> Yield Console</a>
+            <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-handshake"></i> Owner Inquiry</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: VVIP Travel & Aviation Fleet Guides Cards -->
+  <section id="aviation-fleet-guides-cards" style="padding: 5rem 0; background: var(--bg-primary); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Luxury Mobility</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">VVIP Aviation & Superyacht Fleet Guides</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: var(--text-muted);">Executive operational guides on private jet terminal logistics, deep-water yacht berths, and diplomatic escort security.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/concierge-service.webp" alt="Private Jet Luggage & Airport Clearance" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(15, 23, 42, 0.85); color: var(--brand-gold); border: 1px solid var(--border-gold); padding: 0.35rem 0.85rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Aviation Protocol</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 600;">Aug 24, 2026 • 5 min read</span>
+              <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin: 0.4rem 0 0.75rem;">Private Jet Tarmac Transfer & Customs Protocols</h3>
+              <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Coordinating tarmac luggage transfers directly from Gulfstream jets into resort helicopter flights.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="services.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-plane-departure"></i> Aviation Services</a>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-paper-plane"></i> Book Transfer</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="100">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/hero-resort.webp" alt="Superyacht Marina Berths" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(45, 143, 140, 0.9); color: #FFF; padding: 0.35rem 0.85rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Superyacht Marina</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--brand-gold); font-weight: 600;">Aug 19, 2026 • 6 min read</span>
+              <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin: 0.4rem 0 0.75rem;">Deep-Water Marina Berths for 80M Superyachts</h3>
+              <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Designing private island mooring jetties equipped with high-capacity shore power and fuel bunkering.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="services.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-anchor"></i> Yacht Charters</a>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-compass"></i> Reserve Berth</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="200">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/events-ballroom.webp" alt="Diplomatic & Royal Security Escort" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(197, 160, 89, 0.9); color: #0F172A; padding: 0.35rem 0.85rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Royal Protection</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 600;">Aug 14, 2026 • 7 min read</span>
+              <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin: 0.4rem 0 0.75rem;">Diplomatic Protection Protocols for State Guests</h3>
+              <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Integrating high-level close protection details with resort operations without compromising privacy.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <a href="about.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-user-shield"></i> Security Board</a>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-shield-cat"></i> Private Request</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Editor's Choice & Audio Digest Cards -->
+  <section id="editors-choice-audio-cards" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Executive Media</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Editor's Choice & Executive Audio Digest</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: var(--text-muted);">Listen to audio Narrations, keynote presentations, and executive podcast transcripts on the go.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up">
+          <div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <img src="assets/images/avatar-admin.webp" alt="Lady Eleanor Vance" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--brand-gold);">
+              <div>
+                <strong style="color: #FFF; display: block; font-size: 0.95rem;">Lady Eleanor Vance</strong>
+                <span style="color: var(--brand-gold); font-size: 0.75rem;">Audio Edition • 18 min</span>
+              </div>
+            </div>
+            <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;" class="text-gold-gradient">The 2026 Ultra-Luxury Hospitality Yield Index</h3>
+            <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem;">Narrated executive overview of macroeconomic hotel trends and asset capitalization rates across North America & Asia-Pacific.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="404.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-headphones"></i> Listen Audio</a>
+            <a href="404.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-download"></i> PDF Summary</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <img src="assets/images/avatar-manager.webp" alt="Marcus Sterling" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--brand-teal);">
+              <div>
+                <strong style="color: #FFF; display: block; font-size: 0.95rem;">Marcus Sterling</strong>
+                <span style="color: var(--brand-teal); font-size: 0.75rem;">Keynote • 24 min</span>
+              </div>
+            </div>
+            <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;" class="text-gold-gradient">Designing Climate-Resilient Island Properties</h3>
+            <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem;">Keynote address delivered at the Geneva International Hospitality Forum on sustainable coastal architecture.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="404.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-circle-play"></i> Watch Keynote</a>
+            <a href="404.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-file-arrow-down"></i> Slide Deck</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <img src="assets/images/avatar-staff.webp" alt="Sophia Al-Mansoor" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--brand-gold);">
+              <div>
+                <strong style="color: #FFF; display: block; font-size: 0.95rem;">Sophia Al-Mansoor</strong>
+                <span style="color: var(--brand-gold); font-size: 0.75rem;">Podcast • 31 min</span>
+              </div>
+            </div>
+            <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;" class="text-gold-gradient">Next-Gen Butler Academies of Geneva</h3>
+            <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem;">Deep dive interview on training modern royal concierges in digital discretion, multi-lingual fluency, and VIP protocol.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="404.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-podcast"></i> Listen Podcast</a>
+            <a href="404.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-quote-left"></i> Transcript</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11: Quarterly Yield Reports Grid -->
+  <section id="market-reports" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Market Intelligence</span>
+        <h2 class="section-title">Quarterly RevPAR & Financial Whitepapers</h2>
+        <p class="section-desc">Downloadable executive research whitepapers prepared by Aura's yield analytics group.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div style="background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);" data-aos="fade-up">
+          <i class="fa-solid fa-file-pdf" style="font-size: 2.25rem; color: var(--brand-gold); margin-bottom: 1rem;"></i>
+          <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 700; display: block; margin-bottom: 0.4rem;">Financial Audit Report</span>
+          <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin-bottom: 0.5rem;">2026 Luxury Resort Yield Benchmark</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">Comprehensive analysis of occupancy demand trends across European & Asian luxury hospitality markets.</p>
+          <button class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1.25rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download Report PDF (4.2 MB)</button>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);" data-aos="fade-up" data-aos-delay="100">
+          <i class="fa-solid fa-file-pdf" style="font-size: 2.25rem; color: var(--brand-teal); margin-bottom: 1rem;"></i>
+          <span style="font-size: 0.8rem; color: var(--brand-gold); font-weight: 700; display: block; margin-bottom: 0.4rem;">Sustainability Whitepaper</span>
+          <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin-bottom: 0.5rem;">Net-Zero Microgrid Implementation</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">Technical case study on converting luxury island resorts to 100% solar and geothermal power.</p>
+          <button class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1.25rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download Whitepaper PDF (3.8 MB)</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Podcast & Video Interview Spotlight -->
+  <section id="editorial-interviews" style="padding: 5rem 0; background: var(--brand-navy); color: #FFF; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;" data-aos="fade-up">
+        <div>
+          <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Executive Podcast</span>
+          <h2 style="font-size: 2.35rem; color: #FFF; margin: 0.5rem 0 1rem;">Episode 42: Scaling Luxury Resorts to $1.48B Assets</h2>
+          <p style="color: rgba(248, 250, 249, 0.8); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">Founder Lady Eleanor Vance joins Hospitality Leaders Podcast to discuss RevPAR optimization, bespoke butler training, and ocean coral protection.</p>
+          <button class="btn-aura btn-gold btn-lg shimmer-btn" onclick="window.location.href='404.html'">
+            <i class="fa-solid fa-circle-play"></i> Listen to Episode (34 mins)
+          </button>
+        </div>
+        <div class="card-glass glow-border" style="padding: 2rem; text-align: center;">
+          <i class="fa-solid fa-podcast" style="font-size: 3.5rem; color: var(--brand-gold); margin-bottom: 1rem;"></i>
+          <h4 style="font-size: 1.25rem; color: #FFF; margin-bottom: 0.5rem;">Hospitality Executive Voices</h4>
+          <p style="color: var(--text-dark-muted); font-size: 0.85rem;">Available on Apple Podcasts, Spotify & Bloomberg Audio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Executive Author Profiles Grid -->
+  <section id="editorial-authors" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom text-center">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Editorial Board</span>
+        <h2 class="section-title">Meet Our Journal Contributors</h2>
+        <p class="section-desc">Articles are authored by industry experts, hospitality executives, and master sommeliers.</p>
+      </div>
+
+      <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        <div class="card-glass glow-border" style="padding: 1.25rem 2rem; display: flex; align-items: center; gap: 1rem;">
+          <img src="assets/images/avatar-admin.webp" alt="Eleanor Vance" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--brand-gold);">
+          <div style="text-align: left;">
+            <strong style="color: #FFF; display: block; font-size: 0.95rem;">Lady Eleanor Vance</strong>
+            <span style="color: var(--brand-gold); font-size: 0.8rem;">CEO & Editor-in-Chief</span>
+          </div>
+        </div>
+
+        <div class="card-glass glow-border" style="padding: 1.25rem 2rem; display: flex; align-items: center; gap: 1rem;">
+          <img src="assets/images/avatar-manager.webp" alt="Marcus Sterling" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--brand-teal);">
+          <div style="text-align: left;">
+            <strong style="color: #FFF; display: block; font-size: 0.95rem;">Marcus Sterling</strong>
+            <span style="color: var(--brand-teal); font-size: 0.8rem;">COO & Yield Contributor</span>
+          </div>
+        </div>
+
+        <div class="card-glass glow-border" style="padding: 1.25rem 2rem; display: flex; align-items: center; gap: 1rem;">
+          <img src="assets/images/avatar-staff.webp" alt="Sophia Al-Mansoor" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--brand-gold);">
+          <div style="text-align: left;">
+            <strong style="color: #FFF; display: block; font-size: 0.95rem;">Sophia Al-Mansoor</strong>
+            <span style="color: var(--brand-gold); font-size: 0.8rem;">VP Guest Excellence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Journal Newsletter Subscription Form -->
+  <section id="newsletter-form-section" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom" style="max-width: 650px;" data-aos="fade-up">
+      <div style="background: var(--brand-navy); padding: 3rem 2.5rem; border-radius: var(--radius-lg); color: #FFF; border: 1px solid var(--border-gold); text-align: center;">
+        <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Quarterly Subscription</span>
+        <h2 style="font-size: 2rem; color: #FFF; margin: 0.5rem 0 0.75rem;">Receive Aura Quarterly Journal</h2>
+        <p style="color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 1.5rem;">Join 15,000+ luxury hospitality executives receiving our market yield digest.</p>
+        <form id="newsletter-form" style="display: flex; gap: 0.75rem; flex-wrap: wrap;" onsubmit="event.preventDefault(); Toast.show('Subscribed!', 'Added to Aura Journal quarterly distribution.', 'success');">
+          <input type="email" class="form-control-aura" placeholder="Enter executive email..." style="flex-grow: 1; background: rgba(255,255,255,0.08); color: #FFF; border-color: rgba(255,255,255,0.2);" required>
+          <button type="submit" class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: 10-Year Journal Archive Banner -->
+  <section id="article-archive" style="padding: 4rem 0; background: var(--brand-navy); color: #FFF; text-align: center; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom">
+      <i class="fa-solid fa-book-bookmark" style="font-size: 2.25rem; color: var(--brand-gold); margin-bottom: 0.75rem;"></i>
+      <h3 style="font-size: 1.85rem; color: #FFF; margin-bottom: 0.5rem;">Explore Full 10-Year Journal Archive</h3>
+      <p style="color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto 1.5rem;">Access 150+ published case studies on luxury hotel yield, architectural design, and guest satisfaction.</p>
+      <a href="properties.html" class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-book-open"></i> Explore Property Case Studies</a>
+    </div>
+  </section>
+
+  <!-- SECTION 11: Comprehensive Footer -->
+  <section id="footer-section" style="padding: 0; background: #090D16;">
+    <footer class="footer-aura">
+      <div class="container-custom">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo-brand" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+              <img src="assets/images/logo.webp" alt="Stackly" class="logo-image" style="height: 32px; width: auto; max-width: 150px; filter: brightness(0) invert(1);">
+            </a>
+            <p>The intelligent enterprise management platform built for scale.</p>
+            <div class="footer-socials">
+              <a href="404.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="404.html" class="footer-social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Support</h4>
+            <ul class="footer-links">
+              <li><a href="404.html">Help Center</a></li>
+              <li><a href="404.html">FAQ</a></li>
+              <li><a href="404.html">Documentation</a></li>
+              <li><a href="404.html">Privacy Policy</a></li>
+              <li><a href="404.html">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Connect</h4>
+            <div class="footer-connect-list">
+              <div class="footer-connect-item">
+                <i class="fa-solid fa-location-dot footer-connect-icon"></i>
+                <div>
+                  <div class="footer-connect-label">Office Address:</div>
+                  <div class="footer-connect-value">Salem, India</div>
+                </div>
+              </div>
+              <div class="footer-connect-item">
+                <i class="fa-solid fa-phone footer-connect-icon"></i>
+                <div>
+                  <div class="footer-connect-label">Phone:</div>
+                  <div class="footer-connect-value">+91 98765 43210</div>
+                </div>
+              </div>
+              <div class="footer-connect-item">
+                <i class="fa-solid fa-envelope footer-connect-icon"></i>
+                <div>
+                  <div class="footer-connect-label">Sales Email:</div>
+                  <div class="footer-connect-value">info@stackly.com</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-palette-pill">
+            <i class="fa-solid fa-palette" style="color: #FFFFFF; font-size: 0.85rem;"></i>
+            <span>PALETTE:</span>
+            <span class="footer-palette-dot" style="background: #38BDF8; box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);"></span>
+            <span class="footer-palette-dot" style="background: #EC4899; box-shadow: 0 0 6px rgba(236, 72, 153, 0.6);"></span>
+            <span class="footer-palette-dot" style="background: #34D399; box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);"></span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+            <span>&copy; 2026 Stackly Inc. All Rights Reserved.</span>
+            <a href="404.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Privacy Policy</a>
+            <a href="404.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

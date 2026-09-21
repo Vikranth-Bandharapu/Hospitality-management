@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resort Portfolio & Suite Explorer | Aura Hospitality</title>
+  <meta name="description" content="Browse and reserve luxury villas, penthouses, and executive suites across Aura's managed property portfolio.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <style>
+    .filter-pill {
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-light);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .filter-pill:hover, .filter-pill.active {
+      background: var(--brand-navy);
+      color: var(--brand-gold);
+      border-color: var(--brand-gold);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION 1: Top VIP Guarantee Announcement Bar -->
+
+  <!-- SECTION 2: Navigation Bar -->
+  <section id="header-section" style="padding: 0; position: sticky; top: 0; z-index: 1000; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-gold);">
+    <header class="navbar scrolled" style="border: none;">
+      <div class="container nav-container">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+                        <div class="nav-actions">
+          <a href="login.html" class="btn-aura btn-outline-gold btn-sm"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+          <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn"><i class="fa-solid fa-user-plus"></i> Register</a>
+          <button class="mobile-toggle" aria-label="Open Navigation Drawer"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+        <button class="drawer-close" aria-label="Close Drawer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <ul class="drawer-nav-links">
+        <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="drawer-nav-link"><i class="fa-solid fa-building"></i> About Us</a></li>
+        <li><a href="blog.html" class="drawer-nav-link"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+        <li><a href="services.html" class="drawer-nav-link"><i class="fa-solid fa-bell-concierge"></i> Services</a></li>
+        <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-dark);">
+      <a href="login.html" class="btn-aura btn-outline-gold btn-sm" style="width: 100%; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="width: 100%; justify-content: center;"><i class="fa-solid fa-user-plus"></i> Register</a>
+    </div>
+  </aside>
+
+  <!-- SECTION 3: Hero Banner -->
+  <section id="properties-hero" style="padding: 7rem 0 4rem; background: var(--brand-navy); color: #FFFFFF; text-align: center; border-bottom: 1px solid var(--border-gold);">
+    <div class="container-custom">
+      <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;">Curated Sanctuary Explorer</span>
+      <h1 style="font-size: 3.25rem; color: #FFFFFF; margin: 0.5rem 0 1rem;">Flagship Resorts & VIP Suites</h1>
+      <p style="max-width: 650px; margin: 0 auto; color: rgba(248, 250, 249, 0.8); font-size: 1.1rem;">Explore overwater villas, penthouse skylines, and alpine retreats equipped with 24/7 dedicated concierge teams.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Filter Pills & Search Control -->
+  <section id="suite-filters" style="padding: 2.25rem 0; background: var(--bg-surface); border-bottom: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+        <div id="property-filter-pills" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button class="filter-pill active" data-filter="all">All Sanctuaries</button>
+          <button class="filter-pill" data-filter="Villa">Overwater Villas</button>
+          <button class="filter-pill" data-filter="Penthouse">Skyline Penthouses</button>
+          <button class="filter-pill" data-filter="Suite">Executive Suites</button>
+          <button class="filter-pill" data-filter="Deluxe Room">Deluxe Havens</button>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span style="font-size: 0.875rem; color: var(--text-muted); font-weight: 600;">Sort By:</span>
+          <select class="form-control-aura" style="width: auto; padding: 0.4rem 1rem;">
+            <option>Featured First</option>
+            <option>Price: High to Low</option>
+            <option>Price: Low to High</option>
+            <option>Rating: Highest</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Flagship Suite Spotlight Banner -->
+  <section id="spotlight-banner" style="padding: 4rem 0; background: var(--bg-surface-elevated);">
+    <div class="container-custom">
+      <div style="background: var(--brand-navy); border-radius: var(--radius-lg); padding: 3rem; color: #FFFFFF; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; border: 1px solid var(--border-gold);" data-aos="fade-up">
+        <div>
+          <span class="card-badge" style="position: static; display: inline-block; margin-bottom: 1rem;">Spotlight Collection</span>
+          <h2 style="font-size: 2.25rem; color: #FFFFFF; margin-bottom: 1rem;">Presidential Maldives Overwater Villa</h2>
+          <p style="color: rgba(248, 250, 249, 0.8); font-size: 1rem; margin-bottom: 1.5rem;">Perched over turquoise lagoon waters, featuring private glass plunge pool deck, sub-ocean dining room, and private yacht pier.</p>
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <div style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 700; color: var(--brand-gold);">$2,850 <span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">/ night</span></div>
+            <button class="btn-aura btn-gold shimmer-btn" data-modal-target="reservation-modal"><i class="fa-solid fa-calendar-check"></i> Reserve Flagship Villa</button>
+          </div>
+        </div>
+        <div>
+          <img src="assets/images/villa-presidential.webp" alt="Presidential Villa Spotlight" loading="lazy" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Interactive Room Grid -->
+  <section id="properties-grid" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem;">
+        
+        <div class="card-aura property-card-item" data-type="Villa" data-aos="fade-up">
+          <div class="card-img-wrapper">
+            <img src="assets/images/villa-presidential.webp" alt="Presidential Ocean Villa in Maldives" loading="lazy">
+            <span class="card-badge">Maldives Atoll</span>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-gold);">Overwater Villa</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-star" style="color: var(--brand-gold);"></i> 4.98</span>
+            </div>
+            <h3 class="card-title">Presidential Ocean Villa</h3>
+            <p class="card-text">6 Guests • 3 Bedrooms • Private Glass Pool Deck • 24/7 Butler</p>
+            <div class="card-meta">
+              <div class="card-price">$2,850 <span>/ night</span></div>
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" data-modal-target="reservation-modal"><i class="fa-solid fa-calendar-check"></i> Reserve</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-aura property-card-item" data-type="Penthouse" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-img-wrapper">
+            <img src="assets/images/suite-royal.webp" alt="Royal Skyline Penthouse in Dubai" loading="lazy">
+            <span class="card-badge">Dubai Marina</span>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-gold);">Skyline Penthouse</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-star" style="color: var(--brand-gold);"></i> 4.95</span>
+            </div>
+            <h3 class="card-title">Royal Skyline Penthouse</h3>
+            <p class="card-text">4 Guests • 2 Bedrooms • Dual Floor • Private Rooftop Spa Pool</p>
+            <div class="card-meta">
+              <div class="card-price">$1,950 <span>/ night</span></div>
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" data-modal-target="reservation-modal"><i class="fa-solid fa-calendar-check"></i> Reserve</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-aura property-card-item" data-type="Suite" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-img-wrapper">
+            <img src="assets/images/suite-executive.webp" alt="Executive Balcony Suite in Swiss Alps" loading="lazy">
+            <span class="card-badge">Swiss Alps</span>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-gold);">Executive Suite</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-star" style="color: var(--brand-gold);"></i> 4.92</span>
+            </div>
+            <h3 class="card-title">Executive Alpine Suite</h3>
+            <p class="card-text">2 Guests • 1 King Bedroom • Fireplace • Ski-in Access</p>
+            <div class="card-meta">
+              <div class="card-price">$1,200 <span>/ night</span></div>
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" data-modal-target="reservation-modal"><i class="fa-solid fa-calendar-check"></i> Reserve</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-aura property-card-item" data-type="Deluxe Room" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-img-wrapper">
+            <img src="assets/images/room-deluxe.webp" alt="Deluxe Oceanfront Haven in Santorini" loading="lazy">
+            <span class="card-badge">Santorini</span>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-gold);">Deluxe Haven</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-star" style="color: var(--brand-gold);"></i> 4.88</span>
+            </div>
+            <h3 class="card-title">Deluxe Caldera Haven</h3>
+            <p class="card-text">2 Guests • Cliffside Plunge Pool • Sunset Caldera View</p>
+            <div class="card-meta">
+              <div class="card-price">$780 <span>/ night</span></div>
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" data-modal-target="reservation-modal"><i class="fa-solid fa-calendar-check"></i> Reserve</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Compare Suite Specifications Matrix -->
+  <section id="specifications-matrix" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Suite Comparison</span>
+        <h2 class="section-title">Specifications & Privileges Matrix</h2>
+      </div>
+
+      <div class="dash-card" style="overflow-x: auto;" data-aos="fade-up">
+        <table class="table-aura">
+          <thead>
+            <tr>
+              <th>Suite Collection</th>
+              <th>Area Sq Ft</th>
+              <th>Private Pool</th>
+              <th>Dedicated Butler</th>
+              <th>Helipad Transfer</th>
+              <th>Nightly Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Presidential Ocean Villa</strong></td>
+              <td>4,500 sq ft</td>
+              <td><i class="fa-solid fa-check" style="color: var(--brand-teal);"></i> Overwater Glass Pool</td>
+              <td><i class="fa-solid fa-check" style="color: var(--brand-teal);"></i> 24/7 Dedicated</td>
+              <td><i class="fa-solid fa-check" style="color: var(--brand-teal);"></i> Included</td>
+              <td><strong>$2,850</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Royal Skyline Penthouse</strong></td>
+              <td>3,800 sq ft</td>
+              <td><i class="fa-solid fa-check" style="color: var(--brand-teal);"></i> Rooftop Plunge Pool</td>
+              <td><i class="fa-solid fa-check" style="color: var(--brand-teal);"></i> On Demand</td>
+              <td><i class="fa-solid fa-check" style="color: var(--brand-teal);"></i> Chauffeur VIP</td>
+              <td><strong>$1,950</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Executive Alpine Suite</strong></td>
+              <td>2,200 sq ft</td>
+              <td><i class="fa-solid fa-xmark" style="color: #94A3B8;"></i> (Thermal Bath Access)</td>
+              <td><i class="fa-solid fa-check" style="color: var(--brand-teal);"></i> On Demand</td>
+              <td><i class="fa-solid fa-xmark" style="color: #94A3B8;"></i> (Ski Chauffeur)</td>
+              <td><strong>$1,200</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: In-Suite Privileges & Amenities -->
+  <section id="vip-privileges" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">VIP Privileges</span>
+        <h2 class="section-title">Included in Every Aura Sanctuary</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);" data-aos="fade-up">
+          <i class="fa-solid fa-key" style="color: var(--brand-gold); font-size: 1.5rem; margin-bottom: 0.75rem;"></i>
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">NFC Digital Key Access</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Contactless smartphone door entry without waiting at reception.</p>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);" data-aos="fade-up" data-aos-delay="100">
+          <i class="fa-solid fa-wine-glass" style="color: var(--brand-gold); font-size: 1.5rem; margin-bottom: 0.75rem;"></i>
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">Vintage Cellar Bar</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Stocked artisanal sommelier wine cellar in every master living room.</p>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);" data-aos="fade-up" data-aos-delay="200">
+          <i class="fa-solid fa-car" style="color: var(--brand-gold); font-size: 1.5rem; margin-bottom: 0.75rem;"></i>
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">Private Airport Chauffeur</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Seamless luxury Maybach transfer from runway directly to your villa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Frequently Asked Questions (Accordion) -->
+  <section id="faqs-section" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom" style="max-width: 800px;">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Reservation Queries</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem;" data-aos="fade-up">
+        <div style="background: var(--bg-surface); padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+          <h4 style="font-size: 1.05rem; color: var(--brand-navy); margin-bottom: 0.4rem;"><i class="fa-solid fa-circle-question" style="color: var(--brand-gold);"></i> What is the cancellation policy for VIP reservations?</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">VIP bookings can be cancelled or rescheduled up to 48 hours prior to check-in with 100% credit transfer.</p>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+          <h4 style="font-size: 1.05rem; color: var(--brand-navy); margin-bottom: 0.4rem;"><i class="fa-solid fa-circle-question" style="color: var(--brand-gold);"></i> How does digital key access work?</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Upon confirmation, a secure encrypted token is pushed to your mobile device via the Aura Guest Portal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Booking Guarantee Banner -->
+  <section id="booking-guarantee-banner" style="padding: 4rem 0; background: var(--brand-navy); color: #FFF; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom text-center">
+      <h3 style="font-size: 2rem; color: var(--brand-gold); margin-bottom: 0.5rem;">Best Rate & Direct Luxury Service Guarantee</h3>
+      <p style="color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto 1.5rem;">Book directly through Aura to receive exclusive complimentary upgrade credits and late checkout.</p>
+      <button class="btn-aura btn-gold shimmer-btn" data-modal-target="reservation-modal"><i class="fa-solid fa-star"></i> Book Direct VIP Experience</button>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Copyright Notice -->
+  <section id="copyright-bar-section" style="padding: 1.5rem 0; background: #090D16; color: rgba(248, 250, 249, 0.7); text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div class="container-custom" style="text-align: center;">
+      <span>&copy; 2026 Stackly Inc. All Rights Reserved.</span>
+    </div>
+  </section>
+
+  <!-- Reservation Confirmation Modal -->
+  <div class="modal-overlay" id="reservation-modal">
+    <div class="modal-content-aura">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-hotel" style="color: var(--brand-gold);"></i> VIP Reservation Booking</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="booking-modal-form">
+          <div class="form-group">
+            <label class="form-label">Full Guest Name</label>
+            <input type="text" class="form-control-aura" placeholder="e.g. Lord Harrison Blake" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Corporate / VIP Email</label>
+            <input type="email" class="form-control-aura" placeholder="guest@aurahospitality.com" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Check-In</label>
+              <input type="date" class="form-control-aura" value="2026-10-01" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Check-Out</label>
+              <input type="date" class="form-control-aura" value="2026-10-08" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Special Concierge Requests</label>
+            <textarea class="form-control-aura" rows="3" placeholder="e.g. Private airport helicopter transfer, dietary preferences..."></textarea>
+          </div>
+
+          <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+            <button type="button" class="modal-close btn-aura btn-outline-gold">Cancel</button>
+            <button type="submit" class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-paper-plane"></i> Confirm VIP Reservation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

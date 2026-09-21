@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIP Guest Experience & Digital Key | Aura Hospitality</title>
+  <meta name="description" content="Experience contactless NFC digital room keys, instant butler dispatch, and personalized luxury stay itineraries.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+  <!-- SECTION 1: VIP Welcome Bar -->
+
+  <!-- SECTION 2: Navigation Bar -->
+  <section id="header-section" style="padding: 0; position: sticky; top: 0; z-index: 1000; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-gold);">
+    <header class="navbar scrolled" style="border: none;">
+      <div class="container nav-container">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+                        <div class="nav-actions">
+          <a href="login.html" class="btn-aura btn-outline-gold btn-sm"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+          <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn"><i class="fa-solid fa-user-plus"></i> Register</a>
+          <button class="mobile-toggle" aria-label="Open Navigation Drawer"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+        <button class="drawer-close" aria-label="Close Drawer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <ul class="drawer-nav-links">
+        <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="drawer-nav-link"><i class="fa-solid fa-building"></i> About Us</a></li>
+        <li><a href="blog.html" class="drawer-nav-link"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+        <li><a href="services.html" class="drawer-nav-link"><i class="fa-solid fa-bell-concierge"></i> Services</a></li>
+        <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-dark);">
+      <a href="login.html" class="btn-aura btn-outline-gold btn-sm" style="width: 100%; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="width: 100%; justify-content: center;"><i class="fa-solid fa-user-plus"></i> Register</a>
+    </div>
+  </aside>
+
+  <!-- SECTION 3: Guest Experience Hero -->
+  <section id="guest-hero" style="padding: 7rem 0 4rem; background: var(--brand-navy); color: #FFFFFF; text-align: center; border-bottom: 1px solid var(--border-gold); position: relative; overflow: hidden;">
+    <div class="ambient-orb orb-teal" style="top: -50px; right: -50px;"></div>
+    <div class="container-custom" style="position: relative; z-index: 10;">
+      <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;">Digital Luxury Standard</span>
+      <h1 style="font-size: 3.25rem; color: #FFFFFF; margin: 0.5rem 0 1rem;">Frictionless Contactless Stay Journey</h1>
+      <p style="max-width: 650px; margin: 0 auto; color: rgba(248, 250, 249, 0.8); font-size: 1.1rem;">Bypass traditional hotel check-in desks. Unlock your overwater villa, order Michelin room service, and request butler assistance directly from your phone.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Pre-Arrival Concierge Portal -->
+  <section id="pre-arrival" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" data-aos="fade-up">
+        <div>
+          <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Step 1: Pre-Arrival</span>
+          <h2 style="font-size: 2.25rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Customize Suite Temperature & Amenities Before Touchdown</h2>
+          <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem;">Configure your preferred ambient temperature, pillow firmness, arrival champagne, and playlist 24 hours before landing.</p>
+          <button class="btn-aura btn-gold shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-sliders"></i> Configure Arrival Preferences</button>
+        </div>
+        <div>
+          <img src="assets/images/concierge-service.webp" alt="Pre-Arrival Concierge" loading="lazy" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Contactless NFC Key Technology Showcase -->
+  <section id="nfc-key" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom text-center">
+      <div style="background: var(--brand-navy); color: #FFF; padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border-gold); max-width: 750px; margin: 0 auto;" data-aos="fade-up">
+        <i class="fa-solid fa-key" style="font-size: 3rem; color: var(--brand-gold); margin-bottom: 1rem;"></i>
+        <h2 style="font-size: 2.25rem; color: #FFF; margin-bottom: 0.75rem;">Encrypted NFC Smartphone Key</h2>
+        <p style="color: rgba(248, 250, 249, 0.8); font-size: 1rem; margin-bottom: 1.5rem;">Hold your smartphone or Apple Watch near Villa 101's smart lock for sub-second door release.</p>
+        <button class="btn-aura btn-gold btn-lg shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-unlock"></i> Test Digital Key Sensor</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Smart In-Room Ambient Controls -->
+  <section id="smart-controls" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Smart Suite Controls</span>
+        <h2 class="section-title">In-Room Lighting, Blinds & Hydrotherapy</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);" data-aos="fade-up">
+          <i class="fa-solid fa-lightbulb" style="color: var(--brand-gold); font-size: 1.75rem; margin-bottom: 0.75rem;"></i>
+          <h4 style="font-size: 1.1rem;">Sunset Mood Lighting</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Automated circadian lighting shifts with sunset hours.</p>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);" data-aos="fade-up" data-aos-delay="100">
+          <i class="fa-solid fa-hot-tub-person" style="color: var(--brand-teal); font-size: 1.75rem; margin-bottom: 0.75rem;"></i>
+          <h4 style="font-size: 1.1rem;">Plunge Pool Thermal Control</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Adjust water temperature directly from your bed.</p>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);" data-aos="fade-up" data-aos-delay="200">
+          <i class="fa-solid fa-music" style="color: var(--brand-navy); font-size: 1.75rem; margin-bottom: 0.75rem;"></i>
+          <h4 style="font-size: 1.1rem;">Acoustic Soundscapes</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Spatial ocean soundscapes synced across all villa suites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Personal Butler Messaging Simulator -->
+  <section id="butler-chat" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom" style="max-width: 700px;" data-aos="fade-up">
+      <div class="section-header">
+        <span class="section-subtitle">24/7 Butler Messenger</span>
+        <h2 class="section-title">Instant Butler Chat Feed</h2>
+      </div>
+
+      <div style="background: var(--brand-navy); border-radius: var(--radius-md); padding: 1.5rem; color: #FFF; border: 1px solid var(--border-gold);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1rem;">
+          <img src="assets/images/avatar-staff.webp" alt="Head Butler" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid var(--brand-gold);">
+          <div>
+            <h5 style="margin: 0; color: #FFF;">Head Butler Sophia M.</h5>
+            <span style="font-size: 0.75rem; color: var(--brand-teal);">Online • Villa 101 Dedicated</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem; margin-bottom: 1rem;">
+          <div style="background: rgba(255,255,255,0.08); padding: 0.75rem; border-radius: 8px; max-width: 80%;">
+            Good morning Lord Blake, your 8:30 AM organic breakfast & papaya juice is ready. Shall I serve it on the plunge pool deck?
+          </div>
+          <div style="background: var(--brand-gold); color: var(--brand-navy); font-weight: 600; padding: 0.75rem; border-radius: 8px; max-width: 80%; align-self: flex-end;">
+            Yes please Sophia, and prepare the catamaran for 10:00 AM diving.
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.5rem;">
+          <input type="text" class="form-control-aura" placeholder="Type message to butler..." style="background: rgba(255,255,255,0.08); color: #FFF; border-color: rgba(255,255,255,0.2);">
+          <button class="btn-aura btn-gold shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Tailored Itinerary Planner -->
+  <section id="itinerary-planner" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom text-center">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Custom Itinerary</span>
+        <h2 class="section-title">Automated Daily Experience Schedule</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+          <strong style="color: var(--brand-gold);">08:30 AM</strong>
+          <h4>Floating Deck Breakfast</h4>
+        </div>
+        <div style="background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+          <strong style="color: var(--brand-teal);">10:30 AM</strong>
+          <h4>Reef Diving Catamaran</h4>
+        </div>
+        <div style="background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+          <strong style="color: var(--brand-gold);">04:00 PM</strong>
+          <h4>Thermal Spa Hammam</h4>
+        </div>
+        <div style="background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+          <strong style="color: var(--brand-navy);">08:00 PM</strong>
+          <h4>Michelin Chef Dinner</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: VIP Membership Privilege Tiers -->
+  <section id="privilege-tiers" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Patron Levels</span>
+        <h2 class="section-title">Aura VIP Privilege Tiers</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div class="card-aura" style="padding: 2rem; border-color: var(--brand-gold);" data-aos="fade-up">
+          <span style="color: var(--brand-gold); font-weight: 700; text-transform: uppercase;">Gold Member</span>
+          <h3 style="font-size: 1.5rem; color: var(--brand-navy); margin: 0.5rem 0;">Gold Patron</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Express NFC key checkin & complimentary sommelier wine bottle upon arrival.</p>
+        </div>
+
+        <div class="card-aura" style="padding: 2rem; border-color: var(--brand-teal);" data-aos="fade-up" data-aos-delay="100">
+          <span style="color: var(--brand-teal); font-weight: 700; text-transform: uppercase;">Platinum Patron</span>
+          <h3 style="font-size: 1.5rem; color: var(--brand-navy); margin: 0.5rem 0;">Platinum Privilege</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Dedicated 24/7 butler, free airport helicopter transfer, late 4:00 PM check-out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Seamless Guest Journey Guarantee -->
+  <section id="guest-guarantee" style="padding: 4rem 0; background: var(--brand-navy); color: #FFF; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom text-center">
+      <h3 style="font-size: 2rem; color: var(--brand-gold); margin-bottom: 0.5rem;">Unrivaled Luxury Experience Guarantee</h3>
+      <p style="color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto 1.5rem;">From runway arrival to departure, every second of your stay is tailored to your exact specifications.</p>
+      <a href="services.html" class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-star"></i> Explore Guest Services</a>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Copyright Notice -->
+  <section id="copyright-bar-section" style="padding: 1.5rem 0; background: #090D16; color: rgba(248, 250, 249, 0.7); text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div class="container-custom" style="text-align: center;">
+      <span>&copy; 2026 Stackly Inc. All Rights Reserved.</span>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

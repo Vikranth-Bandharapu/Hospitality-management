@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>General Manager Operations Portal | Stackly Aura</title>
+  <meta name="description" content="General manager portal for resort operations, occupancy tracking, room inventories, and staff scheduling.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .dash-tab-panel {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .dash-tab-panel.active-panel {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .dash-nav-link-gm {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 6px;
+      color: #94A3B8;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .dash-nav-link-gm:hover, .dash-nav-link-gm.active {
+      background: rgba(16, 185, 129, 0.15) !important;
+      color: #10B981 !important;
+      border-left: 3px solid #10B981;
+    }
+    .dash-nav-link-gm:hover i, .dash-nav-link-gm.active i {
+      color: #10B981 !important;
+    }
+  </style>
+</head>
+<body class="dashboard-page" style="background-color: #06111E;">
+  <div class="dash-sidebar-backdrop"></div>
+
+  <div class="dashboard-wrapper">
+    
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dash-sidebar" style="background: #040A12; border-right: 1px solid rgba(16, 185, 129, 0.2); display: flex; flex-direction: column; height: 100vh; overflow: hidden; position: fixed; top: 0; left: 0;">
+      <div class="dash-sidebar-header" style="padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;">
+        <a href="manager-dashboard.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image" style="height: 30px;"></a>
+      </div>
+
+      <!-- SECTION 2: Operations Navigation -->
+      <section id="gm-sidebar-nav" style="padding: 0; background: transparent; flex: 1 1 auto; overflow-y: auto;">
+        <nav class="dash-nav" style="padding: 0.75rem 0.65rem; gap: 0.35rem;">
+          <div class="dash-nav-title" style="color: rgba(16, 185, 129, 0.7); font-size: 0.7rem; margin-bottom: 0.35rem; padding: 0.25rem 0.5rem;">OPERATIONS COMMAND</div>
+          <a class="dash-nav-link-gm active" data-tab="tab-gm-overview" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;"><i class="fa-solid fa-chart-line"></i> <span>DAILY SHIFT COMMAND</span></a>
+          <a class="dash-nav-link-gm" data-tab="tab-gm-rooms" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;"><i class="fa-solid fa-bed"></i> <span>ROOM MATRIX</span></a>
+          <a class="dash-nav-link-gm" data-tab="tab-gm-reservations" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;"><i class="fa-solid fa-plane-arrival"></i> <span>TODAY VIP ARRIVALS</span></a>
+          <a class="dash-nav-link-gm" data-tab="tab-gm-guests" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;"><i class="fa-solid fa-address-book"></i> <span>IN-HOUSE MANIFEST</span></a>
+          <a class="dash-nav-link-gm" data-tab="tab-gm-housekeeping" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;"><i class="fa-solid fa-broom"></i> <span>HOUSEKEEPING AUDITS</span></a>
+          <a class="dash-nav-link-gm" data-tab="tab-gm-staff" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;"><i class="fa-solid fa-user-clock"></i> <span>STAFF SHIFT ROSTER</span></a>
+          <a class="dash-nav-link-gm" data-tab="tab-gm-messages" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;"><i class="fa-solid fa-comments"></i> <span>FRONT DESK CHAT</span></a>
+          <a class="dash-nav-link-gm" data-tab="tab-gm-settings" style="padding: 0.65rem 0.75rem; font-size: 0.8rem;"><i class="fa-solid fa-sliders"></i> <span>NIGHT AUDIT CONFIG</span></a>
+        </nav>
+      </section>
+
+      <!-- SECTION 3: Operations Session Badge -->
+      <div style="padding: 0.6rem 0.85rem; margin: 0.35rem 0.65rem; background: rgba(16, 185, 129, 0.08); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.2); display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0;">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: #10B981; color: #04101E; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.775rem; flex-shrink: 0;">VB</div>
+        <div style="overflow: hidden;">
+          <div style="font-size: 0.75rem; font-weight: 700; color: #FFFFFF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">gm@stacklyaura.com</div>
+          <div style="font-size: 0.625rem; color: #10B981; font-weight: 700; text-transform: uppercase;">OPERATIONS SESSION</div>
+        </div>
+      </div>
+
+      <div class="dash-sidebar-footer" style="padding: 0.5rem 0.65rem 0.75rem 0.65rem; border-top: 1px solid rgba(255,255,255,0.08); flex-shrink: 0;">
+        <a onclick="sessionStorage.clear(); window.location.href='index.html';" class="dash-nav-link-gm" style="color: #FF5252 !important; width: 100%; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; cursor: pointer; text-align: left; padding: 0.65rem 0.85rem; display: flex; align-items: center; gap: 0.65rem; text-decoration: none; transition: all 0.2s ease;">
+          <i class="fa-solid fa-right-from-bracket" style="color: #FF5252; font-size: 1rem;"></i>
+          <span style="font-weight: 800; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; color: #FF5252;">LOGOUT TO HOME</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dash-main">
+      
+      <!-- SECTION 4: Top Bar -->
+      <section id="gm-topbar" style="padding: 0;">
+        <header class="dash-topbar" style="background: #091827; border-bottom: 1px solid rgba(16, 185, 129, 0.2);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <button class="dash-mobile-toggle" onclick="toggleDashboardSidebar(event)" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i> Menu</button>
+            <div class="dash-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" class="form-control-aura" placeholder="Search rooms, arrivals, staff shifts..." onkeyup="Toast.show('Search', 'Filtering records...', 'info', 1000)">
+            </div>
+          </div>
+        </header>
+      </section>
+
+      <div class="dash-content">
+
+        <!-- TAB 1: OPERATIONS COMMAND -->
+        <div id="tab-gm-overview" class="dash-tab-panel active-panel">
+          
+          <!-- Manager Welcome Card -->
+          <div style="background: linear-gradient(135deg, rgba(6, 20, 35, 0.95), rgba(10, 35, 30, 0.95)); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 1.5rem 1.75rem; display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem;">
+            <div style="width: 58px; height: 58px; border-radius: 50%; background: #10B981; color: #04101E; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 800; flex-shrink: 0;"><i class="fa-solid fa-user-shield"></i></div>
+            <div>
+              <h2 style="font-size: 1.45rem; color: #FFFFFF; font-weight: 700; margin: 0 0 0.25rem 0; font-family: 'Playfair Display', serif;">
+                Welcome, Vikrant Bandharapu
+                <span style="font-size: 0.95rem; color: #10B981; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; margin-left: 0.5rem;">gm@stacklyaura.com</span>
+              </h2>
+              <div style="font-size: 0.75rem; color: #10B981; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">GENERAL MANAGER • CHENNAI SANCTUARY RESORT OPERATIONS HQ</div>
+            </div>
+          </div>
+
+          <!-- 4 Operations KPI Cards -->
+          <section id="gm-kpi-grid" style="margin-bottom: 1.5rem;">
+            <div class="stat-grid">
+              <div class="stat-card-ref" onclick="document.querySelector('[data-tab=tab-gm-guests]').click()" style="cursor: pointer; border-color: rgba(16, 185, 129, 0.2);">
+                <i class="fa-solid fa-users stat-icon-bg"></i>
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.35rem;">TODAY IN-HOUSE GUESTS</div>
+                <div style="font-size: 1.65rem; color: #10B981; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">184 GUESTS</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> 82 / 85 Suites Occupied (96.8%)</div>
+              </div>
+
+              <div class="stat-card-ref" onclick="document.querySelector('[data-tab=tab-gm-reservations]').click()" style="cursor: pointer; border-color: rgba(16, 185, 129, 0.2);">
+                <i class="fa-solid fa-plane-arrival stat-icon-bg"></i>
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.35rem;">EXPECTED VIP ARRIVALS</div>
+                <div style="font-size: 1.65rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">4 VIP GUESTS</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> Helicopter & Butler Assigned</div>
+              </div>
+
+              <div class="stat-card-ref" onclick="document.querySelector('[data-tab=tab-gm-housekeeping]').click()" style="cursor: pointer; border-color: rgba(16, 185, 129, 0.2);">
+                <i class="fa-solid fa-broom stat-icon-bg"></i>
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.35rem;">HOUSEKEEPING INSPECTED</div>
+                <div style="font-size: 1.65rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">18 ROOMS PASSED</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> 100% Passed Hygiene Audit</div>
+              </div>
+
+              <div class="stat-card-ref" onclick="document.querySelector('[data-tab=tab-gm-staff]').click()" style="cursor: pointer; border-color: rgba(16, 185, 129, 0.2);">
+                <i class="fa-solid fa-id-badge stat-icon-bg"></i>
+                <div style="font-size: 0.75rem; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.35rem;">STAFF ON ACTIVE DUTY</div>
+                <div style="font-size: 1.65rem; color: #FFFFFF; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">42 SPECIALISTS</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> Morning Shift Operating</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Operations Main Table Panel -->
+          <section id="gm-main-table-section" class="dash-card" style="margin-bottom: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(6, 20, 35, 0.95), rgba(10, 35, 30, 0.95)); border: 1px solid rgba(16, 185, 129, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <i class="fa-solid fa-bed" style="color: #10B981; font-size: 1.25rem;"></i>
+                <h3 style="font-size: 1.1rem; color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0;">LIVE FLOOR CONDITION & CHECK-IN CONTROL MATRIX</h3>
+              </div>
+              <button class="btn-aura btn-sm btn-teal" onclick="Toast.show('Night Audit', 'Night audit checklist verified clean.', 'success', 2500)"><i class="fa-solid fa-moon"></i> RUN NIGHT AUDIT</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>RESORT WING / SUITE</th>
+                    <th>SUITE CATEGORY</th>
+                    <th>FLOOR ATTENDANT</th>
+                    <th>GUEST NAME</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Suite 401 (Ocean Wing)</strong></td>
+                    <td>Presidential Ocean Suite</td>
+                    <td>Sophia Martinez (Lead)</td>
+                    <td>Lord Harrison Sterling</td>
+                    <td><span class="badge-aura badge-success"><i class="fa-solid fa-circle-check"></i> Occupied (VIP)</span></td>
+                    <td><button class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('Dispatch Butler', 'Butler assigned for Suite 401.', 'success', 2000)">ASSIGN BUTLER</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Villa 108 (Heritage Wing)</strong></td>
+                    <td>Garden Villa Suite</td>
+                    <td>Rahul Sharma (Supervisor)</td>
+                    <td>Ms. Ananya Roy</td>
+                    <td><span class="badge-aura badge-gold"><i class="fa-solid fa-spinner fa-spin"></i> Cleaning Turnover</span></td>
+                    <td><button class="btn-aura btn-xs btn-gold" onclick="Toast.show('Inspect', 'Housekeeping team dispatched.', 'info', 2000)">INSPECT</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Operations Occupancy Bar Chart -->
+          <section id="gm-chart-section" class="dash-card" style="margin-bottom: 1.5rem; border-color: rgba(16, 185, 129, 0.2);">
+            <h3 style="font-size: 1.1rem; color: #FFFFFF; font-weight: 600; margin-bottom: 1rem;"><i class="fa-solid fa-chart-simple" style="color: #10B981; margin-right: 0.5rem;"></i> Weekly Occupied Suites Count</h3>
+            <div style="position: relative; height: 260px;">
+              <canvas id="gmOccupancyChart"></canvas>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- TAB 2: ROOM MATRIX -->
+        <div id="tab-gm-rooms" class="dash-tab-panel">
+          <section class="dash-card" style="margin-bottom: 1.5rem; padding: 1.25rem; border-color: rgba(16, 185, 129, 0.2);">
+            <h3 style="font-size: 1.15rem; color: #FFF; font-family: 'Playfair Display', serif; margin-bottom: 1rem;"><i class="fa-solid fa-bed" style="color: #10B981;"></i> Room Condition & Inventory Matrix</h3>
+          </section>
+        </div>
+
+        <!-- TAB 3: RESERVATIONS -->
+        <div id="tab-gm-reservations" class="dash-tab-panel">
+          <section class="dash-card" style="margin-bottom: 1.5rem; padding: 1.25rem; border-color: rgba(16, 185, 129, 0.2);">
+            <h3 style="font-size: 1.15rem; color: #FFF; font-family: 'Playfair Display', serif; margin-bottom: 1rem;"><i class="fa-solid fa-plane-arrival" style="color: #10B981;"></i> Live Arrivals & Check-in Control</h3>
+          </section>
+        </div>
+
+        <!-- TAB 4: GUESTS -->
+        <div id="tab-gm-guests" class="dash-tab-panel">
+          <section class="dash-card" style="margin-bottom: 1.5rem; padding: 1.25rem; border-color: rgba(16, 185, 129, 0.2);">
+            <h3 style="font-size: 1.15rem; color: #FFF; font-family: 'Playfair Display', serif; margin-bottom: 1rem;"><i class="fa-solid fa-address-book" style="color: #10B981;"></i> In-House Guest Manifest</h3>
+          </section>
+        </div>
+
+        <!-- TAB 5: HOUSEKEEPING -->
+        <div id="tab-gm-housekeeping" class="dash-tab-panel">
+          <section class="dash-card" style="margin-bottom: 1.5rem; padding: 1.25rem; border-color: rgba(16, 185, 129, 0.2);">
+            <h3 style="font-size: 1.15rem; color: #FFF; font-family: 'Playfair Display', serif; margin-bottom: 1rem;"><i class="fa-solid fa-broom" style="color: #10B981;"></i> Housekeeping Floor Audits</h3>
+          </section>
+        </div>
+
+        <!-- TAB 6: STAFF -->
+        <div id="tab-gm-staff" class="dash-tab-panel">
+          <section class="dash-card" style="margin-bottom: 1.5rem; padding: 1.25rem; border-color: rgba(16, 185, 129, 0.2);">
+            <h3 style="font-size: 1.15rem; color: #FFF; font-family: 'Playfair Display', serif; margin-bottom: 1rem;"><i class="fa-solid fa-user-clock" style="color: #10B981;"></i> Staff Roster & Overtime Logs</h3>
+          </section>
+        </div>
+
+        <!-- TAB 7: MESSAGES -->
+        <div id="tab-gm-messages" class="dash-tab-panel">
+          <section class="dash-card" style="margin-bottom: 1.5rem; padding: 1.25rem; border-color: rgba(16, 185, 129, 0.2);">
+            <h3 style="font-size: 1.15rem; color: #FFF; font-family: 'Playfair Display', serif; margin-bottom: 1rem;"><i class="fa-solid fa-comments" style="color: #10B981;"></i> Front Desk Inquiry Queue</h3>
+          </section>
+        </div>
+
+        <!-- TAB 8: SETTINGS -->
+        <div id="tab-gm-settings" class="dash-tab-panel">
+          <section class="dash-card" style="margin-bottom: 1.5rem; padding: 1.25rem; border-color: rgba(16, 185, 129, 0.2);">
+            <h3 style="font-size: 1.15rem; color: #FFF; font-family: 'Playfair Display', serif; margin-bottom: 1rem;"><i class="fa-solid fa-sliders" style="color: #10B981;"></i> Operations Preferences & Night Audit</h3>
+          </section>
+        </div>
+
+        <!-- SECTION 20: Manager Footer -->
+        <section id="gm-footer" style="padding: 1.5rem 0; border-top: 1px solid rgba(16, 185, 129, 0.2); font-size: 0.8rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+          <div>
+            &copy; 2026 <strong>Stackly Aura Hospitality Group</strong>. General Manager Operations Portal (v4.8 PRO).
+          </div>
+          <div>
+            Hotline: <strong>+91 98765 43210</strong> • Chennai Sanctuary HQ
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.dash-sidebar .dash-nav-link-gm[data-tab]');
+      const tabPanels = document.querySelectorAll('.dash-tab-panel');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetTabId = this.getAttribute('data-tab');
+          if (!targetTabId) return;
+
+          navLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+
+          const dashSidebar = document.getElementById('dash-sidebar');
+          const dashBackdrop = document.querySelector('.dash-sidebar-backdrop');
+          if (dashSidebar) dashSidebar.classList.remove('open');
+          if (dashBackdrop) dashBackdrop.classList.remove('active');
+
+          tabPanels.forEach(panel => {
+            if (panel.id === targetTabId) {
+              panel.style.display = 'block';
+              panel.classList.add('active-panel');
+            } else {
+              panel.style.display = 'none';
+              panel.classList.remove('active-panel');
+            }
+          });
+
+          const mainScroll = document.querySelector('.dash-main');
+          if (mainScroll) mainScroll.scrollTop = 0;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          const tabName = this.querySelector('span') ? this.querySelector('span').textContent : targetTabId;
+          if (typeof Toast !== 'undefined' && Toast.show) {
+            Toast.show('Operations Command', 'Loaded ' + tabName + ' section', 'info', 1200);
+          }
+        });
+      });
+
+      const ctx = document.getElementById('gmOccupancyChart');
+      if (ctx) {
+        new Chart(ctx.getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+              label: 'Occupied Suites',
+              data: [78, 80, 81, 83, 85, 85, 82],
+              backgroundColor: 'rgba(16, 185, 129, 0.7)',
+              borderColor: '#10B981',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#9CA3AF' } } },
+            scales: {
+              x: { ticks: { color: '#9CA3AF' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+              y: { ticks: { color: '#9CA3AF' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

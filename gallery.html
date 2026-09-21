@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Gallery & Media Portfolio | Aura Hospitality</title>
+  <meta name="description" content="Explore high-resolution photography and 4K media reels of Aura's oceanfront villas and mountain retreats.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <style>
+    .filter-pill {
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-light);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .filter-pill:hover, .filter-pill.active {
+      background: var(--brand-navy);
+      color: var(--brand-gold);
+      border-color: var(--brand-gold);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION 1: Media Desk Bar -->
+
+  <!-- SECTION 2: Navigation Bar -->
+  <section id="header-section" style="padding: 0; position: sticky; top: 0; z-index: 1000; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-gold);">
+    <header class="navbar scrolled" style="border: none;">
+      <div class="container nav-container">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+                        <div class="nav-actions">
+          <a href="login.html" class="btn-aura btn-outline-gold btn-sm"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+          <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn"><i class="fa-solid fa-user-plus"></i> Register</a>
+          <button class="mobile-toggle" aria-label="Open Navigation Drawer"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+        <button class="drawer-close" aria-label="Close Drawer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <ul class="drawer-nav-links">
+        <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="drawer-nav-link"><i class="fa-solid fa-building"></i> About Us</a></li>
+        <li><a href="blog.html" class="drawer-nav-link"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+        <li><a href="services.html" class="drawer-nav-link"><i class="fa-solid fa-bell-concierge"></i> Services</a></li>
+        <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-dark);">
+      <a href="login.html" class="btn-aura btn-outline-gold btn-sm" style="width: 100%; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="width: 100%; justify-content: center;"><i class="fa-solid fa-user-plus"></i> Register</a>
+    </div>
+  </aside>
+
+  <!-- SECTION 3: Gallery Hero Banner -->
+  <section id="gallery-hero" style="padding: 7rem 0 4rem; background: var(--brand-navy); color: #FFFFFF; text-align: center; border-bottom: 1px solid var(--border-gold); position: relative; overflow: hidden;">
+    <div class="ambient-orb orb-gold" style="top: -50px; left: -50px;"></div>
+    <div class="container-custom" style="position: relative; z-index: 10;">
+      <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;">Visual Storytelling</span>
+      <h1 style="font-size: 3.25rem; color: #FFFFFF; margin: 0.5rem 0 1rem;">Sanctuary Photography & Media</h1>
+      <p style="max-width: 650px; margin: 0 auto; color: rgba(248, 250, 249, 0.8); font-size: 1.1rem;">A visual showcase of our oceanfront overwater villas, skyline penthouses, Michelin dining tables, and alpine retreats.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Category Filter Pills -->
+  <section id="gallery-filters" style="padding: 2rem 0; background: var(--bg-surface); border-bottom: 1px solid var(--border-light);">
+    <div class="container-custom text-center">
+      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <button class="filter-pill active">All Visuals</button>
+        <button class="filter-pill">Overwater Villas</button>
+        <button class="filter-pill">Skyline Penthouses</button>
+        <button class="filter-pill">Haute Cuisine</button>
+        <button class="filter-pill">Thermal Spa</button>
+        <button class="filter-pill">Grand Ballrooms</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: High-Res Photo Grid -->
+  <section id="photo-grid" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        
+        <div class="card-aura" data-aos="fade-up">
+          <div class="card-img-wrapper" style="height: 260px;">
+            <img src="assets/images/hero-resort.webp" alt="Resort Pool View" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4 style="font-size: 1.1rem; color: var(--brand-navy);">Maldives Ocean Deck</h4>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Infinity Pool & Lagoon View</span>
+          </div>
+        </div>
+
+        <div class="card-aura" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-img-wrapper" style="height: 260px;">
+            <img src="assets/images/villa-presidential.webp" alt="Presidential Villa" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4 style="font-size: 1.1rem; color: var(--brand-navy);">Presidential Villa Glass Deck</h4>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Overwater Living Gallery</span>
+          </div>
+        </div>
+
+        <div class="card-aura" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-img-wrapper" style="height: 260px;">
+            <img src="assets/images/suite-royal.webp" alt="Royal Penthouse" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4 style="font-size: 1.1rem; color: var(--brand-navy);">Dubai Skyline Penthouse</h4>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">64th Floor Rooftop Plunge Pool</span>
+          </div>
+        </div>
+
+        <div class="card-aura" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-img-wrapper" style="height: 260px;">
+            <img src="assets/images/dining-michelin.webp" alt="Michelin Chef Table" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4 style="font-size: 1.1rem; color: var(--brand-navy);">Michelin Wine Pairing</h4>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Private In-Villa Chef Table</span>
+          </div>
+        </div>
+
+        <div class="card-aura" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-img-wrapper" style="height: 260px;">
+            <img src="assets/images/spa-wellness.webp" alt="Thermal Spa Sanctuary" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4 style="font-size: 1.1rem; color: var(--brand-navy);">Thermal Hydrotherapy Spa</h4>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Oceanfront Hammam Suite</span>
+          </div>
+        </div>
+
+        <div class="card-aura" data-aos="fade-up" data-aos-delay="500">
+          <div class="card-img-wrapper" style="height: 260px;">
+            <img src="assets/images/events-ballroom.webp" alt="Grand Ballroom" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4 style="font-size: 1.1rem; color: var(--brand-navy);">Grand Ballroom Gala</h4>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Oceanfront Crystal Chandelier Venue</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: 4K Cinematic Video Tour Reels -->
+  <section id="video-reels" style="padding: 5rem 0; background: var(--brand-navy); color: #FFF; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom text-center">
+      <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; text-transform: uppercase;">Cinematic Media</span>
+      <h2 style="font-size: 2.35rem; color: #FFF; margin: 0.5rem 0 2rem;">Watch 4K Resort Documentary Reels</h2>
+      <div style="background: rgba(255,255,255,0.05); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border-gold); max-width: 700px; margin: 0 auto;" data-aos="zoom-in">
+        <i class="fa-solid fa-film" style="font-size: 3rem; color: var(--brand-gold); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.75rem; color: #FFF; margin-bottom: 0.5rem;">"Architecture of Serenity" (4K)</h3>
+        <p style="color: rgba(248, 250, 249, 0.75); margin-bottom: 1.5rem;">Award-winning 12-minute documentary exploring the design and construction of Aura Maldives villas.</p>
+        <button class="btn-aura btn-gold btn-lg shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-play"></i> Stream Documentary Reel</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Aerial Drone View Portfolio Showcase -->
+  <section id="aerial-drone" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Aerial Perspective</span>
+        <h2 class="section-title">Drone Island & Alpine Panoramic Shots</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-gold);">
+          <img src="assets/images/hero-resort.webp" alt="Drone Atoll View" loading="lazy" style="width: 100%; height: 260px; object-fit: cover;">
+          <div style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(15,23,42,0.85); color: var(--brand-gold); padding: 0.4rem 0.85rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">Maldives Aerial Atoll</div>
+        </div>
+        <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-gold);">
+          <img src="assets/images/suite-executive.webp" alt="Drone Alpine View" loading="lazy" style="width: 100%; height: 260px; object-fit: cover;">
+          <div style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(15,23,42,0.85); color: var(--brand-gold); padding: 0.4rem 0.85rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">Swiss Alps Summit Aerial</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Live Guest Instagram Feed Widget -->
+  <section id="social-feed" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom text-center">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">#AuraSanctuary</span>
+        <h2 class="section-title">Verified Guest Moments on Instagram</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+        <div style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+          <i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">"Floating breakfast in Villa 101 #AuraMaldives"</p>
+        </div>
+        <div style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+          <i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">"64th floor rooftop plunge pool view #AuraDubai"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Download Press Kit Banner -->
+  <section id="media-kit-download" style="padding: 4rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom text-center">
+      <h3 style="font-size: 1.75rem; color: var(--brand-navy); margin-bottom: 0.5rem;">Download High-Resolution Press & Media Assets</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Complete 4K image archives, brand guidelines, and architectural floorplans.</p>
+      <button class="btn-aura btn-gold shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download Press Kit ZIP</button>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Photography Licensing Policy -->
+  <section id="photo-licensing" style="padding: 3rem 0; background: var(--brand-navy); color: #FFF; text-align: center; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom">
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin: 0;">All photography subject to copyright under Aura Hospitality Group Inc. Commercial licensing requests can be submitted to press@aurahospitality.com.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Copyright Notice -->
+  <section id="copyright-bar-section" style="padding: 1.5rem 0; background: #090D16; color: rgba(248, 250, 249, 0.7); text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div class="container-custom" style="text-align: center;">
+      <span>&copy; 2026 Stackly Inc. All Rights Reserved.</span>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

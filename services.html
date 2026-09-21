@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Guest Amenities & Concierge Services | Aura Hospitality</title>
+  <meta name="description" content="Experience bespoke Michelin dining, holistic wellness spas, private helicopter transfers, and 24/7 butler service.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+  <!-- SECTION 1: Announcement Bar -->
+
+  <!-- SECTION 2: Navigation Bar -->
+  <section id="header-section" style="padding: 0; position: sticky; top: 0; z-index: 1000; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-gold);">
+    <header class="navbar scrolled" style="border: none;">
+      <div class="container nav-container">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="services.html" class="nav-link active">Services</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+                        <div class="nav-actions">
+          <a href="login.html" class="btn-aura btn-outline-gold btn-sm"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+          <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn"><i class="fa-solid fa-user-plus"></i> Register</a>
+          <button class="mobile-toggle" aria-label="Open Navigation Drawer"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+        <button class="drawer-close" aria-label="Close Drawer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <ul class="drawer-nav-links">
+        <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="drawer-nav-link"><i class="fa-solid fa-building"></i> About Us</a></li>
+        <li><a href="blog.html" class="drawer-nav-link"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+        <li><a href="services.html" class="drawer-nav-link active"><i class="fa-solid fa-bell-concierge"></i> Services</a></li>
+        <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-dark);">
+      <a href="login.html" class="btn-aura btn-outline-gold btn-sm" style="width: 100%; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="width: 100%; justify-content: center;"><i class="fa-solid fa-user-plus"></i> Register</a>
+    </div>
+  </aside>
+
+  <!-- SECTION 3: Hero Banner -->
+  <section id="services-hero" style="padding: 7rem 0 4rem; background: var(--brand-navy); color: #FFFFFF; text-align: center; border-bottom: 1px solid var(--border-gold);">
+    <div class="container-custom">
+      <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;">Curated Experiences</span>
+      <h1 style="font-size: 3.25rem; color: #FFFFFF; margin: 0.5rem 0 1rem;">Bespoke Guest Services & Wellness</h1>
+      <p style="max-width: 650px; margin: 0 auto; color: rgba(248, 250, 249, 0.8); font-size: 1.1rem;">From Michelin-starred private culinary pairings to helicopter transfers, every detail is seamlessly orchestrated by Aura Concierge.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Michelin Chef's Table & Private Dining -->
+  <section id="michelin-dining" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" data-aos="fade-up">
+        <div>
+          <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Haute Gastronomy</span>
+          <h2 style="font-size: 2.35rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Michelin Private Chef's Table</h2>
+          <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem;">Immerse yourself in bespoke culinary creations prepared directly inside your villa kitchen by award-winning Michelin chefs, accompanied by rare vintage wine pairings.</p>
+          <button class="btn-aura btn-gold shimmer-btn" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Michelin Dining Table'"><i class="fa-solid fa-utensils"></i> Reserve Private Chef</button>
+        </div>
+        <div>
+          <img src="assets/images/dining-michelin.webp" alt="Michelin Dining" loading="lazy" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Holistic Thermal Spa & Rejuvenation -->
+  <section id="thermal-spa" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" data-aos="fade-up">
+        <div>
+          <img src="assets/images/spa-wellness.webp" alt="Holistic Spa" loading="lazy" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
+        </div>
+        <div>
+          <span style="color: var(--brand-teal); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Rejuvenation Sanctuary</span>
+          <h2 style="font-size: 2.35rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Holistic Thermal Spa & Wellness</h2>
+          <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem;">Ancient hydrotherapy thermal circuits, organic botanical scrubs, and personalized bio-hacking consultations in private oceanfront hammam suites.</p>
+          <button class="btn-aura btn-teal" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Thermal Spa Suite'"><i class="fa-solid fa-spa"></i> Reserve Spa Sanctuary</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Helicopter & Private Yacht Charters -->
+  <section id="aviation-charters" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" data-aos="fade-up">
+        <div>
+          <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Aviation & Sea Transfers</span>
+          <h2 style="font-size: 2.35rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Helicopter & Yacht Expeditions</h2>
+          <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem;">Skip traffic with direct resort helipad transfers from international airport runways, or charter private 120ft motor yachts for sunset cruises.</p>
+          <button class="btn-aura btn-navy" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Helicopter Transfer'"><i class="fa-solid fa-helicopter"></i> Request Helicopter Charter</button>
+        </div>
+        <div>
+          <img src="assets/images/concierge-service.webp" alt="Helicopter Transfer" loading="lazy" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: 24/7 Royal Butler & Concierge Overview -->
+  <section id="royal-butler" style="padding: 5rem 0; background: var(--brand-navy); color: #FFFFFF; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom text-center" style="max-width: 780px;">
+      <i class="fa-solid fa-crown" style="font-size: 2.5rem; color: var(--brand-gold); margin-bottom: 1rem;"></i>
+      <h2 style="font-size: 2.35rem; color: #FFFFFF; margin-bottom: 1rem;">Dedicated Royal Butler Staffing</h2>
+      <p style="color: rgba(248, 250, 249, 0.8); font-size: 1.05rem; margin-bottom: 2rem;">Trained at Guild Butler academies, our personnel manage unpacking, secretarial scheduling, private dinner setup, and security logistics 24 hours a day.</p>
+      <button class="btn-aura btn-gold btn-lg shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-bell-concierge"></i> Summon Butler Service</button>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Curated Private Excursions -->
+  <section id="private-excursions" style="padding: 5rem 0; background: var(--bg-primary);">
+    <div class="container-custom">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Private Tours</span>
+        <h2 class="section-title">Curated Excursions & Expeditions</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;">
+        <div style="background: var(--bg-surface); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);" data-aos="fade-up">
+          <i class="fa-solid fa-plane" style="font-size: 1.75rem; color: var(--brand-gold); margin-bottom: 0.75rem;"></i>
+          <h4 style="font-size: 1.1rem; color: var(--brand-navy); margin-bottom: 0.35rem;">Private Jet Escort</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Direct VIP airport ramp access and international customs clearance clearance.</p>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);" data-aos="fade-up" data-aos-delay="100">
+          <i class="fa-solid fa-mountain-sun" style="font-size: 1.75rem; color: var(--brand-teal); margin-bottom: 0.75rem;"></i>
+          <h4 style="font-size: 1.1rem; color: var(--brand-navy); margin-bottom: 0.35rem;">Alpine Heli-Skiing</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Touch down on untouched St. Moritz mountain peaks with Olympic ski guides.</p>
+        </div>
+
+        <div style="background: var(--bg-surface); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);" data-aos="fade-up" data-aos-delay="200">
+          <i class="fa-solid fa-fish-fins" style="font-size: 1.75rem; color: var(--brand-navy); margin-bottom: 0.75rem;"></i>
+          <h4 style="font-size: 1.1rem; color: var(--brand-navy); margin-bottom: 0.35rem;">Deep Reef Diving</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Explore protected coral reefs accompanied by marine biologist divers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: VIP Transport & Rolls-Royce Fleet Cards -->
+  <section id="vip-fleet-services-cards" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">VIP Mobility</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Executive Chauffeur & Charter Services</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: var(--text-muted);">From Rolls-Royce Phantom airport transfers to superyacht charters, travel in total comfort and security.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/suite-royal.webp" alt="Rolls-Royce Chauffeur" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(197, 160, 89, 0.9); color: #0F172A; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-car"></i> Executive Limousine</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: #FFF; margin-bottom: 0.5rem;">Rolls-Royce Phantom Escort</h3>
+              <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Chauffeur-driven private limousines equipped with privacy partitions, Wi-Fi, and champagne service.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Rolls-Royce Chauffeur Fleet'"><i class="fa-solid fa-car-side"></i> Reserve Fleet</button>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-calendar-check"></i> Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="100">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/villa-presidential.webp" alt="Private Helipad Express" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(45, 143, 140, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-helicopter"></i> Aerial Express</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: #FFF; margin-bottom: 0.5rem;">Resort Helipad Airport Shuttle</h3>
+              <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Direct 12-minute helicopter transfers connecting private jet tarmacs to resort overwater helipads.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Private Helipad Express'"><i class="fa-solid fa-plane-up"></i> Book Flight</button>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-route"></i> Flight Map</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="200">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/hero-resort.webp" alt="Superyacht Charter" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(197, 160, 89, 0.9); color: #0F172A; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-anchor"></i> Maritime Charter</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: #FFF; margin-bottom: 0.5rem;">120ft Motor Yacht Expeditions</h3>
+              <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Sunset champagne cruises, island hopping, and deep-sea diving charters with a dedicated crew.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Superyacht Charter'"><i class="fa-solid fa-anchor"></i> Charter Yacht</button>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-compass"></i> Itinerary</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: In-Villa Fine Dining & Sommelier Tasting Cards -->
+  <section id="in-villa-dining-cards" style="padding: 5rem 0; background: var(--bg-primary); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Private Dining</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">In-Villa Culinary & Sommelier Pairings</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: var(--text-muted);">Experience Michelin-grade culinary Artistry, floating sunrise breakfasts, and private wine cellar tastings.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/dining-michelin.webp" alt="Poolside Candlelight Omakase" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(197, 160, 89, 0.9); color: #0F172A; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-utensils"></i> Poolside Omakase</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin-bottom: 0.5rem;">Poolside Candlelight Omakase</h3>
+              <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Multi-course fresh sushi and Wagyu beef tasting menu cooked by your private chef beside your villa pool.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Poolside Candlelight Omakase'"><i class="fa-solid fa-utensils"></i> Reserve Omakase</button>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-wine-glass"></i> View Menu</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="100">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/room-deluxe.webp" alt="Grand Cru Sommelier Tasting" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(45, 143, 140, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-wine-bottle"></i> Vintage Cellar</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin-bottom: 0.5rem;">Grand Cru Sommelier Cellar Tasting</h3>
+              <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Private guided tasting of rare 1982 Bordeaux and vintage Champagnes guided by our Head Sommelier.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Grand Cru Sommelier Tasting'"><i class="fa-solid fa-wine-glass"></i> Reserve Tasting</button>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-list"></i> Cellar List</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="200">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/villa-presidential.webp" alt="Sunrise Floating Breakfast" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(197, 160, 89, 0.9); color: #0F172A; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-sun"></i> Floating Breakfast</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: var(--brand-navy); margin-bottom: 0.5rem;">Sunrise Overwater Floating Breakfast</h3>
+              <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Fresh organic tropical fruits, caviar, and mimosa cocktails served on floating teak trays in your private pool.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Sunrise Floating Breakfast'"><i class="fa-solid fa-mug-hot"></i> Order Breakfast</button>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-calendar-day"></i> Schedule</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11: Tailored Wellness & Bio-Hacking Spa Cards -->
+  <section id="biohacking-wellness-cards" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Advanced Rejuvenation</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Bio-Hacking & Sound Healing Spa Therapies</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: var(--text-muted);">Cutting-edge wellness treatments combining cryotherapy, sound meditation, and bio-identical anti-aging serums.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/spa-wellness.webp" alt="Cryotherapy & Infrared Detox" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(45, 143, 140, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-snowflake"></i> Cryo Recovery</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: #FFF; margin-bottom: 0.5rem;">Cryotherapy & Infrared Sauna Chamber</h3>
+              <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Accelerated muscle recovery, metabolic stimulation, and deep cellular detox in private thermal suites.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Cryotherapy & Infrared Detox'"><i class="fa-solid fa-snowflake"></i> Book Recovery</button>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-heart-pulse"></i> Spa Menu</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="100">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/hero-resort.webp" alt="Sound Healing & Meditation" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(197, 160, 89, 0.9); color: #0F172A; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-om"></i> Mindful Healing</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: #FFF; margin-bottom: 0.5rem;">Tibetan Sound Bowl & Lagoon Bath</h3>
+              <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Vibrational acoustic therapy overlooking overwater reef waters for stress reduction and deep sleep.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Sound Healing & Meditation'"><i class="fa-solid fa-spa"></i> Book Session</button>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-bell"></i> Times</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-aura card-glass glow-border" style="border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;" data-aos="fade-up" data-aos-delay="200">
+          <div style="position: relative; height: 210px; overflow: hidden;">
+            <img src="assets/images/suite-executive.webp" alt="Bio-Identical Anti-Aging Facial" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(45, 143, 140, 0.9); color: #FFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;"><i class="fa-solid fa-sparkles"></i> Anti-Aging Facial</span>
+          </div>
+          <div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: #FFF; margin-bottom: 0.5rem;">Bio-Identical Anti-Aging Serum Therapy</h3>
+              <p style="color: var(--text-dark-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem;">Swiss Alpine botanical extracts and gold-infused facial treatments delivered in private spa villas.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Bio-Identical Anti-Aging Facial'"><i class="fa-solid fa-wand-magic-sparkles"></i> Reserve Therapy</button>
+              <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-pump-soap"></i> Product Line</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 12: Personal Butler Guild & Security Services Cards -->
+  <section id="butler-security-services-cards" style="padding: 5rem 0; background: var(--brand-navy); color: #FFFFFF; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">White-Glove Butler Guild</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: #FFFFFF; margin: 0.5rem 0 1rem;">24/7 Butler, Valet & Diplomatic Protection</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: rgba(248, 250, 249, 0.8);">Trained in Geneva protocols to fulfill every resident wish with absolute discretion and speed.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-glass glow-border" style="padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Wardrobe & Valet</span>
+            <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.5rem;">Unpacking & Garment Care</h3>
+            <p style="color: var(--text-dark-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">Complete luggage unpacking, steam pressing, shoe polishing, and wardrobe organization upon arrival.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Wardrobe Valet Unpacking'"><i class="fa-solid fa-suitcase-rolling"></i> Request Valet</button>
+            <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-user-check"></i> Valet Details</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-glass glow-border" style="padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--brand-teal); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Diplomatic Protection</span>
+            <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.5rem;">Close Escort & VIP Security</h3>
+            <p style="color: var(--text-dark-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">Discreet armed close-protection details and encrypted communication channels for high-profile state guests.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Diplomatic Close Protection'"><i class="fa-solid fa-shield-halved"></i> Request Security</button>
+            <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-lock"></i> Security Brief</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-glass glow-border" style="padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Family Concierge</span>
+            <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.5rem;">Multi-lingual Private Governess</h3>
+            <p style="color: var(--text-dark-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">Certified private governess and childcare specialists managing educational excursions and evening tutoring.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Private Governess Service'"><i class="fa-solid fa-child-reaching"></i> Request Governess</button>
+            <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-heart"></i> Program Info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 13: Membership Perks & Concierge SLA Guarantee Cards -->
+  <section id="membership-concierge-sla-cards" style="padding: 5rem 0; background: var(--bg-primary); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle" style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Aura SLA Commitments</span>
+        <h2 class="section-title" style="font-size: 2.5rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Obsidian Membership & SLA Guarantees</h2>
+        <p class="section-desc" style="max-width: 650px; margin: 0 auto; color: var(--text-muted);">Discover VIP club privileges, complimentary suite upgrades, and guaranteed 15-minute dispatch response times.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <!-- Card 1 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up">
+          <div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <i class="fa-solid fa-crown" style="font-size: 2rem; color: var(--brand-gold);"></i>
+              <div>
+                <h4 style="font-size: 1.2rem; color: var(--brand-navy); margin: 0;">Priority Villa Upgrades</h4>
+                <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 700;">Obsidian VIP Member Perk</span>
+              </div>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem;">Automatic suite upgrades to overwater presidential villas based on real-time room availability upon check-in.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="signup.html" class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-crown"></i> Join Obsidian Club</a>
+            <a href="login.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Member Portal</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <i class="fa-solid fa-bolt" style="font-size: 2rem; color: var(--brand-teal);"></i>
+              <div>
+                <h4 style="font-size: 1.2rem; color: var(--brand-navy); margin: 0;">15-Min Response SLA</h4>
+                <span style="font-size: 0.8rem; color: var(--brand-gold); font-weight: 700;">100% Quality Standard</span>
+              </div>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem;">Every resident request submitted through our mobile console or in-room tablet is dispatched within 15 minutes.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal"><i class="fa-solid fa-bolt"></i> Express Request</button>
+            <a href="about.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-shield"></i> SLA Audit</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-aura glow-border" style="background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <i class="fa-solid fa-map-location-dot" style="font-size: 2rem; color: var(--brand-gold);"></i>
+              <div>
+                <h4 style="font-size: 1.2rem; color: var(--brand-navy); margin: 0;">Custom Excursion Curator</h4>
+                <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 700;">Tailored Expeditions</span>
+              </div>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem;">Personalized daily travel itineraries created by private curators for alpine heli-skiing and coral reef diving.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn-aura btn-gold btn-sm shimmer-btn" style="flex: 1; text-align: center; justify-content: center;" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Tailored Private Excursion'"><i class="fa-solid fa-map"></i> Plan Expedition</button>
+            <a href="contact.html" class="btn-aura btn-outline-gold btn-sm" style="flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-envelope"></i> Contact Curator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 14: Grand Event & Wedding Ballrooms -->
+  <section id="ballrooms-galas" style="padding: 5rem 0; background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light);">
+    <div class="container-custom">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" data-aos="fade-up">
+        <div>
+          <img src="assets/images/events-ballroom.webp" alt="Grand Ballroom" loading="lazy" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
+        </div>
+        <div>
+          <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Private Events</span>
+          <h2 style="font-size: 2.35rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Grand Ballrooms & Gala Venues</h2>
+          <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem;">Host executive summits, royal weddings, and private galas in our acoustic oceanfront ballrooms accommodating up to 500 guests.</p>
+          <button class="btn-aura btn-gold shimmer-btn" data-modal-target="service-modal" onclick="document.getElementById('service-type-name').value = 'Grand Ballroom Gala'"><i class="fa-solid fa-glass-cheers"></i> Plan Gala Event</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Service Quality & Excellence Guarantee -->
+  <section id="guarantee-banner" style="padding: 4rem 0; background: var(--brand-navy); color: #FFF; border-top: 1px solid var(--border-gold);">
+    <div class="container-custom text-center">
+      <h3 style="font-size: 2rem; color: var(--brand-gold); margin-bottom: 0.5rem;">100% Bespoke Hospitality Guarantee</h3>
+      <p style="color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto 1.5rem;">Every service request is fulfilled within 15 minutes of submission by dedicated in-villa staff.</p>
+      <button class="btn-aura btn-gold shimmer-btn" data-modal-target="service-modal"><i class="fa-solid fa-headset"></i> Contact Head Concierge</button>
+    </div>
+  </section>
+
+  <!-- SECTION 11: Comprehensive Footer -->
+  <section id="footer-section" style="padding: 0; background: #090D16;">
+    <footer class="footer-aura">
+      <div class="container-custom">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo-brand" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+              <img src="assets/images/logo.webp" alt="Stackly" class="logo-image" style="height: 32px; width: auto; max-width: 150px; filter: brightness(0) invert(1);">
+            </a>
+            <p>The intelligent enterprise management platform built for scale.</p>
+            <div class="footer-socials">
+              <a href="404.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="404.html" class="footer-social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Support</h4>
+            <ul class="footer-links">
+              <li><a href="404.html">Help Center</a></li>
+              <li><a href="404.html">FAQ</a></li>
+              <li><a href="404.html">Documentation</a></li>
+              <li><a href="404.html">Privacy Policy</a></li>
+              <li><a href="404.html">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Connect</h4>
+            <div class="footer-connect-list">
+              <div class="footer-connect-item">
+                <i class="fa-solid fa-location-dot footer-connect-icon"></i>
+                <div>
+                  <div class="footer-connect-label">Office Address:</div>
+                  <div class="footer-connect-value">Salem, India</div>
+                </div>
+              </div>
+              <div class="footer-connect-item">
+                <i class="fa-solid fa-phone footer-connect-icon"></i>
+                <div>
+                  <div class="footer-connect-label">Phone:</div>
+                  <div class="footer-connect-value">+91 98765 43210</div>
+                </div>
+              </div>
+              <div class="footer-connect-item">
+                <i class="fa-solid fa-envelope footer-connect-icon"></i>
+                <div>
+                  <div class="footer-connect-label">Sales Email:</div>
+                  <div class="footer-connect-value">info@stackly.com</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-palette-pill">
+            <i class="fa-solid fa-palette" style="color: #FFFFFF; font-size: 0.85rem;"></i>
+            <span>PALETTE:</span>
+            <span class="footer-palette-dot" style="background: #38BDF8; box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);"></span>
+            <span class="footer-palette-dot" style="background: #EC4899; box-shadow: 0 0 6px rgba(236, 72, 153, 0.6);"></span>
+            <span class="footer-palette-dot" style="background: #34D399; box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);"></span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+            <span>&copy; 2026 Stackly Inc. All Rights Reserved.</span>
+            <a href="404.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Privacy Policy</a>
+            <a href="404.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- Service Request Modal -->
+  <div class="modal-overlay" id="service-modal">
+    <div class="modal-content-aura">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-bell-concierge" style="color: var(--brand-gold);"></i> Request Concierge Experience</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="service-request-form">
+          <div class="form-group">
+            <label class="form-label">Selected Experience</label>
+            <input type="text" id="service-type-name" class="form-control-aura" value="Michelin Dining Table" readonly style="background: var(--bg-surface-elevated);">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Guest Suite / Villa Number</label>
+            <input type="text" class="form-control-aura" placeholder="e.g. Villa 101 or Room 402" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Preferred Date</label>
+              <input type="date" class="form-control-aura" value="2026-10-02" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Preferred Time</label>
+              <input type="time" class="form-control-aura" value="19:30" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Specific Preferences</label>
+            <textarea class="form-control-aura" rows="3" placeholder="Enter any allergies, preferences, or party size..."></textarea>
+          </div>
+
+          <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+            <button type="button" class="modal-close btn-aura btn-outline-gold">Cancel</button>
+            <button type="submit" class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-paper-plane"></i> Submit Request to Butler</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

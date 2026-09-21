@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In Form | Aura Hospitality</title>
+  <meta name="description" content="Sign In Form for Executive Administration and Operations Staff.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <style>
+    body {
+      background: #0B111E;
+      color: #FFFFFF;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .simple-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: #0F172A;
+      border-bottom: 2px solid #C5A059;
+    }
+    .auth-card-wrapper {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3.5rem 1.5rem;
+      position: relative;
+    }
+    .form-box-card {
+      width: 100%;
+      max-width: 460px;
+      background: #0F172A;
+      border-radius: 16px;
+      padding: 2.75rem 2.25rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      border: 2px solid #C5A059;
+      position: relative;
+      z-index: 10;
+    }
+    .role-select-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .role-btn-card {
+      padding: 1rem 0.75rem;
+      background: #1E293B;
+      border: 2px solid #334155;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .role-btn-card:hover, .role-btn-card.active {
+      border-color: #C5A059;
+      background: rgba(197, 160, 89, 0.18);
+      box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
+    }
+    .role-btn-card i {
+      font-size: 1.75rem;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .role-btn-card.active i {
+      color: #C5A059;
+    }
+    .role-btn-card h4 {
+      font-size: 0.95rem;
+      color: #FFFFFF;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .role-btn-card span {
+      font-size: 0.75rem;
+      color: #94A3B8;
+      display: block;
+    }
+    .input-field-custom {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: #1E293B;
+      border: 1.5px solid #334155;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+    }
+    .input-field-custom:focus {
+      outline: none;
+      border-color: #C5A059;
+      box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION 1: Top Bar with Logo -->
+  <section id="top-bar-section" style="padding: 0;">
+    <div class="simple-topbar" style="justify-content: center;">
+      <a href="index.html" class="logo-brand"><img src="assets/images/logo.webp" alt="Stackly Logo" class="logo-image"></a>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Outer Layout Wrapper -->
+  <section id="auth-outer-wrapper" style="padding: 0;">
+    
+    <!-- SECTION 3: Auth Card Flex Container -->
+    <section id="auth-card-container" class="auth-card-wrapper">
+      
+      <!-- SECTION 4: Ambient Background Glow -->
+      <section id="ambient-glow-section" style="padding: 0; margin: 0;">
+        <div class="ambient-orb orb-gold" style="top: 30%; left: 50%; transform: translateX(-50%); width: 380px; height: 380px; opacity: 0.15; pointer-events: none;"></div>
+      </section>
+
+      <div class="form-box-card">
+        
+        <!-- SECTION: Back to Home Button (Below Header) -->
+        <section id="back-button-section" style="margin-bottom: 1.25rem; text-align: left;">
+          <a href="index.html" style="color: #C5A059; text-decoration: none; font-size: 0.85rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.9rem; background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 6px; transition: all 0.2s ease;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+          </a>
+        </section>
+        
+        <!-- SECTION 5: Form Card Header -->
+        <section id="card-header-section" style="text-align: center; margin-bottom: 1.75rem;">
+          <h1 style="font-size: 2rem; color: #FFFFFF; font-weight: 800; margin-bottom: 0.4rem;" class="text-gold-gradient">Sign In Form</h1>
+          <p style="color: #94A3B8; font-size: 0.9rem;">Select your role and enter any email & password to sign in.</p>
+        </section>
+
+        <!-- SECTION 6: 2 Role Selection Section -->
+        <section id="role-selector-section" style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #C5A059; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem;">Select Your Role</label>
+          
+          <div class="role-select-grid">
+            <!-- Role 1: Executive Admin Dashboard -->
+            <div class="role-btn-card active" id="role-card-admin" onclick="setLoginRole('admin')">
+              <i class="fa-solid fa-user-shield" style="color: #C5A059;"></i>
+              <h4>Executive Admin</h4>
+              <span>Dashboard 1</span>
+            </div>
+
+            <!-- Role 2: Operations Staff Dashboard -->
+            <div class="role-btn-card" id="role-card-staff" onclick="setLoginRole('staff')">
+              <i class="fa-solid fa-broom" style="color: #00D2B4;"></i>
+              <h4>Operations Staff</h4>
+              <span>Dashboard 2</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 7: Login Credentials Form -->
+        <section id="login-form-wrapper" style="padding: 0; margin: 0;">
+          <form id="portal-login-form">
+            <input type="hidden" id="selected-role" value="admin">
+
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label style="display: block; color: #E2E8F0; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Email Address</label>
+              <input type="email" id="login-email" class="input-field-custom" required placeholder="Enter any email address...">
+            </div>
+
+            <!-- SECTION 8: Password Input Container -->
+            <section id="password-field-container" style="padding: 0; margin: 0;">
+              <div class="form-group" style="margin-bottom: 1.5rem; position: relative;">
+                <label style="display: block; color: #E2E8F0; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Password</label>
+                <input type="password" id="login-password" class="input-field-custom" required placeholder="Enter any password...">
+                <i class="fa-solid fa-eye" id="toggle-password" style="position: absolute; right: 1rem; top: 2.5rem; color: #94A3B8; cursor: pointer; font-size: 1.1rem;" onclick="togglePasswordVisibility()"></i>
+              </div>
+            </section>
+
+            <!-- SECTION 9: Submit Button Container -->
+            <section id="submit-button-container" style="margin-top: 1.5rem;">
+              <button type="submit" class="btn-aura btn-gold shimmer-btn" style="width: 100%; height: 50px; font-size: 1.05rem; font-weight: 700; justify-content: center; border-radius: 8px;">
+                <i class="fa-solid fa-right-to-bracket"></i> Sign In to Dashboard
+              </button>
+            </section>
+          </form>
+        </section>
+
+        <div style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: #94A3B8;">
+          Don't have an account? <a href="signup.html" style="color: #C5A059; font-weight: 700; text-decoration: none;">Sign Up Here</a>
+        </div>
+
+      </div>
+    </section>
+  </section>
+
+  <!-- SECTION 10: Simple Footer -->
+  <section id="footer-section" style="padding: 0;">
+    <footer style="background: #0F172A; color: #94A3B8; padding: 1.25rem 0; text-align: center; font-size: 0.85rem; border-top: 2px solid #C5A059;">
+      &copy; 2026 Aura Hospitality Group Inc. <a href="index.html" style="color: #C5A059; margin-left: 0.5rem; font-weight: 600; text-decoration: none;"><i class="fa-solid fa-house"></i> Go to Home</a>
+    </footer>
+  </section>
+
+  <script src="assets/js/mockData.js"></script>
+  <script src="assets/js/toast.js"></script>
+
+  <script>
+    function setLoginRole(role) {
+      document.getElementById('selected-role').value = role;
+      document.querySelectorAll('.role-btn-card').forEach(card => card.classList.remove('active'));
+
+      if (role === 'admin') {
+        document.getElementById('role-card-admin').classList.add('active');
+        Toast.show("Role 1 Selected", "Executive Admin selected -> Opens Dashboard 1 (admin-dashboard.html)", "info", 1800);
+      } else {
+        document.getElementById('role-card-staff').classList.add('active');
+        Toast.show("Role 2 Selected", "Operations Staff selected -> Opens Dashboard 2 (staff-dashboard.html)", "info", 1800);
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const passInput = document.getElementById('login-password');
+      const icon = document.getElementById('toggle-password');
+      if (passInput.type === 'password') {
+        passInput.type = 'text';
+        icon.className = 'fa-solid fa-eye-slash';
+      } else {
+        passInput.type = 'password';
+        icon.className = 'fa-solid fa-eye';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedEmail = sessionStorage.getItem('aura_user_email');
+      if (savedEmail && document.getElementById('login-email')) {
+        document.getElementById('login-email').value = savedEmail;
+      }
+    });
+
+    document.getElementById('portal-login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+      const role = document.getElementById('selected-role').value;
+
+      if (!email || !password) {
+        Toast.show("Validation Error", "Please fill in both Email Address and Password fields.", "error");
+        return;
+      }
+
+      sessionStorage.setItem('aura_user_email', email);
+      sessionStorage.setItem('aura_user_role', role);
+
+      if (role === 'admin') {
+        Toast.show("Sign In Successful", `Welcome ${email}! Opening Dashboard 1...`, "success");
+        setTimeout(() => {
+          window.location.href = 'admin-dashboard.html';
+        }, 800);
+      } else {
+        Toast.show("Sign In Successful", `Welcome ${email}! Opening Dashboard 2...`, "success");
+        setTimeout(() => {
+          window.location.href = 'staff-dashboard.html';
+        }, 800);
+      }
+    });
+  </script>
+</body>
+</html>
