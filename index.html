@@ -217,7 +217,7 @@
               <div><i class="fa-solid fa-user-tie"></i> Dedicated Butler</div>
               <div><i class="fa-solid fa-plane"></i> Helipad Transfer</div>
             </div>
-            <button class="btn-aura btn-gold shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-calendar-check"></i> Reserve Ocean Villa ($2,850/nt)</button>
+            <button class="btn-aura btn-gold shimmer-btn" onclick="Toast.show('Aura Portal', 'Processing request...', 'info', 1800)"><i class="fa-solid fa-calendar-check"></i> Reserve Ocean Villa ($2,850/nt)</button>
           </div>
           <div>
             <img src="assets/villa-presidential.webp" alt="Maldives Ocean Villa" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
@@ -292,7 +292,7 @@
           <span style="color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Immersive Experience</span>
           <h2 style="font-size: 2.5rem; color: var(--brand-navy); margin: 0.5rem 0 1rem;">Step Into Sanctuary Elegance Before Arrival</h2>
           <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem;">Experience 3D virtual walkthroughs of our Presidential Overwater Villas and St. Moritz mountain suites with interactive concierge planning.</p>
-          <button class="btn-aura btn-navy btn-lg shimmer-btn" onclick="window.location.href='404.html'">
+          <button class="btn-aura btn-navy btn-lg shimmer-btn" onclick="Toast.show('Aura Portal', 'Processing request...', 'info', 1800)">
             <i class="fa-solid fa-vr-cardboard"></i> Launch 3D Virtual Tour
           </button>
         </div>
@@ -620,10 +620,10 @@
             </a>
             <p>The intelligent enterprise management platform built for scale.</p>
             <div class="footer-socials">
-              <a href="404.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="404.html" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="404.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-              <a href="404.html" class="footer-social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="contact.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="contact.html" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="contact.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="contact.html" class="footer-social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
             </div>
           </div>
 
@@ -641,11 +641,11 @@
           <div>
             <h4 class="footer-heading">Support</h4>
             <ul class="footer-links">
-              <li><a href="404.html">Help Center</a></li>
-              <li><a href="404.html">FAQ</a></li>
-              <li><a href="404.html">Documentation</a></li>
-              <li><a href="404.html">Privacy Policy</a></li>
-              <li><a href="404.html">Terms of Service</a></li>
+              <li><a href="contact.html">Help Center</a></li>
+              <li><a href="contact.html">FAQ</a></li>
+              <li><a href="contact.html">Documentation</a></li>
+              <li><a href="contact.html">Privacy Policy</a></li>
+              <li><a href="contact.html">Terms of Service</a></li>
             </ul>
           </div>
 
@@ -680,8 +680,8 @@
         <div class="footer-bottom">
           <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
             <span>&copy; 2026 Stackly Inc. All Rights Reserved.</span>
-            <a href="404.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Privacy Policy</a>
-            <a href="404.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Terms of Service</a>
+            <a href="contact.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Privacy Policy</a>
+            <a href="contact.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Terms of Service</a>
           </div>
         </div>
       </div>
@@ -770,7 +770,7 @@
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: var(--brand-gold); font-size: 0.9rem; margin-bottom: 1.5rem;">
                 ${item.specs.map(s => `<div><i class="fa-solid fa-check" style="color: var(--brand-teal);"></i> ${s}</div>`).join('')}
               </div>
-              <button class="btn-aura btn-gold shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-calendar-check"></i> Reserve Suite (${item.price})</button>
+              <button class="btn-aura btn-gold shimmer-btn" onclick="Toast.show('Aura Portal', 'Processing request...', 'info', 1800)"><i class="fa-solid fa-calendar-check"></i> Reserve Suite (${item.price})</button>
             </div>
             <div>
               <img src="${item.img}" alt="${item.title}" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
