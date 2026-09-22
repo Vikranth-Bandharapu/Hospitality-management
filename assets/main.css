@@ -116,16 +116,13 @@ img {
    NAVIGATION HEADER (Matched to Reference Architecture)
    ========================================================================== */
 .navbar {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   padding: 1.1rem 0;
-  background: rgba(9, 13, 22, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
   transition: all var(--transition-smooth);
 }
 
@@ -493,26 +490,7 @@ img {
   text-align: center;
 }
 
-.footer-palette-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-  padding: 0.35rem 0.9rem;
-  background: rgba(255, 255, 255, 0.04);
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  letter-spacing: 0.05em;
-}
 
-.footer-palette-dot {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-}
 
 /* ==========================================================================
    COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
