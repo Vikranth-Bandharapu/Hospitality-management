@@ -63,7 +63,7 @@
     <main class="dash-main">
       
       <!-- SECTION 6: Top Control Bar & Live Perspective Switcher -->
-      <section id="console-topbar" style="padding: 0;">
+      <section id="console-topbar" class="dash-topbar-section" style="padding: 0; position: sticky; top: 0; z-index: 1000; background: #0D1527;">
         <header class="dash-topbar">
           <div style="display: flex; align-items: center; gap: 1rem;">
             <button class="dash-mobile-toggle" id="sidebar-toggle-btn" onclick="toggleDashboardSidebar(event)" aria-label="Toggle Navigation">
@@ -112,10 +112,20 @@
         </div>
       </section>
 
-      <!-- SECTION 10: Dynamic Console Main Container & Footer -->
+      <!-- SECTION 10: Dynamic Console Main Container -->
       <section id="console-main-container" style="padding: 0;">
         <div class="dash-content" id="dash-main-content">
           <!-- Rendered dynamically by DashboardController -->
+        </div>
+      </section>
+
+      <!-- SECTION 11: Console Footer -->
+      <section id="console-footer" style="padding: 1.5rem 0; border-top: 1px solid rgba(245, 158, 11, 0.2); font-size: 0.8rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <div>
+          &copy; 2026 <strong>Stackly Aura Hospitality Group</strong>. Operations Console.
+        </div>
+        <div>
+          Helpline: <strong>+91 98765 43210</strong> • Chennai Sanctuary HQ
         </div>
       </section>
 

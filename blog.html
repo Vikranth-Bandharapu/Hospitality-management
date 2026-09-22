@@ -83,11 +83,11 @@
   <!-- SECTION 3: Interactive Editorial Category Bar -->
   <section id="category-pill-bar" style="padding: 1.5rem 0; background: var(--bg-surface); border-bottom: 1px solid var(--border-light);">
     <div class="container-custom" style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
-      <button class="filter-pill active"><i class="fa-solid fa-layer-group"></i> All Insights</button>
-      <button class="filter-pill"><i class="fa-solid fa-chart-line"></i> RevPAR Yield Strategy</button>
-      <button class="filter-pill"><i class="fa-solid fa-pen-ruler"></i> Architecture & Design</button>
-      <button class="filter-pill"><i class="fa-solid fa-wine-glass"></i> Gastronomy & Sommelier</button>
-      <button class="filter-pill"><i class="fa-solid fa-leaf"></i> Net-Zero Sustainability</button>
+      <button class="filter-pill active" onclick="filterBlogCategory('all', 'All Insights', this)"><i class="fa-solid fa-layer-group"></i> All Insights</button>
+      <button class="filter-pill" onclick="filterBlogCategory('latest-insights-grid', 'RevPAR Yield Strategy', this)"><i class="fa-solid fa-chart-line"></i> RevPAR Yield Strategy</button>
+      <button class="filter-pill" onclick="filterBlogCategory('architectural-spotlight-cards', 'Architecture & Design', this)"><i class="fa-solid fa-pen-ruler"></i> Architecture & Design</button>
+      <button class="filter-pill" onclick="filterBlogCategory('gastronomy-cellar-cards', 'Gastronomy & Sommelier', this)"><i class="fa-solid fa-wine-glass"></i> Gastronomy & Sommelier</button>
+      <button class="filter-pill" onclick="filterBlogCategory('hospitality-tech-trends-cards', 'Net-Zero Sustainability', this)"><i class="fa-solid fa-leaf"></i> Net-Zero Sustainability</button>
     </div>
   </section>
 
@@ -107,7 +107,7 @@
               <img src="assets/avatar-admin.webp" alt="Eleanor Vance" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--brand-gold);">
               <span style="color: #FFF; font-size: 0.85rem; font-weight: 600;">Lady Eleanor Vance • 6 min read</span>
             </div>
-            <button class="btn-aura btn-gold shimmer-btn" onclick="Toast.show('Aura Portal', 'Processing request...', 'info', 1800)"><i class="fa-solid fa-book-open"></i> Read Full Story</button>
+            <a href="404.html" class="btn-aura btn-gold shimmer-btn" style="text-decoration: none;"><i class="fa-solid fa-book-open"></i> Read Full Story</a>
           </div>
         </div>
       </div>
@@ -134,7 +134,7 @@
             <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 600;">Sept 14, 2026 • 4 min read</span>
             <h3 class="card-title text-gold-gradient" style="font-size: 1.25rem; margin: 0.4rem 0;">Reclaimed Timber in Alpine Interiors</h3>
             <p class="card-text" style="color: var(--text-dark-muted);">Combining 100-year-old oak beams with modern thermal fireplaces in St. Moritz suites.</p>
-            <button class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1rem; width: 100%; justify-content: center;" onclick="Toast.show('Aura Portal', 'Processing request...', 'info', 1800)">Read Article</button>
+            <a href="404.html" class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1rem; width: 100%; justify-content: center; text-decoration: none;">Read Article</a>
           </div>
         </div>
 
@@ -147,7 +147,7 @@
             <span style="font-size: 0.8rem; color: var(--brand-gold); font-weight: 600;">Sept 10, 2026 • 7 min read</span>
             <h3 class="card-title text-gold-gradient" style="font-size: 1.25rem; margin: 0.4rem 0;">Sourcing Rare Vintages for VIP Villas</h3>
             <p class="card-text" style="color: var(--text-dark-muted);">How Master Sommeliers procure 1982 Bordeaux direct from French châteaux cellars.</p>
-            <button class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1rem; width: 100%; justify-content: center;" onclick="Toast.show('Aura Portal', 'Processing request...', 'info', 1800)">Read Article</button>
+            <a href="404.html" class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1rem; width: 100%; justify-content: center; text-decoration: none;">Read Article</a>
           </div>
         </div>
 
@@ -160,7 +160,7 @@
             <span style="font-size: 0.8rem; color: var(--brand-teal); font-weight: 600;">Sept 04, 2026 • 5 min read</span>
             <h3 class="card-title text-gold-gradient" style="font-size: 1.25rem; margin: 0.4rem 0;">Helipad Transfers & Express Check-In</h3>
             <p class="card-text" style="color: var(--text-dark-muted);">Streamlining high-net-worth guest transfers from private jet terminals to island helipads.</p>
-            <button class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1rem; width: 100%; justify-content: center;" onclick="Toast.show('Aura Portal', 'Processing request...', 'info', 1800)">Read Article</button>
+            <a href="404.html" class="btn-aura btn-outline-gold btn-sm" style="margin-top: 1rem; width: 100%; justify-content: center; text-decoration: none;">Read Article</a>
           </div>
         </div>
 
@@ -681,7 +681,7 @@
         </div>
 
         <div class="footer-bottom">
-          <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; width: 100%; text-align: center;">
             <span>&copy; 2026 Stackly Inc. All Rights Reserved.</span>
             <a href="contact.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Privacy Policy</a>
             <a href="contact.html" style="color: rgba(248, 250, 249, 0.75); text-decoration: none;">Terms of Service</a>

@@ -82,9 +82,9 @@
 
       <!-- SECTION 3: Operations Session Badge -->
       <div style="padding: 0.6rem 0.85rem; margin: 0.35rem 0.65rem; background: rgba(16, 185, 129, 0.08); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.2); display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0;">
-        <div style="width: 32px; height: 32px; border-radius: 50%; background: #10B981; color: #04101E; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.775rem; flex-shrink: 0;">VB</div>
+        <div class="sidebar-avatar-initials" style="width: 32px; height: 32px; border-radius: 50%; background: #10B981; color: #04101E; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.775rem; flex-shrink: 0;">VB</div>
         <div style="overflow: hidden;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: #FFFFFF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">gm@stacklyaura.com</div>
+          <div class="sidebar-email-display" style="font-size: 0.75rem; font-weight: 700; color: #FFFFFF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">gm@stacklyaura.com</div>
           <div style="font-size: 0.625rem; color: #10B981; font-weight: 700; text-transform: uppercase;">OPERATIONS SESSION</div>
         </div>
       </div>
@@ -101,7 +101,7 @@
     <main class="dash-main">
       
       <!-- SECTION 4: Top Bar -->
-      <section id="gm-topbar" style="padding: 0;">
+      <section id="gm-topbar" class="dash-topbar-section" style="padding: 0; position: sticky; top: 0; z-index: 1000; background: #091827;">
         <header class="dash-topbar" style="background: #091827; border-bottom: 1px solid rgba(16, 185, 129, 0.2);">
           <div style="display: flex; align-items: center; gap: 1rem;">
             <button class="dash-mobile-toggle" onclick="toggleDashboardSidebar(event)" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i> Menu</button>
@@ -124,7 +124,7 @@
             <div>
               <h2 style="font-size: 1.45rem; color: #FFFFFF; font-weight: 700; margin: 0 0 0.25rem 0; font-family: 'Playfair Display', serif;">
                 Welcome, Vikrant Bandharapu
-                <span style="font-size: 0.95rem; color: #10B981; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; margin-left: 0.5rem;">gm@stacklyaura.com</span>
+                <span class="dash-welcome-email-ref" style="font-size: 0.95rem; color: #10B981; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; margin-left: 0.5rem;">gm@stacklyaura.com</span>
               </h2>
               <div style="font-size: 0.75rem; color: #10B981; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">GENERAL MANAGER • CHENNAI SANCTUARY RESORT OPERATIONS HQ</div>
             </div>
@@ -289,6 +289,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      if (typeof DashboardController !== 'undefined') DashboardController.syncSessionUser();
       const navLinks = document.querySelectorAll('.dash-sidebar .dash-nav-link-gm[data-tab]');
       const tabPanels = document.querySelectorAll('.dash-tab-panel');
 

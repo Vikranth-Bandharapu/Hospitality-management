@@ -104,9 +104,9 @@
 
       <!-- SECTION 3: Executive Session Badge -->
       <div style="padding: 0.6rem 0.85rem; margin: 0.35rem 0.65rem; background: rgba(245, 158, 11, 0.08); border-radius: 8px; border: 1px solid rgba(245, 158, 11, 0.2); display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0;">
-        <div style="width: 32px; height: 32px; border-radius: 50%; background: #F59E0B; color: #04101E; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.775rem; flex-shrink: 0;">EV</div>
+        <div class="sidebar-avatar-initials" style="width: 32px; height: 32px; border-radius: 50%; background: #F59E0B; color: #04101E; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.775rem; flex-shrink: 0;">EV</div>
         <div style="overflow: hidden;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: #FFFFFF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">admin@stacklyaura.com</div>
+          <div class="sidebar-email-display" style="font-size: 0.75rem; font-weight: 700; color: #FFFFFF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">admin@stacklyaura.com</div>
           <div style="font-size: 0.625rem; color: #F59E0B; font-weight: 700; text-transform: uppercase;">C-SUITE SESSION</div>
         </div>
       </div>
@@ -123,7 +123,7 @@
     <main class="dash-main">
       
       <!-- SECTION 4: Top Control Bar -->
-      <section id="admin-topbar" style="padding: 0;">
+      <section id="admin-topbar" class="dash-topbar-section" style="padding: 0; position: sticky; top: 0; z-index: 1000; background: #0D1527;">
         <header class="dash-topbar" style="background: #0D1527; border-bottom: 1px solid rgba(245, 158, 11, 0.2);">
           <div style="display: flex; align-items: center; gap: 1rem;">
             <button class="dash-mobile-toggle" onclick="toggleDashboardSidebar(event)" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i> Menu</button>
@@ -776,7 +776,7 @@
               <!-- Card 1: Corporate Branding -->
               <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
                 <h4 style="font-size: 1rem; color: #F59E0B; margin-bottom: 1rem; font-weight: 700;"><i class="fa-solid fa-building" style="margin-right: 0.4rem;"></i> Corporate Identity & Localization</h4>
-                <form onsubmit="event.preventDefault(); Toast.show('Branding Saved', 'Corporate branding updated successfully!', 'success', 2500);" style="display: grid; gap: 1rem;">
+                <form onsubmit="event.preventDefault(); return false;" style="display: grid; gap: 1rem;">
                   <div>
                     <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Group Entity Brand Name</label>
                     <input type="text" class="form-control-aura" value="Stackly Aura Hospitality Group" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
@@ -797,14 +797,14 @@
                       <option>EUR (€) - European Union</option>
                     </select>
                   </div>
-                  <button type="submit" class="btn-aura btn-xs btn-gold" style="margin-top: 0.5rem;"><i class="fa-solid fa-floppy-disk"></i> SAVE BRANDING</button>
+                  <button type="button" class="btn-aura btn-xs btn-gold" onclick="Toast.show('Branding Saved', 'Corporate branding updated successfully!', 'success', 2500)" style="margin-top: 0.5rem;"><i class="fa-solid fa-floppy-disk"></i> SAVE BRANDING</button>
                 </form>
               </div>
 
               <!-- Card 2: Security & Access Controls -->
               <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
                 <h4 style="font-size: 1rem; color: #38BDF8; margin-bottom: 1rem; font-weight: 700;"><i class="fa-solid fa-user-shield" style="margin-right: 0.4rem;"></i> Security & Access Controls (RBAC)</h4>
-                <form onsubmit="event.preventDefault(); Toast.show('Security Saved', 'RBAC security parameters updated!', 'success', 2500);" style="display: grid; gap: 1rem;">
+                <form onsubmit="event.preventDefault(); return false;" style="display: grid; gap: 1rem;">
                   <div>
                     <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Two-Factor Authentication (2FA)</label>
                     <select class="form-control-aura" style="background: #0D1527; color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
@@ -828,14 +828,14 @@
                       <button type="button" class="btn-aura btn-xs btn-outline-gold" onclick="Toast.show('API Key', 'Key copied to clipboard!', 'info', 2000)">COPY</button>
                     </div>
                   </div>
-                  <button type="submit" class="btn-aura btn-xs btn-gold" style="margin-top: 0.5rem;"><i class="fa-solid fa-floppy-disk"></i> UPDATE SECURITY</button>
+                  <button type="button" class="btn-aura btn-xs btn-gold" onclick="Toast.show('Security Saved', 'RBAC security parameters updated!', 'success', 2500)" style="margin-top: 0.5rem;"><i class="fa-solid fa-floppy-disk"></i> UPDATE SECURITY</button>
                 </form>
               </div>
 
               <!-- Card 3: Automated Notifications & VIP Dispatch -->
               <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
                 <h4 style="font-size: 1rem; color: #10B981; margin-bottom: 1rem; font-weight: 700;"><i class="fa-solid fa-bell" style="margin-right: 0.4rem;"></i> Automated VIP Dispatch Alerts</h4>
-                <form onsubmit="event.preventDefault(); Toast.show('Alerts Saved', 'VIP notification rules saved!', 'success', 2500);" style="display: grid; gap: 1rem;">
+                <form onsubmit="event.preventDefault(); return false;" style="display: grid; gap: 1rem;">
                   <div>
                     <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">VIP Dispatch Mobile Target</label>
                     <input type="text" class="form-control-aura" value="+91 98765 43210" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);">
@@ -852,14 +852,14 @@
                       <option>Disabled</option>
                     </select>
                   </div>
-                  <button type="submit" class="btn-aura btn-xs btn-gold" style="margin-top: 0.5rem;"><i class="fa-solid fa-floppy-disk"></i> SAVE ALERT RULES</button>
+                  <button type="button" class="btn-aura btn-xs btn-gold" onclick="Toast.show('Alerts Saved', 'VIP notification rules saved!', 'success', 2500)" style="margin-top: 0.5rem;"><i class="fa-solid fa-floppy-disk"></i> SAVE ALERT RULES</button>
                 </form>
               </div>
 
               <!-- Card 4: Compliance & Cloud Data Backups -->
               <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 1.25rem;">
                 <h4 style="font-size: 1rem; color: #A855F7; margin-bottom: 1rem; font-weight: 700;"><i class="fa-solid fa-database" style="margin-right: 0.4rem;"></i> Compliance & Cloud Data Backups</h4>
-                <form onsubmit="event.preventDefault(); Toast.show('Backup Saved', 'Automated cloud backup triggered!', 'success', 2500);" style="display: grid; gap: 1rem;">
+                <form onsubmit="event.preventDefault(); return false;" style="display: grid; gap: 1rem;">
                   <div>
                     <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Data Encryption Protocol</label>
                     <input type="text" class="form-control-aura" value="AES 256-Bit Hardware Encryption" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);" readonly>
@@ -876,7 +876,7 @@
                     <label style="display: block; font-size: 0.775rem; color: #94A3B8; margin-bottom: 0.25rem; font-weight: 700; text-transform: uppercase;">Audit Retention Horizon</label>
                     <input type="text" class="form-control-aura" value="7 Years Institutional Storage" style="background: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.12);" readonly>
                   </div>
-                  <button type="submit" class="btn-aura btn-xs btn-gold" style="margin-top: 0.5rem;"><i class="fa-solid fa-cloud-arrow-up"></i> TRIGGER BACKUP NOW</button>
+                  <button type="button" class="btn-aura btn-xs btn-gold" onclick="Toast.show('Backup Saved', 'Automated cloud backup triggered!', 'success', 2500)" style="margin-top: 0.5rem;"><i class="fa-solid fa-cloud-arrow-up"></i> TRIGGER BACKUP NOW</button>
                 </form>
               </div>
 
@@ -907,6 +907,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      if (typeof DashboardController !== 'undefined') DashboardController.syncSessionUser();
       const navLinks = document.querySelectorAll('.dash-sidebar .dash-nav-link-admin[data-tab]');
       const tabPanels = document.querySelectorAll('.dash-tab-panel');
 
