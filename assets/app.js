@@ -198,6 +198,9 @@ const App = {
   },
 
   handleFormSubmit(form) {
+    if (form.getAttribute('onsubmit') && form.getAttribute('onsubmit').includes('Toast.show')) {
+      return;
+    }
     let isValid = true;
     const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
 
@@ -230,6 +233,13 @@ const App = {
       const password = form.querySelector('#login-password').value;
       const role = form.querySelector('#login-role') ? form.querySelector('#login-role').value : 'admin';
       AuthController.handleLogin(email, password, role);
+    } else if (formId === 'hero-booking-form') {
+      const selectEl = form.querySelector('select');
+      const selectedResort = selectEl ? selectEl.options[selectEl.selectedIndex].text : 'luxury resort';
+      Toast.show("Searching Inventories", "Finding available suites for " + selectedResort + "...", "info", 1500);
+      setTimeout(() => {
+        window.location.href = 'properties.html';
+      }, 600);
     } else {
       Toast.show("Action Complete", "Your request has been successfully recorded.", "success");
       form.reset();
@@ -262,6 +272,32 @@ const App = {
         card.style.display = 'none';
       }
     });
+  }
+};
+
+window.filterBlogCategory = function(targetId, categoryName, btn) {
+  document.querySelectorAll('#category-pill-bar .filter-pill').forEach(p => p.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  if (targetId === 'all') {
+    const el = document.getElementById('latest-insights-grid');
+    if (el) {
+      const headerOffset = 90;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+    Toast.show('Filter Applied', 'Showing All Journal Insights', 'info', 1500);
+    return;
+  }
+
+  const targetEl = document.getElementById(targetId);
+  if (targetEl) {
+    const headerOffset = 90;
+    const elementPosition = targetEl.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    Toast.show('Filter Applied', 'Loaded ' + categoryName + ' section', 'success', 1500);
   }
 };
 

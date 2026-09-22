@@ -37,7 +37,7 @@ const DashboardController = {
   },
 
   syncSessionUser() {
-    const savedEmail = sessionStorage.getItem('aura_user_email');
+    const savedEmail = sessionStorage.getItem('aura_user_email') || localStorage.getItem('aura_user_email');
     if (!savedEmail) return;
 
     let initials = 'US';

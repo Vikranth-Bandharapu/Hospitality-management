@@ -141,7 +141,14 @@ body.dashboard-page, .dashboard-wrapper {
   min-width: 0;
 }
 
-/* Topbar Header Bar (Dark Obsidian Theme) */
+/* Topbar Header Bar Sticky Wrapper */
+.dash-topbar-section {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  width: 100%;
+}
+
 .dash-topbar {
   background: #0D1527 !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -149,9 +156,7 @@ body.dashboard-page, .dashboard-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  width: 100%;
 }
 
 .dash-search-box {

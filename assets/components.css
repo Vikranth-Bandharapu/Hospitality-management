@@ -654,3 +654,38 @@
     height: 460px !important;
   }
 }
+
+/* ==========================================================================
+   GLOBAL ELEGANT TABLE SYSTEM (.table-aura & .dash-table)
+   ========================================================================== */
+.table-aura, .dash-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  text-align: left !important;
+  font-size: 0.925rem;
+}
+
+.table-aura th, .dash-table th {
+  background: #090E1A !important;
+  color: #C5A059 !important;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 1rem 1.25rem !important;
+  border-bottom: 2px solid rgba(197, 160, 89, 0.4) !important;
+  white-space: nowrap !important;
+}
+
+.table-aura td, .dash-table td {
+  padding: 1rem 1.25rem !important;
+  color: #F8FAFC !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  vertical-align: middle !important;
+  line-height: 1.5;
+}
+
+.table-aura tbody tr:hover, .dash-table tbody tr:hover {
+  background: rgba(197, 160, 89, 0.08) !important;
+}
