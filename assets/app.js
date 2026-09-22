@@ -236,10 +236,10 @@ const App = {
     } else if (formId === 'hero-booking-form') {
       const selectEl = form.querySelector('select');
       const selectedResort = selectEl ? selectEl.options[selectEl.selectedIndex].text : 'luxury resort';
-      Toast.show("Searching Inventories", "Finding available suites for " + selectedResort + "...", "info", 1500);
+      Toast.show("Searching Inventories", "Redirecting search query for " + selectedResort + "...", "info", 1000);
       setTimeout(() => {
-        window.location.href = 'properties.html';
-      }, 600);
+        window.location.href = '404.html';
+      }, 400);
     } else {
       Toast.show("Action Complete", "Your request has been successfully recorded.", "success");
       form.reset();
