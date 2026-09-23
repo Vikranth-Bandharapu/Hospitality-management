@@ -462,6 +462,11 @@ body.dashboard-page, .dashboard-wrapper {
   pointer-events: auto;
 }
 
+/* Dashboard Body Padding Override */
+body {
+  padding-top: 0 !important;
+}
+
 /* Dashboard Sticky Topbar Header */
 .dash-topbar-section, #admin-topbar, #manager-topbar, #staff-topbar, #console-topbar {
   position: sticky !important;

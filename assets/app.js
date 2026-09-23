@@ -29,12 +29,23 @@ const App = {
         return;
       }
 
+      // Allow navigation links pointing to real HTML pages (Login, Register, Home, About, etc.)
+      const linkAnchor = target.closest('a[href]');
+      if (linkAnchor) {
+        const href = linkAnchor.getAttribute('href');
+        if (href && (href.endsWith('.html') || href.includes('#'))) {
+          if (['login.html', 'signup.html', 'index.html', 'about.html', 'blog.html', 'services.html', 'contact.html', 'events.html', 'gallery.html', 'guest-experience.html', 'offers.html', 'properties.html', '404.html'].includes(href.split('#')[0])) {
+            return;
+          }
+        }
+      }
+
       // Ignore navigation toggles, modal close buttons, brand logos, navbar links, and footer navigation links
-      if (target.closest('.mobile-toggle, .drawer-close, .modal-close, .dash-mobile-toggle, #sidebar-toggle-btn, .logo-brand, .nav-menu a, .footer-links a, .footer-bottom a')) {
+      if (target.closest('.mobile-toggle, .drawer-close, .modal-close, .dash-mobile-toggle, #sidebar-toggle-btn, .logo-brand, .nav-links a, .drawer-nav-links a, .footer-links a, .footer-bottom a')) {
         return;
       }
 
-      // Target any CTA button, modal trigger button, or submit button (excluding dashboard actions & auth forms)
+      // Target CTA action buttons, modal trigger buttons, or submit buttons (excluding dashboard actions & auth forms)
       const ctaBtn = target.closest('.btn-aura, .shimmer-btn, [data-modal-target], button[type="submit"]');
       if (ctaBtn) {
         // Skip dashboard action buttons and login form
@@ -92,6 +103,7 @@ const App = {
       const backdrop = document.querySelector('.drawer-backdrop');
       if (drawer) drawer.classList.remove('open');
       if (backdrop) backdrop.classList.remove('active');
+      document.body.classList.remove('drawer-open');
       document.body.style.overflow = '';
       updateToggleIcons(false);
     };
@@ -106,6 +118,7 @@ const App = {
         } else {
           drawer.classList.add('open');
           if (backdrop) backdrop.classList.add('active');
+          document.body.classList.add('drawer-open');
           document.body.style.overflow = 'hidden';
           updateToggleIcons(true);
         }

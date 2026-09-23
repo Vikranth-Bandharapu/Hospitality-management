@@ -138,6 +138,19 @@ img {
   display: inline-flex !important;
 }
 
+/* Fixed Sticky Navigation Header Offset & Lock */
+body {
+  padding-top: 75px !important;
+}
+
+body.drawer-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none !important;
+  position: fixed !important;
+  width: 100% !important;
+}
+
 /* ==========================================================================
    NAVIGATION HEADER (Fixed Sticky Architecture)
    ========================================================================== */
