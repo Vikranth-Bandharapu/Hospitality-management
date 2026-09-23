@@ -23,48 +23,50 @@ const App = {
     document.addEventListener('click', (e) => {
       const target = e.target;
       
-      // Allow filter pills to work for category scrolling
-      const pill = target.closest('.filter-pill');
-      if (pill) {
+      // 1. Allow filter pills for category filtering
+      if (target.closest('.filter-pill')) {
         return;
       }
 
-      // Allow navigation links pointing to real HTML pages (Login, Register, Home, About, etc.)
+      // 2. Ignore mobile drawer toggles, modal close buttons, sidebar toggles, and brand logo
+      if (target.closest('.mobile-toggle, .drawer-close, .modal-close, .dash-mobile-toggle, #sidebar-toggle-btn, .logo-brand')) {
+        return;
+      }
+
+      // 3. Ignore elements inside logged-in dashboard interfaces & auth forms
+      if (target.closest('#admin-dashboard, #manager-dashboard, #staff-dashboard, #dashboard-console, .dash-sidebar, .dash-topbar-section, #login-form, #signup-form, .auth-card')) {
+        return;
+      }
+
+      // 4. Primary Header Navigation Links & Mobile Drawer Navigation Links
+      const primaryNav = target.closest('.nav-links a, .drawer-nav-links a');
+      if (primaryNav) {
+        return;
+      }
+
+      // 5. Footer Quick Links column (Home, About, Blog, Services, Contact)
+      const footerLink = target.closest('.footer-links a');
+      if (footerLink) {
+        const text = footerLink.textContent.trim().toLowerCase();
+        if (['home', 'about', 'blog', 'services', 'contact'].includes(text)) {
+          return;
+        }
+      }
+
+      // 6. Target any CTA action button, modal trigger, social button, or marketing CTA link
+      const cta = target.closest('.btn-aura, .shimmer-btn, .footer-social-btn, [data-modal-target], .footer-links a, .footer-bottom a');
       const linkAnchor = target.closest('a[href]');
-      if (linkAnchor) {
-        const href = linkAnchor.getAttribute('href');
-        if (href && (href.endsWith('.html') || href.includes('#'))) {
-          if (['login.html', 'signup.html', 'index.html', 'about.html', 'blog.html', 'services.html', 'contact.html', 'events.html', 'gallery.html', 'guest-experience.html', 'offers.html', 'properties.html', '404.html'].includes(href.split('#')[0])) {
-            return;
-          }
-        }
-      }
-
-      // Ignore navigation toggles, modal close buttons, brand logos, navbar links, and footer navigation links
-      if (target.closest('.mobile-toggle, .drawer-close, .modal-close, .dash-mobile-toggle, #sidebar-toggle-btn, .logo-brand, .nav-links a, .drawer-nav-links a, .footer-links a, .footer-bottom a')) {
-        return;
-      }
-
-      // Target CTA action buttons, modal trigger buttons, or submit buttons (excluding dashboard actions & auth forms)
-      const ctaBtn = target.closest('.btn-aura, .shimmer-btn, [data-modal-target], button[type="submit"]');
-      if (ctaBtn) {
-        // Skip dashboard action buttons and login form
-        const form = ctaBtn.closest('form');
-        if (form && form.id === 'login-form') {
-          return;
-        }
-        if (ctaBtn.closest('#admin-dashboard, #manager-dashboard, #staff-dashboard, #dashboard-console, .dash-sidebar, .dash-topbar-section')) {
-          return;
-        }
-
+      
+      // If it's a CTA button or non-primary link, redirect to 404.html!
+      if (cta || (linkAnchor && !linkAnchor.closest('.nav-links, .drawer-nav-links, .footer-links')) || (linkAnchor && linkAnchor.getAttribute('href') === '404.html')) {
         e.preventDefault();
         e.stopPropagation();
         if (typeof Toast !== 'undefined') {
-          Toast.show("Redirecting", "Navigating to 404 page...", "info", 1000);
+          Toast.show("Redirecting", "Navigating to 404 page...", "info", 800);
         }
         setTimeout(() => {
           window.location.href = '404.html';
-        }, 300);
+        }, 150);
       }
     }, true);
   },
