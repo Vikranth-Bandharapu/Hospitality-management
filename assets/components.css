@@ -3,6 +3,24 @@
    Buttons, Badges, Luxury Cards, Modals, Toasts, Form Controls & Shimmer UI
    ========================================================================== */
 
+/* Global Utility Alignment */
+.text-center {
+  text-align: center !important;
+}
+
+.text-center h1, .text-center h2, .text-center h3, .text-center h4, .text-center h5, .text-center h6,
+.text-center p, .text-center span, .text-center div {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.text-center button, .text-center .btn-aura {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: inline-flex !important;
+}
+
 /* Buttons System */
 .btn-aura {
   display: inline-flex;

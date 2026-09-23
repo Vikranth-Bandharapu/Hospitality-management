@@ -21,20 +21,41 @@ const App = {
   // Interactive Call-To-Action (CTA) & Filter Pill Handlers
   initCTAButtons() {
     document.addEventListener('click', (e) => {
-      const pill = e.target.closest('.filter-pill');
+      const target = e.target;
+      
+      // Allow filter pills to work for category scrolling
+      const pill = target.closest('.filter-pill');
       if (pill) {
-        const parent = pill.closest('div, section');
-        if (parent) {
-          parent.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-          pill.classList.add('active');
-        }
-        const filterName = pill.textContent.trim();
-        if (typeof Toast !== 'undefined') {
-          Toast.show("Filter Applied", "Loaded " + filterName + " records", "info", 1500);
-        }
         return;
       }
-    });
+
+      // Ignore navigation toggles, modal close buttons, brand logos, navbar links, and footer navigation links
+      if (target.closest('.mobile-toggle, .drawer-close, .modal-close, .dash-mobile-toggle, #sidebar-toggle-btn, .logo-brand, .nav-menu a, .footer-links a, .footer-bottom a')) {
+        return;
+      }
+
+      // Target any CTA button, modal trigger button, or submit button (excluding dashboard actions & auth forms)
+      const ctaBtn = target.closest('.btn-aura, .shimmer-btn, [data-modal-target], button[type="submit"]');
+      if (ctaBtn) {
+        // Skip dashboard action buttons and login form
+        const form = ctaBtn.closest('form');
+        if (form && form.id === 'login-form') {
+          return;
+        }
+        if (ctaBtn.closest('#admin-dashboard, #manager-dashboard, #staff-dashboard, #dashboard-console, .dash-sidebar, .dash-topbar-section')) {
+          return;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof Toast !== 'undefined') {
+          Toast.show("Redirecting", "Navigating to 404 page...", "info", 1000);
+        }
+        setTimeout(() => {
+          window.location.href = '404.html';
+        }, 300);
+      }
+    }, true);
   },
 
   // Navbar Scroll Handler
@@ -78,65 +99,59 @@ const App = {
     const toggleDrawer = () => {
       const drawer = document.querySelector('.mobile-drawer');
       const backdrop = document.querySelector('.drawer-backdrop');
-      if (!drawer) return;
-
-      const isOpen = drawer.classList.contains('open');
-      if (isOpen) {
-        closeDrawer();
-      } else {
-        drawer.classList.add('open');
-        if (backdrop) backdrop.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        updateToggleIcons(true);
-      }
-    };
-
-    document.addEventListener('click', (e) => {
-      const toggleBtn = e.target.closest('.mobile-toggle');
-      const closeBtn = e.target.closest('.drawer-close');
-      const backdrop = e.target.closest('.drawer-backdrop');
-      const drawerNavLink = e.target.closest('.drawer-nav-link');
-
-      if (toggleBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleDrawer();
-      } else if (closeBtn || backdrop || drawerNavLink) {
-        closeDrawer();
-      }
-    });
-  },
-
-  // Dashboard Mobile Sidebar Controller (Auto-Close & Tab Reveal on Mobile)
-  initDashboardSidebar() {
-    window.toggleDashboardSidebar = function(e) {
-      if (e) {
-        if (typeof e.preventDefault === 'function') e.preventDefault();
-        if (typeof e.stopPropagation === 'function') e.stopPropagation();
-      }
-      const dashSidebar = document.getElementById('dash-sidebar') || document.querySelector('.dash-sidebar');
-      const dashBackdrop = document.querySelector('.dash-sidebar-backdrop');
-      if (dashSidebar) {
-        const isOpen = dashSidebar.classList.contains('open');
+      if (drawer) {
+        const isOpen = drawer.classList.contains('open');
         if (isOpen) {
-          dashSidebar.classList.remove('open');
-          if (dashBackdrop) dashBackdrop.classList.remove('active');
+          closeDrawer();
         } else {
-          dashSidebar.classList.add('open');
-          if (dashBackdrop) dashBackdrop.classList.add('active');
+          drawer.classList.add('open');
+          if (backdrop) backdrop.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          updateToggleIcons(true);
         }
       }
     };
 
-    document.addEventListener('click', (e) => {
-      const dashSidebar = document.getElementById('dash-sidebar') || document.querySelector('.dash-sidebar');
-      const dashBackdrop = document.querySelector('.dash-sidebar-backdrop');
-      const sidebarLink = e.target.closest('.dash-sidebar a, .dash-sidebar [data-tab], .dash-nav-link, .dash-nav-link-admin, .dash-nav-link-gm');
+    document.querySelectorAll('.mobile-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDrawer();
+      });
+    });
 
-      // Auto-close sidebar on mobile when ANY tab link is clicked
-      if (sidebarLink && dashSidebar) {
+    const closeBtn = document.querySelector('.drawer-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+
+    const backdrop = document.querySelector('.drawer-backdrop');
+    if (backdrop) backdrop.addEventListener('click', closeDrawer);
+  },
+
+  // Dashboard Mobile Sidebar Controller (Auto-Close & Tab Reveal on Mobile)
+  initDashboardSidebar() {
+    const dashSidebar = document.querySelector('.dash-sidebar');
+    const toggleBtns = document.querySelectorAll('.dash-mobile-toggle, #sidebar-toggle-btn');
+    
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (dashSidebar) {
+          dashSidebar.classList.toggle('open');
+          let backdrop = document.querySelector('.dash-sidebar-backdrop');
+          if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.className = 'dash-sidebar-backdrop';
+            document.body.appendChild(backdrop);
+          }
+          backdrop.classList.toggle('active', dashSidebar.classList.contains('open'));
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (dashSidebar && dashSidebar.classList.contains('open') && !dashSidebar.contains(e.target) && !e.target.closest('.dash-mobile-toggle, #sidebar-toggle-btn')) {
         dashSidebar.classList.remove('open');
-        if (dashBackdrop) dashBackdrop.classList.remove('active');
+        const backdrop = document.querySelector('.dash-sidebar-backdrop');
+        if (backdrop) backdrop.classList.remove('active');
       }
 
       if (e.target.classList.contains('dash-sidebar-backdrop') && dashSidebar) {
@@ -198,51 +213,20 @@ const App = {
   },
 
   handleFormSubmit(form) {
-    if (form.getAttribute('onsubmit') && form.getAttribute('onsubmit').includes('Toast.show')) {
-      return;
-    }
-    let isValid = true;
-    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-
-    inputs.forEach(input => {
-      if (!input.value.trim()) {
-        isValid = false;
-        input.classList.add('error');
-      } else {
-        input.classList.remove('error');
-      }
-    });
-
-    if (!isValid) {
-      Toast.show("Validation Failed", "Please fill in all required fields accurately.", "error");
-      return;
-    }
-
     const formId = form.id;
 
-    if (formId === 'newsletter-form') {
-      Toast.show("Subscribed", "Thank you for subscribing to Aura Hospitality Digest.", "success");
-      form.reset();
-    } else if (formId === 'booking-modal-form') {
-      Toast.show("Reservation Confirmed", "Your VIP reservation request has been submitted to Concierge.", "success");
-      form.reset();
-      const modal = form.closest('.modal-overlay');
-      if (modal) this.closeModal(modal);
-    } else if (formId === 'login-form') {
+    if (formId === 'login-form') {
       const email = form.querySelector('#login-email').value;
       const password = form.querySelector('#login-password').value;
       const role = form.querySelector('#login-role') ? form.querySelector('#login-role').value : 'admin';
       AuthController.handleLogin(email, password, role);
-    } else if (formId === 'hero-booking-form') {
-      const selectEl = form.querySelector('select');
-      const selectedResort = selectEl ? selectEl.options[selectEl.selectedIndex].text : 'luxury resort';
-      Toast.show("Searching Inventories", "Redirecting search query for " + selectedResort + "...", "info", 1000);
+    } else {
+      if (typeof Toast !== 'undefined') {
+        Toast.show("Processing Request", "Redirecting to 404 page...", "info", 1000);
+      }
       setTimeout(() => {
         window.location.href = '404.html';
-      }, 400);
-    } else {
-      Toast.show("Action Complete", "Your request has been successfully recorded.", "success");
-      form.reset();
+      }, 300);
     }
   },
 
