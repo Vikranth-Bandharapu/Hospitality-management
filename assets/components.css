@@ -676,8 +676,33 @@
 /* ==========================================================================
    GLOBAL ELEGANT TABLE SYSTEM (.table-aura & .dash-table)
    ========================================================================== */
+.table-responsive, .dash-table-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  display: block !important;
+  margin-bottom: 1.5rem;
+}
+
+.table-responsive::-webkit-scrollbar, .dash-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track, .dash-table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb, .dash-table-wrapper::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 4px;
+}
+
 .table-aura, .dash-table {
   width: 100% !important;
+  min-width: 900px !important;
   border-collapse: collapse !important;
   text-align: left !important;
   font-size: 0.925rem;

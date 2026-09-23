@@ -139,37 +139,14 @@ const App = {
     if (backdrop) backdrop.addEventListener('click', closeDrawer);
   },
 
-  // Dashboard Mobile Sidebar Controller (Auto-Close & Tab Reveal on Mobile)
+  // Dashboard Mobile Sidebar Controller
   initDashboardSidebar() {
-    const dashSidebar = document.querySelector('.dash-sidebar');
-    const toggleBtns = document.querySelectorAll('.dash-mobile-toggle, #sidebar-toggle-btn');
-    
-    toggleBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (dashSidebar) {
-          dashSidebar.classList.toggle('open');
-          let backdrop = document.querySelector('.dash-sidebar-backdrop');
-          if (!backdrop) {
-            backdrop = document.createElement('div');
-            backdrop.className = 'dash-sidebar-backdrop';
-            document.body.appendChild(backdrop);
-          }
-          backdrop.classList.toggle('active', dashSidebar.classList.contains('open'));
-        }
-      });
-    });
-
     document.addEventListener('click', (e) => {
-      if (dashSidebar && dashSidebar.classList.contains('open') && !dashSidebar.contains(e.target) && !e.target.closest('.dash-mobile-toggle, #sidebar-toggle-btn')) {
-        dashSidebar.classList.remove('open');
-        const backdrop = document.querySelector('.dash-sidebar-backdrop');
-        if (backdrop) backdrop.classList.remove('active');
-      }
-
-      if (e.target.classList.contains('dash-sidebar-backdrop') && dashSidebar) {
-        dashSidebar.classList.remove('open');
-        e.target.classList.remove('active');
+      const toggleBtn = e.target.closest('.dash-mobile-toggle, #sidebar-toggle-btn');
+      if (toggleBtn) {
+        if (typeof window.toggleDashboardSidebar === 'function') {
+          window.toggleDashboardSidebar(e);
+        }
       }
     });
   },

@@ -419,15 +419,18 @@ body.dashboard-page, .dashboard-wrapper {
     width: 100% !important;
   }
 
-  .dash-table-wrapper {
+  .dash-table-wrapper, .table-responsive {
     overflow-x: auto !important;
+    overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch !important;
     width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
   }
 
-  .dash-table {
+  .dash-table, .table-aura {
     display: table !important;
-    min-width: 600px !important;
+    min-width: 900px !important;
   }
 }
 

@@ -3,26 +3,57 @@
    Dynamic Role View Rendering (Admin, Manager, Staff, Guest) & Chart.js Integration
    ========================================================================== */
 
-if (typeof window.toggleDashboardSidebar !== 'function') {
-  window.toggleDashboardSidebar = function(e) {
-    if (e) {
-      if (typeof e.preventDefault === 'function') e.preventDefault();
-      if (typeof e.stopPropagation === 'function') e.stopPropagation();
+window.toggleDashboardSidebar = function(e) {
+  if (e) {
+    if (typeof e.preventDefault === 'function') e.preventDefault();
+    if (typeof e.stopPropagation === 'function') e.stopPropagation();
+  }
+  const dashSidebar = document.getElementById('dash-sidebar') || document.querySelector('.dash-sidebar');
+  let dashBackdrop = document.querySelector('.dash-sidebar-backdrop');
+  if (!dashBackdrop) {
+    dashBackdrop = document.createElement('div');
+    dashBackdrop.className = 'dash-sidebar-backdrop';
+    document.body.appendChild(dashBackdrop);
+  }
+
+  if (dashSidebar) {
+    const isOpen = dashSidebar.classList.contains('open');
+    if (isOpen) {
+      dashSidebar.classList.remove('open');
+      dashBackdrop.classList.remove('active');
+      document.body.classList.remove('drawer-open');
+    } else {
+      dashSidebar.classList.add('open');
+      dashBackdrop.classList.add('active');
+      document.body.classList.add('drawer-open');
     }
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('click', (e) => {
+    const toggleBtn = e.target.closest('.dash-mobile-toggle, #sidebar-toggle-btn');
+    if (toggleBtn) {
+      window.toggleDashboardSidebar(e);
+      return;
+    }
+
     const dashSidebar = document.getElementById('dash-sidebar') || document.querySelector('.dash-sidebar');
     const dashBackdrop = document.querySelector('.dash-sidebar-backdrop');
-    if (dashSidebar) {
-      const isOpen = dashSidebar.classList.contains('open');
-      if (isOpen) {
+
+    if (dashSidebar && dashSidebar.classList.contains('open')) {
+      const isBackdrop = e.target.classList.contains('dash-sidebar-backdrop') || e.target === dashBackdrop;
+      const isNavLink = e.target.closest('.dash-sidebar a, .dash-sidebar [data-tab], .dash-nav-link, .dash-nav-link-admin, .dash-nav-link-gm');
+      const isInsideSidebar = dashSidebar.contains(e.target);
+
+      if (isBackdrop || isNavLink || (!isInsideSidebar && !toggleBtn)) {
         dashSidebar.classList.remove('open');
         if (dashBackdrop) dashBackdrop.classList.remove('active');
-      } else {
-        dashSidebar.classList.add('open');
-        if (dashBackdrop) dashBackdrop.classList.add('active');
+        document.body.classList.remove('drawer-open');
       }
     }
-  };
-}
+  });
+});
 
 const DashboardController = {
   currentChart: null,
