@@ -139,8 +139,22 @@ img {
 }
 
 /* ==========================================================================
-   NAVIGATION HEADER (Matched to Reference Architecture)
+   NAVIGATION HEADER (Fixed Sticky Architecture)
    ========================================================================== */
+#header-section {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 10000 !important;
+  padding: 0 !important;
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid var(--border-gold) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
 .navbar {
   position: relative;
   top: 0;
@@ -154,9 +168,8 @@ img {
 
 .navbar.scrolled {
   padding: 0.8rem 0;
-  background: rgba(9, 13, 22, 0.96);
-  border-bottom-color: var(--border-gold);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  box-shadow: none;
 }
 
 .nav-container {

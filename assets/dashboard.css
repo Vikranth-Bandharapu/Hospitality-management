@@ -462,3 +462,12 @@ body.dashboard-page, .dashboard-wrapper {
   pointer-events: auto;
 }
 
+/* Dashboard Sticky Topbar Header */
+.dash-topbar-section, #admin-topbar, #manager-topbar, #staff-topbar, #console-topbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: #0D1527 !important;
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
