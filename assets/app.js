@@ -33,8 +33,8 @@ const App = {
         return;
       }
 
-      // 3. Ignore ALL auth forms, auth cards, login/signup inputs & submit buttons
-      if (target.closest('#admin-dashboard, #manager-dashboard, #staff-dashboard, #dashboard-console, .dash-sidebar, .dash-topbar-section, #login-form, #signup-form, #portal-login-form, #portal-signup-form, .auth-card, .auth-card-wrapper, .form-box-card')) {
+      // 3. Ignore ALL forms, auth cards, login/signup inputs & submit buttons (forms validate data before redirecting!)
+      if (target.closest('form, #admin-dashboard, #manager-dashboard, #staff-dashboard, #dashboard-console, .dash-sidebar, .dash-topbar-section, #login-form, #signup-form, #portal-login-form, #portal-signup-form, .auth-card, .auth-card-wrapper, .form-box-card')) {
         return;
       }
 
@@ -47,7 +47,7 @@ const App = {
           const realPages = [
             'login.html', 'signup.html', 'register.html', 'index.html', 'about.html',
             'blog.html', 'services.html', 'contact.html', 'events.html', 'gallery.html',
-            'guest-experience.html', 'offers.html', 'properties.html', 'dashboard.html',
+            'guest-experience.html', 'offers.html', 'properties.html',
             'admin-dashboard.html', 'manager-dashboard.html', 'staff-dashboard.html'
           ];
           
@@ -219,19 +219,31 @@ const App = {
   handleFormSubmit(form) {
     const formId = form.id;
 
-    if (formId === 'login-form') {
-      const email = form.querySelector('#login-email').value;
-      const password = form.querySelector('#login-password').value;
-      const role = form.querySelector('#login-role') ? form.querySelector('#login-role').value : 'admin';
-      AuthController.handleLogin(email, password, role);
-    } else {
-      if (typeof Toast !== 'undefined') {
-        Toast.show("Processing Request", "Redirecting to 404 page...", "info", 1000);
+    // 1. Auth forms handle their own authentication and navigation
+    if (formId === 'login-form' || formId === 'portal-login-form' || formId === 'portal-signup-form' || formId === 'signup-form') {
+      const emailInput = form.querySelector('#login-email, #signup-email');
+      const passInput = form.querySelector('#login-password, #signup-password');
+      if (emailInput && passInput) {
+        if (typeof AuthController !== 'undefined') {
+          AuthController.handleLogin(emailInput.value, passInput.value, 'admin');
+        }
       }
-      setTimeout(() => {
-        window.location.href = '404.html';
-      }, 300);
+      return;
     }
+
+    // 2. Validate all inputs inside the form first!
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // 3. Data is 100% valid! Display success toast and redirect to 404 page!
+    if (typeof Toast !== 'undefined') {
+      Toast.show("Data Verified", "Form data validated successfully. Redirecting to 404 page...", "success", 1200);
+    }
+    setTimeout(() => {
+      window.location.href = '404.html';
+    }, 300);
   },
 
   initPropertyFilters() {
@@ -264,29 +276,7 @@ const App = {
 };
 
 window.filterBlogCategory = function(targetId, categoryName, btn) {
-  document.querySelectorAll('#category-pill-bar .filter-pill').forEach(p => p.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-
-  if (targetId === 'all') {
-    const el = document.getElementById('latest-insights-grid');
-    if (el) {
-      const headerOffset = 90;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    }
-    Toast.show('Filter Applied', 'Showing All Journal Insights', 'info', 1500);
-    return;
-  }
-
-  const targetEl = document.getElementById(targetId);
-  if (targetEl) {
-    const headerOffset = 90;
-    const elementPosition = targetEl.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    Toast.show('Filter Applied', 'Loaded ' + categoryName + ' section', 'success', 1500);
-  }
+  window.location.href = '404.html';
 };
 
 window.App = App;
