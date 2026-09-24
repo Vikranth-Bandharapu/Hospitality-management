@@ -93,7 +93,7 @@
 
         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
           <a href="404.html" class="btn-aura btn-gold btn-lg shimmer-btn"><i class="fa-solid fa-compass"></i> Explore Portfolio</a>
-          <a href="dashboard.html" class="btn-aura btn-outline-light btn-lg"><i class="fa-solid fa-chart-pie"></i> Launch Console Demo</a>
+          <a href="404.html" class="btn-aura btn-outline-light btn-lg"><i class="fa-solid fa-chart-pie"></i> Launch Console Demo</a>
         </div>
       </div>
 
@@ -199,9 +199,9 @@
 
       <!-- Suite Tabs Switcher -->
       <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;" id="suite-tab-buttons">
-        <button class="filter-pill active" onclick="switchSuiteTab('villa')"><i class="fa-solid fa-water"></i> Maldives Ocean Villa</button>
-        <button class="filter-pill" onclick="switchSuiteTab('penthouse')"><i class="fa-solid fa-city"></i> Dubai Royal Penthouse</button>
-        <button class="filter-pill" onclick="switchSuiteTab('alpine')"><i class="fa-solid fa-mountain"></i> St. Moritz Chalet</button>
+        <button class="filter-pill active" onclick="switchSuiteTab('villa', event)"><i class="fa-solid fa-water"></i> Maldives Ocean Villa</button>
+        <button class="filter-pill" onclick="switchSuiteTab('penthouse', event)"><i class="fa-solid fa-city"></i> Dubai Royal Penthouse</button>
+        <button class="filter-pill" onclick="switchSuiteTab('alpine', event)"><i class="fa-solid fa-mountain"></i> St. Moritz Chalet</button>
       </div>
 
       <!-- Tab Content Cards -->
@@ -258,7 +258,7 @@
             </div>
           </div>
 
-          <a href="dashboard.html" class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-chart-pie"></i> Access Live Management Console</a>
+          <a href="404.html" class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-chart-pie"></i> Access Live Management Console</a>
         </div>
 
         <div class="card-glass glow-border" style="padding: 2rem;">
@@ -602,7 +602,7 @@
         <div>
           <form id="newsletter-form" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
             <input type="email" class="form-control-aura" placeholder="Enter your executive email..." style="flex-grow: 1; background: rgba(255,255,255,0.08); color: #FFF; border-color: rgba(255,255,255,0.2);" required>
-            <a href="404.html" type="submit" class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-paper-plane"></i> Subscribe</a>
+            <button type="submit"   class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
           </form>
         </div>
       </div>
@@ -728,8 +728,14 @@
   <script src="assets/animations.js"></script>
 
   <script>
-    function switchSuiteTab(type) {
-      document.querySelectorAll('#suite-tab-buttons .filter-pill').forEach(btn =>Presidential Ocean Villa",
+    function switchSuiteTab(type, evt) {
+      document.querySelectorAll('#suite-tab-buttons .filter-pill').forEach(btn => btn.classList.remove('active'));
+      const targetBtn = evt ? evt.currentTarget : event ? event.currentTarget : null;
+      if (targetBtn) targetBtn.classList.add('active');
+
+      const data = {
+        villa: {
+          title: "Presidential Ocean Villa",
           badge: "Maldives Collection",
           desc: "Built directly over crystalline lagoon waters with floor-to-ceiling glass paneling, private overwater hammock, and 24/7 private butler landing dock.",
           specs: ["4,500 sq ft", "Private Infinity Pool", "Dedicated Butler", "Helipad Transfer"],
@@ -755,7 +761,10 @@
       };
 
       const item = data[type];
+      if (!item) return;
       const container = document.getElementById('suite-tab-contents');
+      if (!container) return;
+      container.style.transition = 'opacity 0.2s ease';
       container.style.opacity = '0';
       
       setTimeout(() => {
@@ -768,7 +777,7 @@
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: var(--brand-gold); font-size: 0.9rem; margin-bottom: 1.5rem;">
                 ${item.specs.map(s => `<div><i class="fa-solid fa-check" style="color: var(--brand-teal);"></i> ${s}</div>`).join('')}
               </div>
-              <a href="404.html" class="btn-aura btn-gold shimmer-btn" Aura><i class="fa-solid fa-calendar-check"></i> Reserve Suite (${item.price})</a>
+              <a href="404.html" class="btn-aura btn-gold shimmer-btn"><i class="fa-solid fa-calendar-check"></i> Reserve Suite (${item.price})</a>
             </div>
             <div>
               <img src="${item.img}" alt="${item.title}" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
@@ -781,4 +790,5 @@
   </script>
 </body>
 </html>
+
 

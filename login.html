@@ -176,10 +176,13 @@
 
             <!-- SECTION 8: Password Input Container -->
             <section id="password-field-container" style="padding: 0; margin: 0;">
-              <div class="form-group" style="margin-bottom: 1.5rem; position: relative;">
+              <div class="form-group" style="margin-bottom: 0.75rem; position: relative;">
                 <label style="display: block; color: #E2E8F0; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Password</label>
                 <input type="password" id="login-password" class="input-field-custom" required placeholder="Enter any password...">
                 <i class="fa-solid fa-eye" id="toggle-password" style="position: absolute; right: 1rem; top: 2.5rem; color: #94A3B8; cursor: pointer; font-size: 1.1rem;" onclick="togglePasswordVisibility()"></i>
+              </div>
+              <div style="display: flex; justify-content: flex-end; margin-bottom: 1.25rem;">
+                <a href="404.html" style="color: #C5A059; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'"><i class="fa-solid fa-key" style="font-size: 0.75rem; margin-right: 0.35rem;"></i>Forgot Password?</a>
               </div>
             </section>
 
