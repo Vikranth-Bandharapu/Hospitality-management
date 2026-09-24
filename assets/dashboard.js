@@ -16,16 +16,25 @@ window.toggleDashboardSidebar = function(e) {
     document.body.appendChild(dashBackdrop);
   }
 
+  if (!dashBackdrop.dataset.touchBound) {
+    dashBackdrop.addEventListener('touchmove', (evt) => {
+      evt.preventDefault();
+    }, { passive: false });
+    dashBackdrop.dataset.touchBound = 'true';
+  }
+
   if (dashSidebar) {
     const isOpen = dashSidebar.classList.contains('open');
     if (isOpen) {
       dashSidebar.classList.remove('open');
       dashBackdrop.classList.remove('active');
       document.body.classList.remove('drawer-open');
+      document.documentElement.classList.remove('drawer-open');
     } else {
       dashSidebar.classList.add('open');
       dashBackdrop.classList.add('active');
       document.body.classList.add('drawer-open');
+      document.documentElement.classList.add('drawer-open');
     }
   }
 };
@@ -50,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dashSidebar.classList.remove('open');
         if (dashBackdrop) dashBackdrop.classList.remove('active');
         document.body.classList.remove('drawer-open');
+        document.documentElement.classList.remove('drawer-open');
       }
     }
   });
