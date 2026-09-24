@@ -33,32 +33,44 @@ const App = {
         return;
       }
 
-      // 3. Ignore elements inside logged-in dashboard interfaces & auth forms
-      if (target.closest('#admin-dashboard, #manager-dashboard, #staff-dashboard, #dashboard-console, .dash-sidebar, .dash-topbar-section, #login-form, #signup-form, .auth-card')) {
+      // 3. Ignore ALL auth forms, auth cards, login/signup inputs & submit buttons
+      if (target.closest('#admin-dashboard, #manager-dashboard, #staff-dashboard, #dashboard-console, .dash-sidebar, .dash-topbar-section, #login-form, #signup-form, #portal-login-form, #portal-signup-form, .auth-card, .auth-card-wrapper, .form-box-card')) {
         return;
       }
 
-      // 4. Primary Header Navigation Links & Mobile Drawer Navigation Links
-      const primaryNav = target.closest('.nav-links a, .drawer-nav-links a');
-      if (primaryNav) {
-        return;
+      // 4. Primary Header Navigation & Links pointing to Real HTML Pages (Login, Register, Home, About, etc.)
+      const linkAnchor = target.closest('a[href]');
+      if (linkAnchor) {
+        const href = linkAnchor.getAttribute('href');
+        if (href) {
+          const pageName = href.split('#')[0].trim().toLowerCase();
+          const realPages = [
+            'login.html', 'signup.html', 'register.html', 'index.html', 'about.html',
+            'blog.html', 'services.html', 'contact.html', 'events.html', 'gallery.html',
+            'guest-experience.html', 'offers.html', 'properties.html', 'dashboard.html',
+            'admin-dashboard.html', 'manager-dashboard.html', 'staff-dashboard.html'
+          ];
+          
+          if (realPages.includes(pageName)) {
+            return; // Allow standard navigation to real HTML page!
+          }
+        }
       }
 
       // 5. Footer Quick Links column (Home, About, Blog, Services, Contact)
       const footerLink = target.closest('.footer-links a');
       if (footerLink) {
         const text = footerLink.textContent.trim().toLowerCase();
-        if (['home', 'about', 'blog', 'services', 'contact'].includes(text)) {
+        if (['home', 'about', 'blog', 'services', 'contact', 'login', 'register', 'sign in', 'sign up'].includes(text)) {
           return;
         }
       }
 
-      // 6. Target any CTA action button, modal trigger, social button, or marketing CTA link
+      // 6. Target marketing CTA buttons, modal triggers, social buttons, or explicit 404 links
       const cta = target.closest('.btn-aura, .shimmer-btn, .footer-social-btn, [data-modal-target], .footer-links a, .footer-bottom a');
-      const linkAnchor = target.closest('a[href]');
       
-      // If it's a CTA button or non-primary link, redirect to 404.html!
-      if (cta || (linkAnchor && !linkAnchor.closest('.nav-links, .drawer-nav-links, .footer-links')) || (linkAnchor && linkAnchor.getAttribute('href') === '404.html')) {
+      // If it's a marketing CTA or placeholder link (pointing to 404.html or #), redirect to 404.html!
+      if (cta || (linkAnchor && (linkAnchor.getAttribute('href') === '404.html' || linkAnchor.getAttribute('href') === '#'))) {
         e.preventDefault();
         e.stopPropagation();
         if (typeof Toast !== 'undefined') {
